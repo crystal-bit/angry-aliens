@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Objects/Debug/FPSCounter.gd" type="Script" id=1]
+
+[node name="FPSCounter" type="ColorRect"]
+margin_right = 160.0
+margin_bottom = 46.0
+color = Color( 0, 0, 0, 0.780392 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+enabled = true
+
+[node name="Label" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -80.0
+margin_bottom = -23.0
+rect_scale = Vector2( 2, 2 )
+text = "FPS:"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

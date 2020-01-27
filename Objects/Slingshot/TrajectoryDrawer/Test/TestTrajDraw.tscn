@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Objects/Slingshot/TrajectoryDrawer/TrajectoryDrawer.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Objects/Projectile/Projectile.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Objects/Slingshot/TrajectoryDrawer/Test/TestTrajDraw.gd" type="Script" id=3]
+[ext_resource path="res://Assets/graphics/kenney_physicsAssets_v2/PNG/Backgrounds/colored_desert.png" type="Texture" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 1000, 10 )
+
+[node name="TestTrajDraw" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="BG" type="Node2D" parent="."]
+show_behind_parent = true
+position = Vector2( 280, 350 )
+
+[node name="colored_desert" type="Sprite" parent="BG"]
+position = Vector2( 0, -327 )
+texture = ExtResource( 4 )
+
+[node name="colored_desert2" type="Sprite" parent="BG"]
+position = Vector2( 1012, -327 )
+texture = ExtResource( 4 )
+
+[node name="colored_desert3" type="Sprite" parent="BG"]
+position = Vector2( 2010, -327 )
+texture = ExtResource( 4 )
+
+[node name="Projectile" parent="." instance=ExtResource( 2 )]
+position = Vector2( 350, 499 )
+
+[node name="Camera2D" type="Camera2D" parent="Projectile"]
+current = true
+smoothing_enabled = true
+
+[node name="TrajectoryDrawer" parent="." instance=ExtResource( 1 )]
+position = Vector2( 280, 350 )
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( 1050, 420 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( 0, 127 )
+shape = SubResource( 1 )
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
