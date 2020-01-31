@@ -36,7 +36,7 @@ Source code is MIT licensed. Feel free to read it, modify it and reuse it in you
 Video tutorials will be released [on YouTube](https://www.youtube.com/c/CrystalBit) but the commentary is only in Italian.
 
 Source code and comments are in English, and **I'm thinking about creating English written tutorials**. 
-If you would like to see them please leave a like/comment here.
+If you would like to see them please leave a like/comment [here](https://github.com/crystal-bit/angry-aliens/issues/1).
 
 ## Prerequisites
 
