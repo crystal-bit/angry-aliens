@@ -23,6 +23,7 @@ script = ExtResource( 5 )
 __meta__ = {
 "_editor_description_": "Drag Bone2 to stretch the slingshot"
 }
+slingshot_elastic_force = 5
 
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_left = 14.5116
@@ -99,5 +100,6 @@ shape = SubResource( 3 )
 [node name="TrajectoryDrawer" parent="." instance=ExtResource( 6 )]
 [connection signal="input_event" from="InputArea" to="InputArea" method="_on_InputArea_input_event"]
 [connection signal="slingshot_grabbed" from="InputArea" to="." method="_on_InputArea_slingshot_grabbed"]
-[connection signal="slingshot_released" from="InputArea" to="." method="_on_InputArea_slingshot_released"]
+[connection signal="slingshot_moved" from="InputArea" to="." method="_on_InputArea_slingshot_moved"]
 [connection signal="slingshot_released" from="InputArea" to="Skeleton2D" method="_on_InputArea_slingshot_released"]
+[connection signal="slingshot_released" from="InputArea" to="." method="_on_InputArea_slingshot_released"]

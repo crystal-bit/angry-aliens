@@ -18,7 +18,6 @@ func draw_trajectory(init_vel, from, gravity = 98):
 	from_pos = from
 	drawing = true
 	gravity = gravity
-	print(gravity)
 	update()
 
 
@@ -26,11 +25,13 @@ func clear():
 	if !drawing:
 		return
 	drawing = false
-	print("clear")
 	update()
 
 
 func _draw() -> void:
+	if initial_velocity.length() <= 0:
+		return
+		
 	if drawing:
 		var angle = -initial_velocity.angle()
 		for i in range (50):

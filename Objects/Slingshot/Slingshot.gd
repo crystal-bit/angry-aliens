@@ -35,7 +35,6 @@ func _get_configuration_warning():
 func _physics_process(delta):
 	if state == States.GRABBED:
 		deform_skeleton_mesh()
-		update_projectile_position()
 		update_launch_impulse()
 		trajectory_drawer.draw_trajectory(
 			launch_impulse / projectile.mass, # velocity (m/s)
@@ -43,10 +42,8 @@ func _physics_process(delta):
 			projectile.gravity_scale * ProjectSettings.get("physics/2d/default_gravity")
 		)
 	if state == States.PROJECTILE_MOVING:
-		print(projectile.linear_velocity.length())
 		if projectile.linear_velocity.length() < 15:
 			state = States.IDLE
-			print("IDLE")
 			# TODO reset projectile
 
 
@@ -54,11 +51,6 @@ func deform_skeleton_mesh():
 	var gm_pos = get_global_mouse_position()
 	if gm_pos.x < $Skeleton2D/Bone1.global_position.x - 50:
 		control_bone.global_position = gm_pos + Vector2(25, 0)
-
-
-func update_projectile_position():
-	projectile.global_position = get_global_mouse_position()
-
 
 func update_launch_impulse():
 	launch_impulse = slingshot_elastic_force * (rest_position.global_position - projectile.global_position)
@@ -84,3 +76,6 @@ func _on_InputArea_slingshot_released():
 		launch(launch_impulse)
 		trajectory_drawer.clear()
 
+
+func _on_InputArea_slingshot_moved(slingshot_pos):
+	projectile.global_position = slingshot_pos - get_viewport_transform().get_origin()

@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Assets/graphics/kenney_physicsAssets_v2/Spritesheet/spritesheet_tiles.png" type="Texture" id=1]
 [ext_resource path="res://Objects/Debug/DebugOptions.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/graphics/kenney_physicsAssets_v2/PNG/Backgrounds/blue_desert.png" type="Texture" id=3]
 [ext_resource path="res://Objects/Enemy/Enemy.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Levels/Level1/Level1.gd" type="Script" id=5]
 [ext_resource path="res://Objects/Slingshot/Slingshot.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Objects/Projectile/Projectile.tscn" type="PackedScene" id=7]
 
@@ -66,7 +67,10 @@ colors = PoolColorArray( 0.741176, 0.537255, 0.345098, 0, 0.741176, 0.537255, 0.
 gradient = SubResource( 3 )
 
 [node name="Level1" type="Node2D"]
-position = Vector2( 1, -32 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Background" type="Node2D" parent="."]
 __meta__ = {
@@ -74,35 +78,32 @@ __meta__ = {
 }
 
 [node name="blue_desert" type="Sprite" parent="Background"]
-position = Vector2( -1093, -359 )
+position = Vector2( -146, 223 )
 texture = ExtResource( 3 )
-centered = false
-
-[node name="blue_desert3" type="Sprite" parent="Background"]
-position = Vector2( -70, -359 )
-texture = ExtResource( 3 )
-centered = false
 
 [node name="blue_desert2" type="Sprite" parent="Background"]
-position = Vector2( 954, -359 )
+position = Vector2( 878, 223 )
 texture = ExtResource( 3 )
-centered = false
+
+[node name="blue_desert3" type="Sprite" parent="Background"]
+position = Vector2( 1903, 223 )
+texture = ExtResource( 3 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 2 )
 cell_size = Vector2( 70, 70 )
 format = 1
-tile_data = PoolIntArray( 327680, 3, 0, 327682, 2, 0, 327688, 3, 0, 327692, 2, 0, 327695, 3, 0, 458749, 0, 0, 458750, 0, 0, 458751, 0, 0, 393216, 0, 0, 393217, 0, 0, 393218, 0, 0, 393219, 0, 0, 393220, 0, 0, 393221, 0, 0, 393222, 0, 0, 393223, 0, 0, 393224, 0, 0, 393225, 0, 0, 393226, 0, 0, 393227, 0, 0, 393228, 0, 0, 393229, 0, 0, 393230, 0, 0, 393231, 0, 0, 393232, 0, 0, 393233, 0, 0 )
+tile_data = PoolIntArray( 327680, 3, 0, 327682, 2, 0, 327688, 3, 0, 327692, 2, 0, 327695, 3, 0, 458743, 0, 0, 458744, 0, 0, 458745, 0, 0, 458746, 0, 0, 458747, 0, 0, 458748, 0, 0, 458749, 0, 0, 458750, 0, 0, 458751, 0, 0, 393216, 0, 0, 393217, 0, 0, 393218, 0, 0, 393219, 0, 0, 393220, 0, 0, 393221, 0, 0, 393222, 0, 0, 393223, 0, 0, 393224, 0, 0, 393225, 0, 0, 393226, 0, 0, 393227, 0, 0, 393228, 0, 0, 393229, 0, 0, 393230, 0, 0, 393231, 0, 0, 393232, 0, 0, 393233, 0, 0, 393234, 0, 0, 393235, 0, 0, 393236, 0, 0, 393237, 0, 0, 393238, 0, 0, 393239, 0, 0, 393240, 0, 0, 393241, 0, 0, 393242, 0, 0, 393243, 0, 0, 393244, 0, 0, 393245, 0, 0, 393246, 0, 0, 393247, 0, 0, 393248, 0, 0, 393249, 0, 0 )
 
 [node name="Sprite" type="Sprite" parent="TileMap"]
-position = Vector2( 1262, 451 )
+position = Vector2( 2377.66, 451.004 )
 rotation = 1.5708
-scale = Vector2( 0.103715, 1472.38 )
+scale = Vector2( 0.103715, 3016.85 )
 texture = SubResource( 4 )
 centered = false
 
 [node name="Enemies" type="Node2D" parent="."]
-position = Vector2( -72, 0 )
+position = Vector2( 56, 0 )
 
 [node name="Enemy" parent="Enemies" instance=ExtResource( 4 )]
 position = Vector2( 737.934, 383.923 )
@@ -116,12 +117,11 @@ position = Vector2( 790.612, 314.915 )
 [node name="Slingshot" parent="." instance=ExtResource( 6 )]
 position = Vector2( 118.005, 207.916 )
 projectile_path = NodePath("../Projectile")
-slingshot_elastic_force = 5
 
 [node name="Projectile" parent="." groups=[
 "projectile",
 ] instance=ExtResource( 7 )]
-position = Vector2( 131.005, 235.916 )
+position = Vector2( 130.005, 267.916 )
 z_index = 1
 mode = 3
 mass = 2.0
@@ -131,3 +131,14 @@ sleeping = true
 
 [node name="DebugOptions" parent="CanvasLayer" instance=ExtResource( 2 )]
 visible = false
+
+[node name="ReloadSceneBtn" type="Button" parent="CanvasLayer"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -88.0
+margin_bottom = 40.0
+text = "RELOAD"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="CanvasLayer/ReloadSceneBtn" to="." method="_on_ReloadSceneBtn_pressed"]

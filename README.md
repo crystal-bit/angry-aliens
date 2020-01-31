@@ -45,7 +45,7 @@ The tutorials require basic Godot understanding about Scenes, GDScript, 2D Nodes
 You can learn these topics by:
 
 - reading the [official documentation](https://docs.godotengine.org/en/3.1/getting_started/step_by_step/intro_to_the_editor_interface.html)
-- following my [video tutorial series](https://www.youtube.com/watch?v=AY1zuH2mHQ0&list=PLaCq3HqKQR6rlPpf2GAOXp52ddt0V71Yl) on Godot 3 basics (*only for Italian speakers*)
+- following my [video tutorial series](https://www.youtube.com/watch?v=AY1zuH2mHQ0&list=PLaCq3HqKQR6rlPpf2GAOXp52ddt0V71Yl) on Godot 3 basics (*only in Italian*)
 
 Essentially you need to know these topics:
 
@@ -103,6 +103,7 @@ I'll try to provide instructions for other OS, but help here is really appreciat
 - Detect the touch position
 - Detect drag
 - Detect release
+- Difference between `_input()` and `on_<CollisionObject2D>_input_event()` ?
 - Simulate touch with mouse for faster development
 
 ### 5. Creating a game level
@@ -158,8 +159,10 @@ I'll try to provide instructions for other OS, but help here is really appreciat
 
 ### 11. TODO - Camera 
 
-...
-
+- Camera pan across the level
+- Pinch to zoom
+- Is input broken? Adjust it with `get_viewport_transform().get_origin()`
+  
 ### 12. TODO - Debugging a mobile App
 
 > How to debug errors and performances on a mobile device?
