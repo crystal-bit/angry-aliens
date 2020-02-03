@@ -77,5 +77,5 @@ func _on_InputArea_slingshot_released():
 		trajectory_drawer.clear()
 
 
-func _on_InputArea_slingshot_moved(slingshot_pos):
-	projectile.global_position = slingshot_pos - get_viewport_transform().get_origin()
+func _on_InputArea_slingshot_moved(touch_pos):
+	projectile.global_position = (touch_pos - get_viewport_transform().get_origin()) /  get_viewport_transform().get_scale() 
