@@ -78,4 +78,4 @@ func _on_InputArea_slingshot_released():
 
 
 func _on_InputArea_slingshot_moved(touch_pos):
-	projectile.global_position = (touch_pos - get_viewport_transform().get_origin()) /  get_viewport_transform().get_scale() 
+	projectile.global_position = get_viewport().canvas_transform.affine_inverse().xform(touch_pos)
