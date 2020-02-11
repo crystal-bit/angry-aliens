@@ -3,9 +3,10 @@
 [ext_resource path="res://Assets/graphics/kenney_physicsAssets_v2/PNG/Wood elements/elementWood010.png" type="Texture" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 32, 32 )
+extents = Vector2( 34, 35 )
 
-[node name="Obstacle" type="StaticBody2D"]
+[node name="WoodObstacle1" type="RigidBody2D"]
+mass = 0.5
 
 [node name="elementWood010" type="Sprite" parent="."]
 scale = Vector2( 1, 1.022 )

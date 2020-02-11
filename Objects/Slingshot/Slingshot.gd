@@ -1,5 +1,5 @@
 extends Node2D
-tool
+# tool
 
 export(NodePath) var projectile_path
 
