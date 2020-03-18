@@ -10,7 +10,7 @@
     - [1. Introduction](#1-introduction)
     - [2. Configure Godot and Android SDK](#2-configure-godot-and-android-sdk)
     - [3. Testing performances on the smartphone](#3-testing-performances-on-the-smartphone)
-    - [4. Touchscreen input with `_input()` and `InputEvents`](#4-touchscreen-input-with-input-and-inputevents)
+    - [4. Touchscreen input with `_input()` and `InputEvents`](#4-touchscreen-input-with-_input-and-inputevents)
     - [5. Creating a game level](#5-creating-a-game-level)
     - [6. Projectile & Enemies](#6-projectile--enemies)
     - [7. Implementing the `Slingshot`](#7-implementing-the-slingshot)
@@ -79,7 +79,7 @@ I'll try to provide instructions for other OS, but help here is really appreciat
 - Create debug keystore
 - Configure Godot
 - Download export templates
-- [Bonus] Autometed Python script for Godot/Android setup
+- [Bonus] Python script for automtic Godot/Android setup
 - **Create the first APK**
   - Install the APK manually from the phone
   - Install the APK from command line using `adb`
@@ -205,7 +205,7 @@ all the source code for my tutorials will be uploaded here.
 - My community for the support on YouTube, Telegram and in person 🙋
 - Gameloop.it community for the Harvard [CS50 gamedev course](https://github.com/GameLoop-it/cs50_course_materials)
 - [YouAreUto](http://youareuto.com/) game & team - My first mobile game as a freelance game developer
-- Godot community for the excellent documentation and software 
+- Godot Engine community for the excellent documentation and software 
 - [Godot Engine Italia](https://godotengineitalia.com/) 🍕
 
 ## Support me
