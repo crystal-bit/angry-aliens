@@ -38,7 +38,7 @@ func _physics_process(delta):
 		update_launch_impulse()
 		trajectory_drawer.draw_trajectory(
 			launch_impulse / projectile.mass, # velocity (m/s)
-			projectile.position, 
+			projectile.position,
 			projectile.gravity_scale * ProjectSettings.get("physics/2d/default_gravity")
 		)
 	if state == States.PROJECTILE_MOVING:
@@ -51,6 +51,7 @@ func deform_skeleton_mesh():
 	var gm_pos = get_global_mouse_position()
 	if gm_pos.x < $Skeleton2D/Bone1.global_position.x - 50:
 		control_bone.global_position = gm_pos + Vector2(25, 0)
+
 
 func update_launch_impulse():
 	launch_impulse = slingshot_elastic_force * (rest_position.global_position - projectile.global_position)
