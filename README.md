@@ -3,14 +3,17 @@
 
 ---
 
+## Table of Contents
+
 - [Godot 3.2 - Tutorial - Creating a mobile game](#godot-32---tutorial---creating-a-mobile-game)
   - [Where are the tutorials?](#where-are-the-tutorials)
+  - [Where is the project? `master` and `develop` branches](#where-is-the-project-master-and-develop-branches)
   - [Prerequisites](#prerequisites)
   - [Contents](#contents)
     - [1. Introduction](#1-introduction)
     - [2. Configure Godot and Android SDK](#2-configure-godot-and-android-sdk)
     - [3. Testing performances on the smartphone](#3-testing-performances-on-the-smartphone)
-    - [4. Touchscreen input with `_input()` and `InputEvents`](#4-touchscreen-input-with-_input-and-inputevents)
+    - [4. Touchscreen input with `_input()` and `InputEvents`](#4-touchscreen-input-with-input-and-inputevents)
     - [5. Creating a game level](#5-creating-a-game-level)
     - [6. Projectile & Enemies](#6-projectile--enemies)
     - [7. Implementing the `Slingshot`](#7-implementing-the-slingshot)
@@ -33,10 +36,16 @@ Source code is MIT licensed. Feel free to read it, modify it and reuse it in you
 
 ## Where are the tutorials?
 
-Video tutorials will be released [on YouTube](https://www.youtube.com/c/CrystalBit) but the commentary is only in Italian.
+- 🎥 [Video tutorial playlist](https://www.youtube.com/playlist?list=PLaCq3HqKQR6rNyqulBsbca-6wzxp8H52r)
 
-Source code and comments are in English, and **I'm thinking about creating English written tutorials**. 
-If you would like to see them please leave a like/comment [here](https://github.com/crystal-bit/angry-aliens/issues/1).
+Source code and comments are in English. The commentary is in Italian only.
+
+## Where is the project? `master` and `develop` branches
+
+The `develop` branch contains the complete project.
+
+The default `master` branch will be in sync with video tutorials releases.  
+I'll use the master branch to re-do the whole project while releasing video tutorials.
 
 ## Prerequisites
 
@@ -55,7 +64,7 @@ Essentially you need to know these topics:
 
 ### 1. Introduction
 
-- 🎥 [YouTube video tutorial ITA](https://youtu.be/x0emyyXC_sM)
+- 🎥 [YouTube introduction](https://youtu.be/x0emyyXC_sM)
 
 This tutorial series will focus on creating a simple mobile game
 using Godot 3.2.
@@ -73,13 +82,15 @@ I'll try to provide instructions for other OS, but help here is really appreciat
 
 ### 2. Configure Godot and Android SDK
 
+- 🎥 [YouTube - Configure Linux](https://youtu.be/xFia7zG8NGA)
+- 🎥 [YouTube - Configure Windows](https://youtu.be/PNj8YmXjj-A)
+  
 > How do I configure my computer for Android development?
 
 - Install `android-tools` and `jdk-openjdk`
 - Create debug keystore
 - Configure Godot
 - Download export templates
-- [Bonus] Python script for automtic Godot/Android setup
 - **Create the first APK**
   - Install the APK manually from the phone
   - Install the APK from command line using `adb`
@@ -186,7 +197,7 @@ There are a lot of areas that can be explored, like:
 - Responsive layout
 - Responsive gameplay
 - Double tap, drag 'n drop, panning, pinch to zoom,...
-- Using Sensors (GPS, accelerometer, light sensor, ...)
+- Using Sensors (GPS, accelerometer, light sensor, ...). Godot Android module, Java Singleton
 - Bluetooth
 - ...
 
