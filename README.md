@@ -1,5 +1,5 @@
 
-![Cover](.readme-assets/cover.png)
+![Cover](Assets/readme/cover.png)
 
 ---
 
@@ -58,7 +58,7 @@ You can learn these topics by:
 
 Essentially you need to know these topics:
 
-![Godot doc screenshot](.readme-assets/godot-doc.png)
+![Godot doc screenshot](Assets/readme/godot-doc.png)
 
 ## Contents
 
@@ -99,7 +99,7 @@ I'll try to provide instructions for other OS, but help here is really appreciat
 
 ### 3. Testing performances on the smartphone
 
-![Stress test scene screen](.readme-assets/stress-test.png)
+![Stress test scene screen](Assets/readme/stress-test.png)
 
 > If we include all the physics elements and we create hundreds of game objects, is the game playable?
 
@@ -116,10 +116,13 @@ I'll try to provide instructions for other OS, but help here is really appreciat
 - Detect release
 - Difference between `_input()` and `on_<CollisionObject2D>_input_event()` ?
 - Simulate touch with mouse for faster development
+  - `pointing/emulate_touch_from_mouse=true`
+  - `pointing/emulate_mouse_from_touch=false`
+
 
 ### 5. Creating a game level
 
-![Image level screen](.readme-assets/level.png)
+![Image level screen](Assets/readme/level.png)
 
 - `TileMap`, background and collisions
 - Layout for mobile games
@@ -134,7 +137,7 @@ I'll try to provide instructions for other OS, but help here is really appreciat
 
 ### 7. Implementing the `Slingshot`
 
-![Slingshot screen](.readme-assets/slingshot.png)
+![Slingshot screen](Assets/readme/slingshot.png)
 
 - Grab mechanig
   - Skeleton Mesh deform?
@@ -144,7 +147,7 @@ I'll try to provide instructions for other OS, but help here is really appreciat
 
 ### 8. Calculating and drawing the trajectory
 
-![Trajectory drawer screen](.readme-assets/trajectory.png)
+![Trajectory drawer screen](Assets/readme/trajectory.png)
 
 - Create a `TrajectoryDrawer` node
 - Basic Physics concepts
