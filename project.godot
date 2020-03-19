@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Angry Aliens"
-run/main_scene="res://Screens/Main.tscn"
+run/main_scene="res://Scenes/Main.tscn"
 config/icon="res://icon.png"
 
 [display]

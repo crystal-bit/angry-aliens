@@ -1,28 +1,33 @@
 [gd_scene load_steps=17 format=2]
 
-[ext_resource path="res://Assets/graphics/kenney_physicsAssets_v2/Spritesheet/spritesheet_tiles.png" type="Texture" id=1]
-[ext_resource path="res://Objects/Debug/DebugOptions.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Assets/graphics/kenney_physicsAssets_v2/PNG/Backgrounds/blue_desert.png" type="Texture" id=3]
-[ext_resource path="res://Objects/Enemy/Enemy.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Levels/Level1/Level1.gd" type="Script" id=5]
-[ext_resource path="res://Objects/Slingshot/Slingshot.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Objects/Projectile/Projectile.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Objects/Obstacles/WoodObstacle1.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Levels/Level1/CameraFocus.gd" type="Script" id=9]
-[ext_resource path="res://icon.png" type="Texture" id=10]
+[ext_resource path="res://Objects/Obstacles/WoodObstacle1.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/graphics/kenney_physicsAssets_v2/Spritesheet/spritesheet_tiles.png" type="Texture" id=2]
+[ext_resource path="res://Objects/Projectile/Projectile.tscn" type="PackedScene" id=3]
+[ext_resource path="res://icon.png" type="Texture" id=4]
+[ext_resource path="res://Assets/graphics/kenney_physicsAssets_v2/PNG/Backgrounds/blue_desert.png" type="Texture" id=5]
+[ext_resource path="res://Objects/Enemy/Enemy.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Objects/Debug/DebugOptions.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Objects/Slingshot/Slingshot.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Levels/Level1/CameraFocus.gd" type="Script" id=9]
+[ext_resource path="res://Scenes/Levels/Level1/Level1.gd" type="Script" id=10]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 70, 70, 0, 70, 0, 0, 70, 0 )
 
 [sub_resource type="TileSet" id=2]
 0/name = "terrain"
-0/texture = ExtResource( 1 )
+0/texture = ExtResource( 2 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )
 0/region = Rect2( 280, 70, 70, 70 )
 0/tile_mode = 0
 0/occluder_offset = Vector2( 0, 0 )
 0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 1 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
 0/shapes = [ {
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
@@ -32,33 +37,45 @@ points = PoolVector2Array( 70, 70, 0, 70, 0, 0, 70, 0 )
 } ]
 0/z_index = 0
 1/name = "sand"
-1/texture = ExtResource( 1 )
+1/texture = ExtResource( 2 )
 1/tex_offset = Vector2( 0, 0 )
 1/modulate = Color( 1, 1, 1, 1 )
 1/region = Rect2( 210, 140, 70, 70 )
 1/tile_mode = 0
 1/occluder_offset = Vector2( 0, 0 )
 1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape_one_way = false
+1/shape_one_way_margin = 0.0
 1/shapes = [  ]
 1/z_index = 0
 2/name = "cactus"
-2/texture = ExtResource( 1 )
+2/texture = ExtResource( 2 )
 2/tex_offset = Vector2( 0, 0 )
 2/modulate = Color( 1, 1, 1, 1 )
 2/region = Rect2( 70, 70, 70, 70 )
 2/tile_mode = 0
 2/occluder_offset = Vector2( 0, 0 )
 2/navigation_offset = Vector2( 0, 0 )
+2/shape_offset = Vector2( 0, 0 )
+2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+2/shape_one_way = false
+2/shape_one_way_margin = 0.0
 2/shapes = [  ]
 2/z_index = 0
 3/name = "grass1"
-3/texture = ExtResource( 1 )
+3/texture = ExtResource( 2 )
 3/tex_offset = Vector2( 0, 0 )
 3/modulate = Color( 1, 1, 1, 1 )
 3/region = Rect2( 70, 140, 70, 70 )
 3/tile_mode = 0
 3/occluder_offset = Vector2( 0, 0 )
 3/navigation_offset = Vector2( 0, 0 )
+3/shape_offset = Vector2( 0, 0 )
+3/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+3/shape_one_way = false
+3/shape_one_way_margin = 0.0
 3/shapes = [  ]
 3/z_index = 0
 
@@ -77,9 +94,8 @@ colors = PoolColorArray( 0.604401, 0.886636, 0.910156, 1, 0.815686, 0.956863, 0.
 gradient = SubResource( 5 )
 
 [node name="Level1" type="Node2D"]
-script = ExtResource( 5 )
+script = ExtResource( 10 )
 __meta__ = {
-"_edit_horizontal_guides_": [ 857.0 ],
 "_edit_lock_": true
 }
 
@@ -91,15 +107,15 @@ __meta__ = {
 
 [node name="blue_desert" type="Sprite" parent="Background"]
 position = Vector2( -146, 223 )
-texture = ExtResource( 3 )
+texture = ExtResource( 5 )
 
 [node name="blue_desert2" type="Sprite" parent="Background"]
 position = Vector2( 878, 223 )
-texture = ExtResource( 3 )
+texture = ExtResource( 5 )
 
 [node name="blue_desert3" type="Sprite" parent="Background"]
 position = Vector2( 1902, 223 )
-texture = ExtResource( 3 )
+texture = ExtResource( 5 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 2 )
@@ -127,38 +143,38 @@ centered = false
 [node name="Enemies" type="Node2D" parent="TileMap"]
 position = Vector2( 400, 0 )
 
-[node name="Enemy" parent="TileMap/Enemies" instance=ExtResource( 4 )]
+[node name="Enemy" parent="TileMap/Enemies" instance=ExtResource( 6 )]
 position = Vector2( 737.934, 383.923 )
 
-[node name="Enemy2" parent="TileMap/Enemies" instance=ExtResource( 4 )]
+[node name="Enemy2" parent="TileMap/Enemies" instance=ExtResource( 6 )]
 position = Vector2( 849.313, 382.175 )
 
-[node name="Enemy3" parent="TileMap/Enemies" instance=ExtResource( 4 )]
+[node name="Enemy3" parent="TileMap/Enemies" instance=ExtResource( 6 )]
 position = Vector2( 790.612, 314.915 )
 
 [node name="Obstacles" type="Node2D" parent="TileMap"]
 position = Vector2( 272, 0 )
 
-[node name="WoodObstacle1" parent="TileMap/Obstacles" instance=ExtResource( 8 )]
+[node name="WoodObstacle1" parent="TileMap/Obstacles" instance=ExtResource( 1 )]
 position = Vector2( 720, 384 )
 
-[node name="WoodObstacle2" parent="TileMap/Obstacles" instance=ExtResource( 8 )]
+[node name="WoodObstacle2" parent="TileMap/Obstacles" instance=ExtResource( 1 )]
 position = Vector2( 720, 312 )
 
-[node name="WoodObstacle3" parent="TileMap/Obstacles" instance=ExtResource( 8 )]
+[node name="WoodObstacle3" parent="TileMap/Obstacles" instance=ExtResource( 1 )]
 position = Vector2( 720, 240 )
 
-[node name="WoodObstacle4" parent="TileMap/Obstacles" instance=ExtResource( 8 )]
+[node name="WoodObstacle4" parent="TileMap/Obstacles" instance=ExtResource( 1 )]
 position = Vector2( 720, 168 )
 
-[node name="Slingshot" parent="." instance=ExtResource( 6 )]
+[node name="Slingshot" parent="." instance=ExtResource( 8 )]
 position = Vector2( 118.005, 207.916 )
 projectile_path = NodePath("../Projectile")
 slingshot_elastic_force = 15
 
 [node name="Projectile" parent="." groups=[
 "projectile",
-] instance=ExtResource( 7 )]
+] instance=ExtResource( 3 )]
 position = Vector2( 130.005, 267.916 )
 z_index = 1
 mode = 3
@@ -167,7 +183,7 @@ sleeping = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="DebugOptions" parent="CanvasLayer" instance=ExtResource( 2 )]
+[node name="DebugOptions" parent="CanvasLayer" instance=ExtResource( 7 )]
 visible = false
 
 [node name="ReloadSceneBtn" type="Button" parent="CanvasLayer"]
@@ -202,5 +218,5 @@ editor_draw_limits = true
 [node name="debug" type="Sprite" parent="CameraFocus"]
 visible = false
 scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 10 )
+texture = ExtResource( 4 )
 [connection signal="pressed" from="CanvasLayer/ReloadSceneBtn" to="." method="_on_ReloadSceneBtn_pressed"]
