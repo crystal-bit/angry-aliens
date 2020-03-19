@@ -35,7 +35,7 @@ current = true
 smoothing_enabled = true
 
 [node name="TrajectoryDrawer" parent="." instance=ExtResource( 1 )]
-position = Vector2( 280, 350 )
+position = Vector2( 350, 500 )
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true

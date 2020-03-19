@@ -22,7 +22,7 @@ var state = States.IDLE
 
 func _ready():
 	projectile.mode = RigidBody2D.MODE_KINEMATIC
-	projectile.position = rest_position.global_position
+	projectile.global_position = rest_position.global_position
 
 
 func _get_configuration_warning():
@@ -38,7 +38,7 @@ func _physics_process(delta):
 		update_launch_impulse()
 		trajectory_drawer.draw_trajectory(
 			launch_impulse / projectile.mass, # velocity (m/s)
-			projectile.position,
+			projectile.global_position,
 			projectile.gravity_scale * ProjectSettings.get("physics/2d/default_gravity")
 		)
 	if state == States.PROJECTILE_MOVING:

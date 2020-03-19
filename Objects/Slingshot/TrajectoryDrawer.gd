@@ -2,7 +2,6 @@ extends Node2D
 
 
 var initial_velocity = Vector2()
-var from_pos = Vector2()
 var drawing = false
 var gravity = 98
 
@@ -13,9 +12,9 @@ var points = {
 }
 
 
-func draw_trajectory(init_vel, from, gravity = 98):
+func draw_trajectory(init_vel: Vector2, from: Vector2, gravity = 98):
 	initial_velocity = init_vel
-	from_pos = from
+	global_position = from
 	drawing = true
 	gravity = gravity
 	update()
@@ -31,7 +30,7 @@ func clear():
 func _draw() -> void:
 	if initial_velocity.length() <= 0:
 		return
-		
+
 	if drawing:
 		var angle = -initial_velocity.angle()
 		for i in range (50):
@@ -42,7 +41,7 @@ func _draw() -> void:
 				gravity,
 				initial_velocity.length())
 			)
-			draw_circle(pos - (global_position - from_pos) , points.radius, points.color)
+			draw_circle(pos, points.radius, points.color)
 
 
 """ Returns the y coordinate. """

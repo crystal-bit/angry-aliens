@@ -98,8 +98,9 @@ slingshot_bone_path = NodePath("../Skeleton2D/Bone1/Bone2")
 shape = SubResource( 3 )
 
 [node name="TrajectoryDrawer" parent="." instance=ExtResource( 6 )]
+position = Vector2( 12, 60 )
 [connection signal="input_event" from="InputArea" to="InputArea" method="_on_InputArea_input_event"]
 [connection signal="slingshot_grabbed" from="InputArea" to="." method="_on_InputArea_slingshot_grabbed"]
 [connection signal="slingshot_moved" from="InputArea" to="." method="_on_InputArea_slingshot_moved"]
-[connection signal="slingshot_released" from="InputArea" to="Skeleton2D" method="_on_InputArea_slingshot_released"]
 [connection signal="slingshot_released" from="InputArea" to="." method="_on_InputArea_slingshot_released"]
+[connection signal="slingshot_released" from="InputArea" to="Skeleton2D" method="_on_InputArea_slingshot_released"]
