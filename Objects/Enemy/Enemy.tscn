@@ -8,6 +8,8 @@ radius = 34.0588
 [node name="Enemy" type="RigidBody2D" groups=[
 "enemy",
 ]]
+contacts_reported = 1
+contact_monitor = true
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )

@@ -8,9 +8,20 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "RigidBody2D",
+"class": "Obstacle",
+"language": "GDScript",
+"path": "res://Objects/Obstacles/Obstacle.gd"
+}, {
+"base": "Obstacle",
+"class": "StoneObstacle",
+"language": "GDScript",
+"path": "res://Objects/Obstacles/StoneObstacle/StoneObstacle1.gd"
+} ]
 _global_script_class_icons={
-
+"Obstacle": "",
+"StoneObstacle": ""
 }
 
 [application]

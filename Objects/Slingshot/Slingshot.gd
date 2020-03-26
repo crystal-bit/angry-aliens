@@ -7,8 +7,10 @@ onready var projectile: RigidBody2D = get_node(projectile_path)
 onready var control_bone = $Skeleton2D/Bone1/Bone2
 onready var rest_position = $RestPosition # used also to calculate the launch vector
 onready var trajectory_drawer = $TrajectoryDrawer
-
 export var slingshot_elastic_force = 4
+
+signal projectile_launched
+
 var launch_impulse = Vector2(0, 0)  # impulse (kg*m / s) - https://en.wikipedia.org/wiki/Impulse_(physics)
 
 enum States {
@@ -42,15 +44,16 @@ func _physics_process(delta):
 			projectile.gravity_scale * ProjectSettings.get("physics/2d/default_gravity")
 		)
 	if state == States.PROJECTILE_MOVING:
-		if projectile.linear_velocity.length() < 15:
-			state = States.IDLE
+		pass
+#		if projectile.linear_velocity.length() < 15:
+#			state = States.IDLE
 			# TODO reset projectile
 
 
 func deform_skeleton_mesh():
 	var gm_pos = get_global_mouse_position()
 	if gm_pos.x < $Skeleton2D/Bone1.global_position.x - 50:
-		control_bone.global_position = gm_pos + Vector2(25, 0)
+		control_bone.global_position = gm_pos + Vector2(5, 0)
 
 
 func update_launch_impulse():
@@ -63,6 +66,7 @@ func launch(launch_impulse: Vector2):
 	projectile.mode = RigidBody2D.MODE_RIGID
 #	projectile.global_position = control_bone.global_position
 	projectile.apply_impulse(Vector2(), launch_impulse)
+	emit_signal("projectile_launched", projectile)
 
 
 func _on_InputArea_slingshot_grabbed():

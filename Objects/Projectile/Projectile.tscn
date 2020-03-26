@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Assets/graphics/kenney_physicsAssets_v2/PNG/Aliens/alienGreen_round.png" type="Texture" id=1]
+[ext_resource path="res://Objects/Projectile/Projectile.gd" type="Script" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 34.8658
 
 [node name="Projectile" type="RigidBody2D"]
+script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )

@@ -6,16 +6,10 @@
 [ext_resource path="res://Objects/Slingshot/Skeleton2D.gd" type="Script" id=4]
 [ext_resource path="res://Objects/Slingshot/Slingshot.gd" type="Script" id=5]
 [ext_resource path="res://Objects/Slingshot/TrajectoryDrawer/TrajectoryDrawer.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Assets/graphics/fiondina2.png" type="Texture" id=7]
+[ext_resource path="res://Assets/graphics/fiondina3.png" type="Texture" id=8]
 
-[sub_resource type="Gradient" id=1]
-offsets = PoolRealArray( 1 )
-colors = PoolColorArray( 0.411765, 0.258824, 0.141176, 1 )
-
-[sub_resource type="GradientTexture" id=2]
-gradient = SubResource( 1 )
-width = 1024
-
-[sub_resource type="CircleShape2D" id=3]
+[sub_resource type="CircleShape2D" id=1]
 radius = 50.7509
 
 [node name="Slingshot" type="Node2D"]
@@ -25,29 +19,17 @@ __meta__ = {
 }
 slingshot_elastic_force = 5
 
-[node name="ColorRect" type="ColorRect" parent="."]
-margin_left = 14.5116
-margin_top = 105.452
-margin_right = 42.5116
-margin_bottom = 213.452
-color = Color( 0.411765, 0.258824, 0.141176, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="ColorRect4" type="Sprite" parent="."]
-position = Vector2( 37.103, 45.4869 )
-rotation = 0.292274
-scale = Vector2( 0.0206501, 77.9801 )
-texture = SubResource( 2 )
-centered = false
+[node name="SpriteBack" type="Sprite" parent="."]
+position = Vector2( 121, 127 )
+scale = Vector2( 0.9, 0.9 )
+texture = ExtResource( 8 )
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
-position = Vector2( 16.7654, 45.6506 )
+position = Vector2( 29.7654, 45.6506 )
 scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 1 )
 skeleton = NodePath("../Skeleton2D")
-polygon = PoolVector2Array( 0, 0, 72, 0, 72, 124, 0, 124 )
+polygon = PoolVector2Array( 114.115, -45.502, 190.782, -45.502, 177.449, 94.498, 114.115, 91.1647 )
 uv = PoolVector2Array( 0, 0, 72, 0, 72, 124, 0, 124 )
 polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 0, 1, 2, 3 ) ]
 bones = [ NodePath("Bone1"), PoolRealArray( 0, 0, 0, 0 ), NodePath("Bone1/Bone2"), PoolRealArray( 1, 0, 0, 1 ) ]
@@ -69,21 +51,32 @@ rest = Transform2D( -1, -4.44253e-06, 4.44253e-06, -1, 0, 0 )
 [node name="Bone2" type="Bone2D" parent="Skeleton2D/Bone1"]
 position = Vector2( 60, 0 )
 rest = Transform2D( 1, 0, 0, 1, 39.071, 0 )
-default_length = 32.0
 script = ExtResource( 2 )
 
 [node name="Tween" type="Tween" parent="Skeleton2D"]
 
 [node name="RestPosition" type="Position2D" parent="."]
-position = Vector2( 12, 60 )
+position = Vector2( 25, 60 )
 
-[node name="ColorRect2" type="Sprite" parent="."]
-position = Vector2( -14.8521, 57.9149 )
-rotation = -0.47827
-scale = Vector2( 0.0197979, 73.8796 )
+[node name="SpriteFront" type="Sprite" parent="."]
+position = Vector2( 122.8, 127.6 )
+scale = Vector2( 0.9, 0.9 )
 z_index = 2
-texture = SubResource( 2 )
-centered = false
+texture = ExtResource( 7 )
+
+[node name="Polygon2D2" type="Polygon2D" parent="."]
+position = Vector2( -55.2346, 53.6506 )
+scale = Vector2( 0.3, 0.3 )
+z_index = 2
+texture = ExtResource( 1 )
+skeleton = NodePath("../Skeleton2D")
+polygon = PoolVector2Array( 104.115, -28.8353, 167.449, -55.502, 197.449, 84.498, 134.115, 87.8313 )
+uv = PoolVector2Array( 0, 0, 72, 0, 72, 124, 0, 124 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 0, 1, 2, 3 ) ]
+bones = [ NodePath("Bone1"), PoolRealArray( 0, 0, 0, 0 ), NodePath("Bone1/Bone2"), PoolRealArray( 1, 0, 0, 1 ) ]
+__meta__ = {
+"_editor_description_": ""
+}
 
 [node name="InputArea" type="Area2D" parent="."]
 position = Vector2( 32.5076, 61.6981 )
@@ -95,12 +88,12 @@ __meta__ = {
 slingshot_bone_path = NodePath("../Skeleton2D/Bone1/Bone2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InputArea"]
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 
 [node name="TrajectoryDrawer" parent="." instance=ExtResource( 6 )]
 position = Vector2( 12, 60 )
 [connection signal="input_event" from="InputArea" to="InputArea" method="_on_InputArea_input_event"]
 [connection signal="slingshot_grabbed" from="InputArea" to="." method="_on_InputArea_slingshot_grabbed"]
 [connection signal="slingshot_moved" from="InputArea" to="." method="_on_InputArea_slingshot_moved"]
-[connection signal="slingshot_released" from="InputArea" to="." method="_on_InputArea_slingshot_released"]
 [connection signal="slingshot_released" from="InputArea" to="Skeleton2D" method="_on_InputArea_slingshot_released"]
+[connection signal="slingshot_released" from="InputArea" to="." method="_on_InputArea_slingshot_released"]

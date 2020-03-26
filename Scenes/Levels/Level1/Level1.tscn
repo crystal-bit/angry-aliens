@@ -1,6 +1,6 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=24 format=2]
 
-[ext_resource path="res://Objects/Obstacles/WoodObstacle1.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Objects/Obstacles/WoodObstacle/WoodObstacle1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/graphics/kenney_physicsAssets_v2/Spritesheet/spritesheet_tiles.png" type="Texture" id=2]
 [ext_resource path="res://Objects/Projectile/Projectile.tscn" type="PackedScene" id=3]
 [ext_resource path="res://icon.png" type="Texture" id=4]
@@ -10,6 +10,13 @@
 [ext_resource path="res://Objects/Slingshot/Slingshot.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Levels/Level1/CameraFocus.gd" type="Script" id=9]
 [ext_resource path="res://Scenes/Levels/Level1/Level1.gd" type="Script" id=10]
+[ext_resource path="res://Objects/Obstacles/StoneObstacle/StoneObstacle1.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/Levels/Level1/Obstacles.gd" type="Script" id=12]
+[ext_resource path="res://Objects/VFX/Dust/Dust.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scenes/Levels/Level1/Debris.gd" type="Script" id=14]
+[ext_resource path="res://Objects/VFX/Destruction/Destruction.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Objects/VFX/Debris/Debris.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Scenes/Levels/Level1/Enemies.gd" type="Script" id=17]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 70, 70, 0, 70, 0, 0, 70, 0 )
@@ -102,7 +109,8 @@ __meta__ = {
 [node name="Background" type="Node2D" parent="."]
 position = Vector2( -4, 0 )
 __meta__ = {
-"_edit_group_": true
+"_edit_group_": true,
+"_edit_lock_": true
 }
 
 [node name="blue_desert" type="Sprite" parent="Background"]
@@ -140,46 +148,60 @@ scale = Vector2( 0.227524, 3069.7 )
 texture = SubResource( 6 )
 centered = false
 
-[node name="Enemies" type="Node2D" parent="TileMap"]
-position = Vector2( 400, 0 )
+[node name="Enemies" type="Node" parent="."]
+script = ExtResource( 17 )
 
-[node name="Enemy" parent="TileMap/Enemies" instance=ExtResource( 6 )]
-position = Vector2( 737.934, 383.923 )
+[node name="Enemy" parent="Enemies" instance=ExtResource( 6 )]
+position = Vector2( 849.934, 383.923 )
 
-[node name="Enemy2" parent="TileMap/Enemies" instance=ExtResource( 6 )]
-position = Vector2( 849.313, 382.175 )
+[node name="Enemy2" parent="Enemies" instance=ExtResource( 6 )]
+position = Vector2( 961.313, 382.175 )
 
-[node name="Enemy3" parent="TileMap/Enemies" instance=ExtResource( 6 )]
-position = Vector2( 790.612, 314.915 )
+[node name="Enemy3" parent="Enemies" instance=ExtResource( 6 )]
+position = Vector2( 902.612, 314.915 )
 
-[node name="Obstacles" type="Node2D" parent="TileMap"]
-position = Vector2( 272, 0 )
+[node name="Obstacles" type="Node" parent="."]
+script = ExtResource( 12 )
+particles_manager_path = NodePath("../ParticlesManager")
 
-[node name="WoodObstacle1" parent="TileMap/Obstacles" instance=ExtResource( 1 )]
-position = Vector2( 720, 384 )
+[node name="StoneObstacle1" parent="Obstacles" instance=ExtResource( 11 )]
+position = Vector2( 709.241, 306.508 )
 
-[node name="WoodObstacle2" parent="TileMap/Obstacles" instance=ExtResource( 1 )]
-position = Vector2( 720, 312 )
+[node name="StoneObstacle2" parent="Obstacles" instance=ExtResource( 11 )]
+position = Vector2( 909.25, 95.445 )
 
-[node name="WoodObstacle3" parent="TileMap/Obstacles" instance=ExtResource( 1 )]
-position = Vector2( 720, 240 )
+[node name="WoodObstacle1" parent="Obstacles" instance=ExtResource( 1 )]
+position = Vector2( 1096, 384 )
 
-[node name="WoodObstacle4" parent="TileMap/Obstacles" instance=ExtResource( 1 )]
-position = Vector2( 720, 168 )
+[node name="WoodObstacle2" parent="Obstacles" instance=ExtResource( 1 )]
+position = Vector2( 1096, 312 )
+
+[node name="WoodObstacle3" parent="Obstacles" instance=ExtResource( 1 )]
+position = Vector2( 1096, 240 )
+
+[node name="WoodObstacle4" parent="Obstacles" instance=ExtResource( 1 )]
+position = Vector2( 1096, 168 )
 
 [node name="Slingshot" parent="." instance=ExtResource( 8 )]
-position = Vector2( 118.005, 207.916 )
+position = Vector2( 121.005, 165.916 )
 projectile_path = NodePath("../Projectile")
 slingshot_elastic_force = 15
 
 [node name="Projectile" parent="." groups=[
 "projectile",
 ] instance=ExtResource( 3 )]
-position = Vector2( 130.005, 267.916 )
-z_index = 1
+position = Vector2( 154.005, 211.916 )
 mode = 3
 mass = 5.0
+contacts_reported = 1
+contact_monitor = true
 sleeping = true
+
+[node name="ParticlesManager" type="Node" parent="."]
+script = ExtResource( 14 )
+dust_scene = ExtResource( 13 )
+explosion_scene = ExtResource( 15 )
+debris_scene = ExtResource( 16 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -197,14 +219,13 @@ __meta__ = {
 }
 
 [node name="CameraFocus" type="Node2D" parent="."]
-position = Vector2( 632, 304 )
+position = Vector2( 663, 304 )
 script = ExtResource( 9 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="Camera2D" type="Camera2D" parent="CameraFocus"]
-scale = Vector2( 0.964905, 0.976555 )
 current = true
 zoom = Vector2( 1.6, 1.6 )
 limit_left = -600
@@ -219,4 +240,28 @@ editor_draw_limits = true
 visible = false
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 4 )
+
+[node name="CameraFocus2" type="Node2D" parent="."]
+position = Vector2( 663, 304 )
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Camera2D" type="Camera2D" parent="CameraFocus2"]
+current = true
+zoom = Vector2( 1.6, 1.6 )
+limit_left = -600
+limit_top = -600
+limit_right = 2300
+limit_bottom = 850
+smoothing_enabled = true
+editor_draw_screen = false
+editor_draw_limits = true
+
+[node name="debug" type="Sprite" parent="CameraFocus2"]
+visible = false
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )
+[connection signal="projectile_launched" from="Slingshot" to="ParticlesManager" method="_on_Slingshot_projectile_launched"]
 [connection signal="pressed" from="CanvasLayer/ReloadSceneBtn" to="." method="_on_ReloadSceneBtn_pressed"]
