@@ -2,7 +2,7 @@ extends Node2D
 
 
 onready var projectile = $Projectile # TODO: this needs to be updated
-onready var vfx_manager = $Debris
+onready var vfx_manager = $ParticlesManager
 
 
 func _ready():

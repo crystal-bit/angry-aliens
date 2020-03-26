@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Objects/Obstacles/WoodObstacle/WoodObstacle1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/graphics/kenney_physicsAssets_v2/Spritesheet/spritesheet_tiles.png" type="Texture" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://Objects/VFX/Destruction/Destruction.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Objects/VFX/Debris/Debris.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Scenes/Levels/Level1/Enemies.gd" type="Script" id=17]
+[ext_resource path="res://Objects/Scores/Scores.gd" type="Script" id=18]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 70, 70, 0, 70, 0, 0, 70, 0 )
@@ -185,7 +186,6 @@ position = Vector2( 1096, 168 )
 [node name="Slingshot" parent="." instance=ExtResource( 8 )]
 position = Vector2( 121.005, 165.916 )
 projectile_path = NodePath("../Projectile")
-slingshot_elastic_force = 15
 
 [node name="Projectile" parent="." groups=[
 "projectile",
@@ -202,6 +202,9 @@ script = ExtResource( 14 )
 dust_scene = ExtResource( 13 )
 explosion_scene = ExtResource( 15 )
 debris_scene = ExtResource( 16 )
+
+[node name="Scores" type="Node" parent="."]
+script = ExtResource( 18 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -263,5 +266,6 @@ editor_draw_limits = true
 visible = false
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 4 )
+[connection signal="enemy_destroyed" from="Enemies" to="Scores" method="_on_Enemies_enemy_destroyed"]
 [connection signal="projectile_launched" from="Slingshot" to="ParticlesManager" method="_on_Slingshot_projectile_launched"]
 [connection signal="pressed" from="CanvasLayer/ReloadSceneBtn" to="." method="_on_ReloadSceneBtn_pressed"]

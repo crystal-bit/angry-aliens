@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Assets/graphics/slingshot-elastic.png" type="Texture" id=1]
 [ext_resource path="res://Objects/Slingshot/Bone2.gd" type="Script" id=2]
@@ -6,8 +6,7 @@
 [ext_resource path="res://Objects/Slingshot/Skeleton2D.gd" type="Script" id=4]
 [ext_resource path="res://Objects/Slingshot/Slingshot.gd" type="Script" id=5]
 [ext_resource path="res://Objects/Slingshot/TrajectoryDrawer/TrajectoryDrawer.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Assets/graphics/fiondina2.png" type="Texture" id=7]
-[ext_resource path="res://Assets/graphics/fiondina3.png" type="Texture" id=8]
+[ext_resource path="res://Assets/graphics/slingshot.png" type="Texture" id=7]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 50.7509
@@ -17,19 +16,15 @@ script = ExtResource( 5 )
 __meta__ = {
 "_editor_description_": "Drag Bone2 to stretch the slingshot"
 }
-slingshot_elastic_force = 5
-
-[node name="SpriteBack" type="Sprite" parent="."]
-position = Vector2( 121, 127 )
-scale = Vector2( 0.9, 0.9 )
-texture = ExtResource( 8 )
+slingshot_elastic_force = 20
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
-position = Vector2( 29.7654, 45.6506 )
-scale = Vector2( 0.3, 0.3 )
+visible = false
+position = Vector2( -53.6923, 34.711 )
+scale = Vector2( 0.559237, 0.12551 )
 texture = ExtResource( 1 )
 skeleton = NodePath("../Skeleton2D")
-polygon = PoolVector2Array( 114.115, -45.502, 190.782, -45.502, 177.449, 94.498, 114.115, 91.1647 )
+polygon = PoolVector2Array( 153.231, 2.3029, 188.994, -13.6321, 187.206, 137.75, 153.231, 153.685 )
 uv = PoolVector2Array( 0, 0, 72, 0, 72, 124, 0, 124 )
 polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 0, 1, 2, 3 ) ]
 bones = [ NodePath("Bone1"), PoolRealArray( 0, 0, 0, 0 ), NodePath("Bone1/Bone2"), PoolRealArray( 1, 0, 0, 1 ) ]
@@ -37,49 +32,66 @@ __meta__ = {
 "_editor_description_": ""
 }
 
+[node name="Polygon2D2" type="Polygon2D" parent="."]
+visible = false
+position = Vector2( -144.692, 34.711 )
+scale = Vector2( 0.559237, 0.12551 )
+texture = ExtResource( 1 )
+polygon = PoolVector2Array( 153.231, -13.6321, 188.994, -13.6321, 187.206, 137.75, 153.231, 153.685 )
+uv = PoolVector2Array( 0, 0, 72, 0, 72, 124, 0, 124 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 0, 1, 2, 3 ) ]
+bones = [ NodePath("Bone1"), PoolRealArray( 0, 0, 0, 0 ), NodePath("Bone1/Bone2"), PoolRealArray( 1, 0, 0, 1 ) ]
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="SpriteBack" type="Sprite" parent="."]
+position = Vector2( 34, 134 )
+scale = Vector2( 0.9, 0.9 )
+texture = ExtResource( 7 )
+region_enabled = true
+region_rect = Rect2( 73, 0, 71, 294 )
+__meta__ = {
+"_edit_lock_": true
+}
+
 [node name="Skeleton2D" type="Skeleton2D" parent="."]
-position = Vector2( 72, 60 )
+position = Vector2( 30, 41 )
 script = ExtResource( 4 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="Bone1" type="Bone2D" parent="Skeleton2D"]
+position = Vector2( 34, -2 )
 rotation = -3.14159
 rest = Transform2D( -1, -4.44253e-06, 4.44253e-06, -1, 0, 0 )
+default_length = 1.0
 
 [node name="Bone2" type="Bone2D" parent="Skeleton2D/Bone1"]
 position = Vector2( 60, 0 )
 rest = Transform2D( 1, 0, 0, 1, 39.071, 0 )
+default_length = 32.0
 script = ExtResource( 2 )
 
 [node name="Tween" type="Tween" parent="Skeleton2D"]
 
 [node name="RestPosition" type="Position2D" parent="."]
-position = Vector2( 25, 60 )
+position = Vector2( -1, 58 )
 
 [node name="SpriteFront" type="Sprite" parent="."]
-position = Vector2( 122.8, 127.6 )
+position = Vector2( -31, 134 )
 scale = Vector2( 0.9, 0.9 )
 z_index = 2
 texture = ExtResource( 7 )
-
-[node name="Polygon2D2" type="Polygon2D" parent="."]
-position = Vector2( -55.2346, 53.6506 )
-scale = Vector2( 0.3, 0.3 )
-z_index = 2
-texture = ExtResource( 1 )
-skeleton = NodePath("../Skeleton2D")
-polygon = PoolVector2Array( 104.115, -28.8353, 167.449, -55.502, 197.449, 84.498, 134.115, 87.8313 )
-uv = PoolVector2Array( 0, 0, 72, 0, 72, 124, 0, 124 )
-polygons = [ PoolIntArray( 0, 1, 2, 3 ), PoolIntArray( 0, 1, 2, 3 ) ]
-bones = [ NodePath("Bone1"), PoolRealArray( 0, 0, 0, 0 ), NodePath("Bone1/Bone2"), PoolRealArray( 1, 0, 0, 1 ) ]
+region_enabled = true
+region_rect = Rect2( 0, 0, 74, 294 )
 __meta__ = {
-"_editor_description_": ""
+"_edit_lock_": true
 }
 
 [node name="InputArea" type="Area2D" parent="."]
-position = Vector2( 32.5076, 61.6981 )
+position = Vector2( 0.507599, 54.6981 )
 script = ExtResource( 3 )
 __meta__ = {
 "_edit_group_": true,

@@ -1,4 +1,4 @@
-""" Detect touch inputs and dispatch signals to the Slingshot node. 
+""" Detect touch inputs and dispatch signals to the Slingshot node.
 """
 extends Area2D
 
@@ -18,7 +18,7 @@ func _input(event):
 		if not event.is_pressed():
 			emit_signal("slingshot_released")
 			grabbed = false
-	
+
 	if event is InputEventScreenDrag:
 		if grabbed:
 			emit_signal("slingshot_moved", event.position)

@@ -8,6 +8,7 @@ onready var control_bone = $Skeleton2D/Bone1/Bone2
 onready var rest_position = $RestPosition # used also to calculate the launch vector
 onready var trajectory_drawer = $TrajectoryDrawer
 export var slingshot_elastic_force = 4
+export(int) var max_distance = 200 # max distance from rest position
 
 signal projectile_launched
 
@@ -83,4 +84,6 @@ func _on_InputArea_slingshot_released():
 
 
 func _on_InputArea_slingshot_moved(touch_pos):
-	projectile.global_position = get_viewport().canvas_transform.affine_inverse().xform(touch_pos)
+	var xformed_touch_pos = get_viewport().canvas_transform.affine_inverse().xform(touch_pos)
+	# clamp movement
+	projectile.global_position = (xformed_touch_pos - rest_position.global_position).clamped(max_distance) + rest_position.global_position
