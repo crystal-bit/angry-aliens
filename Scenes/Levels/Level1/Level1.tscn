@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Objects/Obstacles/WoodObstacle/WoodObstacle1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/graphics/kenney_physicsAssets_v2/Spritesheet/spritesheet_tiles.png" type="Texture" id=2]
@@ -18,6 +18,7 @@
 [ext_resource path="res://Objects/VFX/Debris/Debris.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Scenes/Levels/Level1/Enemies.gd" type="Script" id=17]
 [ext_resource path="res://Objects/Scores/Scores.gd" type="Script" id=18]
+[ext_resource path="res://Objects/Score/Score.tscn" type="PackedScene" id=19]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 70, 70, 0, 70, 0, 0, 70, 0 )
@@ -153,23 +154,23 @@ centered = false
 script = ExtResource( 17 )
 
 [node name="Enemy" parent="Enemies" instance=ExtResource( 6 )]
-position = Vector2( 849.934, 383.923 )
+position = Vector2( 699.2, 377.894 )
 
 [node name="Enemy2" parent="Enemies" instance=ExtResource( 6 )]
 position = Vector2( 961.313, 382.175 )
 
 [node name="Enemy3" parent="Enemies" instance=ExtResource( 6 )]
-position = Vector2( 902.612, 314.915 )
+position = Vector2( 673.497, 295.32 )
 
 [node name="Obstacles" type="Node" parent="."]
 script = ExtResource( 12 )
 particles_manager_path = NodePath("../ParticlesManager")
 
 [node name="StoneObstacle1" parent="Obstacles" instance=ExtResource( 11 )]
-position = Vector2( 709.241, 306.508 )
+position = Vector2( 496.909, 301.986 )
 
 [node name="StoneObstacle2" parent="Obstacles" instance=ExtResource( 11 )]
-position = Vector2( 909.25, 95.445 )
+position = Vector2( 1269.5, 298.936 )
 
 [node name="WoodObstacle1" parent="Obstacles" instance=ExtResource( 1 )]
 position = Vector2( 1096, 384 )
@@ -178,10 +179,10 @@ position = Vector2( 1096, 384 )
 position = Vector2( 1096, 312 )
 
 [node name="WoodObstacle3" parent="Obstacles" instance=ExtResource( 1 )]
-position = Vector2( 1096, 240 )
+position = Vector2( 580.49, 365.109 )
 
 [node name="WoodObstacle4" parent="Obstacles" instance=ExtResource( 1 )]
-position = Vector2( 1096, 168 )
+position = Vector2( 589.534, 284.065 )
 
 [node name="Slingshot" parent="." instance=ExtResource( 8 )]
 position = Vector2( 121.005, 165.916 )
@@ -205,6 +206,9 @@ debris_scene = ExtResource( 16 )
 
 [node name="Scores" type="Node" parent="."]
 script = ExtResource( 18 )
+score_scene = ExtResource( 19 )
+
+[node name="Score" parent="Scores" instance=ExtResource( 19 )]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
