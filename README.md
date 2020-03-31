@@ -7,7 +7,7 @@
 
 - [Godot 3.2 - Tutorial - Creating a mobile game](#godot-32---tutorial---creating-a-mobile-game)
   - [Where are the tutorials?](#where-are-the-tutorials)
-  - [Where is the project? `master` and `develop` branches](#where-is-the-project-master-and-develop-branches)
+  - [Branches: `master`, `develop` and `video`](#branches-master-develop-and-video)
   - [Prerequisites](#prerequisites)
   - [Contents](#contents)
     - [1. Introduction](#1-introduction)
@@ -18,8 +18,8 @@
     - [6. Projectile & Enemies](#6-projectile--enemies)
     - [7. Implementing the `Slingshot`](#7-implementing-the-slingshot)
     - [8. Calculating and drawing the trajectory](#8-calculating-and-drawing-the-trajectory)
-    - [9. TODO - Obstacles](#9-todo---obstacles)
-    - [10. TODO - Score system & Obstacles](#10-todo---score-system--obstacles)
+    - [9. Obstacles](#9-obstacles)
+    - [10. Score system & Obstacles](#10-score-system--obstacles)
     - [11. TODO - Camera](#11-todo---camera)
     - [12. TODO - Debugging a mobile App](#12-todo---debugging-a-mobile-app)
     - [13. TODO - Possible game improvements](#13-todo---possible-game-improvements)
@@ -40,12 +40,11 @@ Source code is MIT licensed. Feel free to read it, modify it and reuse it in you
 
 Source code and comments are in English. The commentary is in Italian only.
 
-## Where is the project? `master` and `develop` branches
-
-The `develop` branch contains the complete project.
-
-The default `master` branch will be in sync with video tutorials releases.  
-I'll use the master branch to re-do the whole project while releasing video tutorials.
+## Branches: `master`, `develop` and `video`
+- `develop` branch contains the complete project. I do experiments in here. It may be unstable.
+- `master` branch will be in sync with video tutorials releases on my YouTube channel.
+- `videoX/start` branches contains the code to follow the tutorial number `X`. Example:
+  - `video5/start` contains the code to follow the [video tutorial 5](https://youtu.be/SVuOYKzTwxw) on YouTube.
 
 ## Prerequisites
 
@@ -119,7 +118,6 @@ I'll try to provide instructions for other OS, but help here is really appreciat
   - `pointing/emulate_touch_from_mouse=true`
   - `pointing/emulate_mouse_from_touch=false`
 
-
 ### 5. Creating a game level
 
 ![Image level screen](Assets/readme/level.png)
@@ -158,13 +156,13 @@ I'll try to provide instructions for other OS, but help here is really appreciat
 - Is the trajectory correct?
   - Set the correct damping factor
 
-### 9. TODO - Obstacles
+### 9. Obstacles
 
 - Create an obstacle
 - Add obstacles to the level
 - Implement obstacle destruction
 
-### 10. TODO - Score system & Obstacles 
+### 10. Score system & Obstacles 
 
 - Scores
   - https://www.macobserver.com/tmo/article/angry_birds_the_all-purpose_guide_to_three_stars_part_1
@@ -174,8 +172,7 @@ I'll try to provide instructions for other OS, but help here is really appreciat
 ### 11. TODO - Camera 
 
 - Camera pan across the level
-- Pinch to zoom
-- Is input broken? Adjust it with `get_viewport_transform().get_origin()`
+- Pinch to zoom?
   
 ### 12. TODO - Debugging a mobile App
 
@@ -186,9 +183,9 @@ I'll try to provide instructions for other OS, but help here is really appreciat
 
 ### 13. TODO - Possible game improvements
 
-- Gameplay flow: allow user to fire 3 projectiles per level
 - Add audio sfx
 - Improve the slingshot
+- Particles, debris
 
 ## What now?
 
@@ -212,7 +209,8 @@ all the source code for my tutorials will be uploaded here.
 
 ## Credits
 
-- Kenney for the game assets https://www.kenney.nl/
+- **Kenney** for most of the game assets - https://www.kenney.nl/
+- **Hanabi** for the slingshot sprites
 
 ## Thanks
 
