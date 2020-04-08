@@ -5,7 +5,7 @@
 
 ## Table of Contents
 
-- [Godot 3.2 - Tutorial - Creating a mobile game](#godot-32---tutorial---creating-a-mobile-game)
+- [Godot 3.2.1 - Tutorial - Creating a mobile game](#godot-321---tutorial---creating-a-mobile-game)
   - [Where are the tutorials?](#where-are-the-tutorials)
   - [Branches: `master`, `develop` and `video`](#branches-master-develop-and-video)
   - [Prerequisites](#prerequisites)
@@ -28,9 +28,9 @@
   - [Thanks](#thanks)
   - [Support me](#support-me)
 
-# Godot 3.2 - Tutorial - Creating a mobile game
+# Godot 3.2.1 - Tutorial - Creating a mobile game
 
-This repository contains a work in progress game inspidred by **Angry Birds**, reimplemented with Godot Engine 3.2.
+This repository contains a work in progress game inspidred by **Angry Birds**, reimplemented with Godot Engine 3.2.1.
 
 Source code is MIT licensed. Feel free to read it, modify it and reuse it in your projects.
 
@@ -38,7 +38,7 @@ Source code is MIT licensed. Feel free to read it, modify it and reuse it in you
 
 - 🎥 [Video tutorial playlist](https://www.youtube.com/playlist?list=PLaCq3HqKQR6rNyqulBsbca-6wzxp8H52r)
 
-Source code and comments are in English. The commentary is in Italian only.
+Source code and comments are in English. *Commentary is in Italian.*
 
 ## Branches: `master`, `develop` and `video`
 - `develop` branch contains the complete project. I do experiments in here. It may be unstable.
@@ -63,12 +63,10 @@ Essentially you need to know these topics:
 
 ### 1. Introduction
 
-- 🎥 [YouTube introduction](https://youtu.be/x0emyyXC_sM)
+- 🎥 [YouTube - 1. Introduzione](https://youtu.be/x0emyyXC_sM)
 
 This tutorial series will focus on creating a simple mobile game
 using Godot 3.2.
-
-Currently I don't have an Apple device and I cannot develop/test iOS/OSX games.
 
 I choose to make an Angry Birds clone because:
 
@@ -77,12 +75,12 @@ I choose to make an Angry Birds clone because:
 
 I'm creating this tutorials using Manjaro Linux (Arch Linux derivative), but similar steps can be done on other operating systems as well.
 
-I'll try to provide instructions for other OS, but help here is really appreciated (especially if you are a Debian, Ubuntu, Windows or OSX user)
+Currently I don't have an Apple device and I cannot develop/test iOS/OSX games. I'll try to provide instructions for other OS, but help here is really appreciated (especially if you are a Debian, Ubuntu, Windows or OSX user).
 
 ### 2. Configure Godot and Android SDK
 
-- 🎥 [YouTube - Configure Linux](https://youtu.be/xFia7zG8NGA)
-- 🎥 [YouTube - Configure Windows](https://youtu.be/PNj8YmXjj-A)
+- 🎥 [YouTube - 2. Configurare Linux](https://youtu.be/xFia7zG8NGA)
+- 🎥 [YouTube - 3. Configurare Windows](https://youtu.be/PNj8YmXjj-A)
   
 > How do I configure my computer for Android development?
 
@@ -98,6 +96,10 @@ I'll try to provide instructions for other OS, but help here is really appreciat
 
 ### 3. Testing performances on the smartphone
 
+- 🎥 [YouTube - 4. Creare il livello](https://youtu.be/VZS0pv14--s)
+- 🎥 [YouTube - 5. Creare la scena StressTest (pt1)](https://youtu.be/SVuOYKzTwxw)
+- 🎥 [YouTube - 6. Stress test (pt.2) - Debugger e profiler](https://youtu.be/s4jSWPtqR8M)
+
 ![Stress test scene screen](Assets/readme/stress-test.png)
 
 > If we include all the physics elements and we create hundreds of game objects, is the game playable?
@@ -106,7 +108,7 @@ I'll try to provide instructions for other OS, but help here is really appreciat
 2. Add background sprites, tilemap
 3. Add physics objects: enemies, static bodies, rigid bodies
 4. Create an object spawner script 
-5. Create a FPS graphic overlay
+5. Use debugger and profiler to check game performances
 
 ### 4. Touchscreen input with `_input()` and `InputEvents`
 
