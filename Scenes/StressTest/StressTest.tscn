@@ -4,7 +4,7 @@
 [ext_resource path="res://Assets/graphics/kenney_physicsAssets_v2/PNG/Backgrounds/blue_desert.png" type="Texture" id=2]
 [ext_resource path="res://Assets/graphics/terrain2.png" type="Texture" id=3]
 [ext_resource path="res://Assets/graphics/terrain-cover.png" type="Texture" id=4]
-[ext_resource path="res://Objects/Enemy/Enemy.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/StressTest/StressTest.gd" type="Script" id=5]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 70, 0, 70, 70, 0, 70 )
@@ -75,6 +75,7 @@ points = PoolVector2Array( 0, 0, 70, 0, 70, 70, 0, 70 )
 3/z_index = 0
 
 [node name="StressTest" type="Node2D"]
+script = ExtResource( 5 )
 
 [node name="Background" type="Sprite" parent="."]
 position = Vector2( 41, 231 )
@@ -96,15 +97,6 @@ position = Vector2( 526.5, 553 )
 scale = Vector2( 18.6094, 0.6875 )
 texture = ExtResource( 4 )
 
-[node name="Enemy" parent="." instance=ExtResource( 5 )]
-position = Vector2( 578, 302 )
-
-[node name="Enemy2" parent="." instance=ExtResource( 5 )]
-position = Vector2( 645, 216 )
-
-[node name="Enemy3" parent="." instance=ExtResource( 5 )]
-position = Vector2( 694, 313 )
-
 [node name="Label" type="Label" parent="."]
 margin_right = 40.0
 margin_bottom = 14.0
@@ -113,3 +105,8 @@ text = "WARNING: THIS IS A STRESS TEST SCENE"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="SpawnTimer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+[connection signal="timeout" from="SpawnTimer" to="." method="_on_SpawnTimer_timeout"]
