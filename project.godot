@@ -17,3 +17,11 @@ _global_script_class_icons={
 
 config/name="Angry Aliens"
 run/main_scene="res://Scenes/Main.tscn"
+
+[display]
+
+window/vsync/use_vsync=false
+
+[rendering]
+
+quality/driver/driver_name="GLES2"
