@@ -55,10 +55,6 @@ You can learn these topics by:
 - reading the [official documentation](https://docs.godotengine.org/en/3.1/getting_started/step_by_step/intro_to_the_editor_interface.html)
 - following my [video tutorial series](https://www.youtube.com/watch?v=AY1zuH2mHQ0&list=PLaCq3HqKQR6rlPpf2GAOXp52ddt0V71Yl) on Godot 3 basics (*only in Italian*)
 
-Essentially you need to know these topics:
-
-![Godot doc screenshot](Assets/readme/godot-doc.png)
-
 ## Contents
 
 ### 1. Introduction
