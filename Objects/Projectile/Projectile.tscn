@@ -7,6 +7,7 @@
 radius = 34.8658
 
 [node name="Projectile" type="RigidBody2D"]
+mass = 6.0
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]

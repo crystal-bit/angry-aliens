@@ -14,6 +14,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Objects/Obstacles/Obstacle.gd"
 }, {
+"base": "RigidBody2D",
+"class": "Projectile",
+"language": "GDScript",
+"path": "res://Objects/Projectile/Projectile.gd"
+}, {
 "base": "Obstacle",
 "class": "StoneObstacle",
 "language": "GDScript",
@@ -21,6 +26,7 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "Obstacle": "",
+"Projectile": "",
 "StoneObstacle": ""
 }
 

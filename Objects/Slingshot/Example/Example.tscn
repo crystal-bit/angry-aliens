@@ -9,22 +9,6 @@
 position = Vector2( 197, 210 )
 projectile_path = NodePath("../../Example/Projectile")
 
-[node name="ColorRect" parent="Slingshot" index="0"]
-margin_left = 23.0
-margin_right = 47.0
-margin_bottom = 281.0
-
-[node name="ColorRect4" parent="Slingshot" index="1"]
-position = Vector2( 44.973, 56.8544 )
-scale = Vector2( 0.020816, 68.7449 )
-
-[node name="ColorRect2" parent="Slingshot" index="5"]
-position = Vector2( -9.47021, 58.165 )
-scale = Vector2( 0.0237405, 79.2775 )
-
-[node name="InputArea" parent="Slingshot" index="6"]
-slingshot_bone_path = NodePath("../../../Example/Slingshot/Skeleton2D/Bone1/Bone2")
-
 [node name="Projectile" parent="." instance=ExtResource( 1 )]
 position = Vector2( 209, 270 )
 mode = 3

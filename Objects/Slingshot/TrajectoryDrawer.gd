@@ -8,7 +8,7 @@ var gravity = 98
 var points = {
 	"gap": 25, # distance between adjacent points
 	"radius": 6,
-	"color": Color.red
+	"color": Color(1, 0.4, 0.6)
 }
 
 
@@ -31,6 +31,7 @@ func _draw() -> void:
 	if initial_velocity.length() <= 0:
 		return
 
+	var col = points.color
 	if drawing:
 		var angle = -initial_velocity.angle()
 		for i in range (50):
@@ -41,7 +42,9 @@ func _draw() -> void:
 				gravity,
 				initial_velocity.length())
 			)
-			draw_circle(pos, points.radius, points.color)
+			# alpha decrease
+			col.a = 1 - (i / 50.0)
+			draw_circle(pos, points.radius * (col.a + 0.1), col)
 
 
 """ Returns the y coordinate. """

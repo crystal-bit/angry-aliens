@@ -50,7 +50,7 @@ func show():
 	var tween = Tween.new()
 	add_child(tween)
 	tween.interpolate_property(self,
-		"modulate:a", 1, 0, 0.5, Tween.TRANS_EXPO, Tween.EASE_IN, 2)
+		"modulate:a", 1, 0, 0.5, Tween.TRANS_EXPO, Tween.EASE_IN, 0.7)
 	tween.start()
 	yield(tween, "tween_completed")
 	emit_signal("score_hidden", self)

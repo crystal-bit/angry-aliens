@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Objects/Obstacles/WoodObstacle/WoodObstacle1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/graphics/kenney_physicsAssets_v2/Spritesheet/spritesheet_tiles.png" type="Texture" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://Scenes/Levels/Level1/Enemies.gd" type="Script" id=17]
 [ext_resource path="res://Objects/Scores/Scores.gd" type="Script" id=18]
 [ext_resource path="res://Objects/Score/Score.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Scenes/Levels/Level1/ProjectilesLoader.gd" type="Script" id=20]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 70, 70, 0, 70, 0, 0, 70, 0 )
@@ -102,6 +103,21 @@ colors = PoolColorArray( 0.604401, 0.886636, 0.910156, 1, 0.815686, 0.956863, 0.
 [sub_resource type="GradientTexture" id=6]
 gradient = SubResource( 5 )
 
+[sub_resource type="Animation" id=7]
+resource_name = "load_projectile"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Proxy:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.4, 0.5, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 3,
+"values": [ Vector2( 75, 383 ), Vector2( 82, 260 ), Vector2( 146, 126 ), Vector2( 184, 201 ) ]
+}
+
 [node name="Level1" type="Node2D"]
 script = ExtResource( 10 )
 __meta__ = {
@@ -154,49 +170,80 @@ centered = false
 script = ExtResource( 17 )
 
 [node name="Enemy" parent="Enemies" instance=ExtResource( 6 )]
-position = Vector2( 699.2, 377.894 )
+position = Vector2( 734, 378 )
 
 [node name="Enemy2" parent="Enemies" instance=ExtResource( 6 )]
-position = Vector2( 961.313, 382.175 )
+position = Vector2( 966, 378 )
 
 [node name="Enemy3" parent="Enemies" instance=ExtResource( 6 )]
-position = Vector2( 673.497, 295.32 )
+position = Vector2( 1410, 373 )
 
 [node name="Obstacles" type="Node" parent="."]
 script = ExtResource( 12 )
 particles_manager_path = NodePath("../ParticlesManager")
 
 [node name="StoneObstacle1" parent="Obstacles" instance=ExtResource( 11 )]
-position = Vector2( 496.909, 301.986 )
+position = Vector2( 1083, 306 )
 
 [node name="StoneObstacle2" parent="Obstacles" instance=ExtResource( 11 )]
-position = Vector2( 1269.5, 298.936 )
+position = Vector2( 860, 309 )
+
+[node name="StoneObstacle3" parent="Obstacles" instance=ExtResource( 11 )]
+position = Vector2( 969, 162 )
+rotation = 1.57079
 
 [node name="WoodObstacle1" parent="Obstacles" instance=ExtResource( 1 )]
-position = Vector2( 1096, 384 )
+position = Vector2( 1007, 85 )
 
 [node name="WoodObstacle2" parent="Obstacles" instance=ExtResource( 1 )]
-position = Vector2( 1096, 312 )
+position = Vector2( 929, 85 )
 
 [node name="WoodObstacle3" parent="Obstacles" instance=ExtResource( 1 )]
-position = Vector2( 580.49, 365.109 )
+position = Vector2( 1268, 370 )
 
 [node name="WoodObstacle4" parent="Obstacles" instance=ExtResource( 1 )]
-position = Vector2( 589.534, 284.065 )
+position = Vector2( 1268, 280 )
 
 [node name="Slingshot" parent="." instance=ExtResource( 8 )]
-position = Vector2( 121.005, 165.916 )
-projectile_path = NodePath("../Projectile")
+position = Vector2( 121, 166 )
+slingshot_elastic_force = 30
+max_distance = 100
 
-[node name="Projectile" parent="." groups=[
+[node name="ProjectilesLoader" type="Node" parent="."]
+script = ExtResource( 20 )
+
+[node name="Projectile3" parent="ProjectilesLoader" groups=[
 "projectile",
 ] instance=ExtResource( 3 )]
-position = Vector2( 154.005, 211.916 )
+position = Vector2( 75, 383 )
 mode = 3
-mass = 5.0
 contacts_reported = 1
 contact_monitor = true
 sleeping = true
+
+[node name="Projectile2" parent="ProjectilesLoader" groups=[
+"projectile",
+] instance=ExtResource( 3 )]
+position = Vector2( -7, 384 )
+mode = 3
+contacts_reported = 1
+contact_monitor = true
+sleeping = true
+
+[node name="Projectile" parent="ProjectilesLoader" groups=[
+"projectile",
+] instance=ExtResource( 3 )]
+position = Vector2( -89, 383 )
+mode = 3
+contacts_reported = 1
+contact_monitor = true
+sleeping = true
+
+[node name="Proxy" type="Node2D" parent="ProjectilesLoader"]
+position = Vector2( 184, 201 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ProjectilesLoader"]
+anims/load_projectile = SubResource( 7 )
 
 [node name="ParticlesManager" type="Node" parent="."]
 script = ExtResource( 14 )
@@ -226,15 +273,16 @@ __meta__ = {
 }
 
 [node name="CameraFocus" type="Node2D" parent="."]
-position = Vector2( 663, 304 )
+position = Vector2( 729.034, 282 )
 script = ExtResource( 9 )
 __meta__ = {
 "_edit_group_": true
 }
+zoom = 2.0
 
 [node name="Camera2D" type="Camera2D" parent="CameraFocus"]
 current = true
-zoom = Vector2( 1.6, 1.6 )
+zoom = Vector2( 1.853, 1.853 )
 limit_left = -600
 limit_top = -600
 limit_right = 2300
@@ -242,34 +290,18 @@ limit_bottom = 850
 smoothing_enabled = true
 editor_draw_screen = false
 editor_draw_limits = true
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="debug" type="Sprite" parent="CameraFocus"]
 visible = false
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 4 )
-
-[node name="CameraFocus2" type="Node2D" parent="."]
-position = Vector2( 663, 304 )
-script = ExtResource( 9 )
 __meta__ = {
-"_edit_group_": true
+"_edit_lock_": true
 }
-
-[node name="Camera2D" type="Camera2D" parent="CameraFocus2"]
-current = true
-zoom = Vector2( 1.6, 1.6 )
-limit_left = -600
-limit_top = -600
-limit_right = 2300
-limit_bottom = 850
-smoothing_enabled = true
-editor_draw_screen = false
-editor_draw_limits = true
-
-[node name="debug" type="Sprite" parent="CameraFocus2"]
-visible = false
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 4 )
 [connection signal="enemy_destroyed" from="Enemies" to="Scores" method="_on_Enemies_enemy_destroyed"]
 [connection signal="projectile_launched" from="Slingshot" to="ParticlesManager" method="_on_Slingshot_projectile_launched"]
+[connection signal="projectile_launched" from="Slingshot" to="ProjectilesLoader" method="_on_Slingshot_projectile_launched"]
 [connection signal="pressed" from="CanvasLayer/ReloadSceneBtn" to="." method="_on_ReloadSceneBtn_pressed"]
