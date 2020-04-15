@@ -3,6 +3,10 @@
 
 ---
 
+![optimized](https://user-images.githubusercontent.com/6860637/79353473-60ad7580-7f3b-11ea-8bc7-411bab23032e.gif)
+
+---
+
 ## Table of Contents
 
 - [Godot 3.2.1 - Tutorial - Creating a mobile game](#godot-321---tutorial---creating-a-mobile-game)
@@ -133,8 +137,6 @@ Currently I don't have an Apple device and I cannot develop/test iOS/OSX games. 
 
 ### 7. Implementing the `Slingshot`
 
-![Slingshot screen](Assets/readme/slingshot.png)
-
 - Grab mechanig
   - Skeleton Mesh deform?
 - Elastic force
@@ -142,8 +144,6 @@ Currently I don't have an Apple device and I cannot develop/test iOS/OSX games. 
 - Launch the projectile
 
 ### 8. Calculating and drawing the trajectory
-
-![Trajectory drawer screen](Assets/readme/trajectory.png)
 
 - Create a `TrajectoryDrawer` node
 - Basic Physics concepts
