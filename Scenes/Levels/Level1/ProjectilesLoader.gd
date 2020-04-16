@@ -1,10 +1,8 @@
 extends Node
 
-
-onready var path = $Path2D
-onready var path_follow = $Path2D/PathFollow2D
-onready var tween = $Tween
 onready var slingshot = get_node("../Slingshot")
+
+signal level_finished
 
 
 func _ready():
@@ -14,6 +12,8 @@ func _ready():
 func load_projectile():
 	var proj = get_child(0)
 	if proj == null or !(proj is Projectile):
+		yield(get_tree().create_timer(3), "timeout")
+		emit_signal("level_finished")
 		return
 	# reparent
 	$Proxy.position = proj.position

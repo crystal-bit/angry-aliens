@@ -8,6 +8,7 @@ export var debug_move_with_wasd = true
 var speed = 500
 var clamping = true
 
+
 func _ready():
 	set_zoom(zoom)
 	set_process(debug_move_with_wasd)
@@ -30,7 +31,7 @@ func _process(delta):
 
 func set_zoom(val):
 	zoom = val
-	if $Camera2D:
+	if find_node("Camera2D"):
 		$Camera2D.set_zoom(Vector2(val, val))
 
 

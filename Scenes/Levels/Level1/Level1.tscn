@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://Objects/Obstacles/WoodObstacle/WoodObstacle1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/graphics/kenney_physicsAssets_v2/Spritesheet/spritesheet_tiles.png" type="Texture" id=2]
@@ -22,6 +22,7 @@
 [ext_resource path="res://Scenes/Levels/Level1/ProjectilesLoader.gd" type="Script" id=20]
 [ext_resource path="res://Assets/graphics/kenney2/icons/stop.png" type="Texture" id=21]
 [ext_resource path="res://Scenes/Levels/Level1/GUI.gd" type="Script" id=22]
+[ext_resource path="res://Scenes/LevelCompleted/LevelCompleted.tscn" type="PackedScene" id=23]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 70, 70, 0, 70, 0, 0, 70, 0 )
@@ -211,6 +212,35 @@ position = Vector2( 121, 166 )
 slingshot_elastic_force = 30
 max_distance = 100
 
+[node name="CameraFocus" type="Node2D" parent="."]
+position = Vector2( 729.034, 210 )
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_group_": true
+}
+zoom = 2.0
+
+[node name="Camera2D" type="Camera2D" parent="CameraFocus"]
+current = true
+limit_left = -600
+limit_top = -600
+limit_right = 2300
+limit_bottom = 850
+smoothing_enabled = true
+editor_draw_screen = false
+editor_draw_limits = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="debug" type="Sprite" parent="CameraFocus"]
+visible = false
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
+
 [node name="ProjectilesLoader" type="Node" parent="."]
 script = ExtResource( 20 )
 
@@ -284,37 +314,12 @@ centered = false
 region_enabled = true
 region_rect = Rect2( 9, 10, 32, 32 )
 
-[node name="CameraFocus" type="Node2D" parent="."]
-position = Vector2( 729.034, 210 )
-script = ExtResource( 9 )
-__meta__ = {
-"_edit_group_": true
-}
-zoom = 2.0
+[node name="GameEndScreen" type="CanvasLayer" parent="."]
 
-[node name="Camera2D" type="Camera2D" parent="CameraFocus"]
-current = true
-zoom = Vector2( 1.853, 1.853 )
-limit_left = -600
-limit_top = -600
-limit_right = 2300
-limit_bottom = 850
-smoothing_enabled = true
-editor_draw_screen = false
-editor_draw_limits = true
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="debug" type="Sprite" parent="CameraFocus"]
-visible = false
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 4 )
-__meta__ = {
-"_edit_lock_": true
-}
+[node name="LevelCompleted" parent="GameEndScreen" instance=ExtResource( 23 )]
 [connection signal="enemy_destroyed" from="Enemies" to="Scores" method="_on_Enemies_enemy_destroyed"]
 [connection signal="projectile_launched" from="Slingshot" to="ProjectilesLoader" method="_on_Slingshot_projectile_launched"]
 [connection signal="projectile_launched" from="Slingshot" to="ParticlesManager" method="_on_Slingshot_projectile_launched"]
+[connection signal="level_finished" from="ProjectilesLoader" to="." method="_on_ProjectilesLoader_level_finished"]
 [connection signal="points_gained" from="Scores" to="GUI" method="_on_Scores_points_gained"]
 [connection signal="released" from="GUI/TouchScreenButton" to="." method="_on_TouchScreenButton_released"]

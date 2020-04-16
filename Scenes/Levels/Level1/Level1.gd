@@ -2,6 +2,8 @@ extends Node2D
 
 
 onready var vfx_manager = $ParticlesManager
+onready var score = $GUI/Score
+onready var level_completed = $GameEndScreen/LevelCompleted
 
 
 func _ready():
@@ -11,3 +13,8 @@ func _ready():
 
 func _on_TouchScreenButton_released():
 	get_tree().reload_current_scene()
+
+
+func _on_ProjectilesLoader_level_finished():
+	level_completed.appear(score.score_value)
+
