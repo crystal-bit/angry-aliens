@@ -9,5 +9,5 @@ func _ready():
 		projectile.connect("body_entered", vfx_manager, "_on_Projectile_body_entered", [projectile])
 
 
-func _on_ReloadSceneBtn_pressed():
+func _on_TouchScreenButton_released():
 	get_tree().reload_current_scene()

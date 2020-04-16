@@ -5,7 +5,10 @@ hits obstacles or enemies. """
 
 export(PackedScene) var score_scene
 
+signal points_gained
+
 var angle_randomness = 30
+
 
 func _ready():
 	pass
@@ -18,8 +21,8 @@ func _on_Enemies_enemy_destroyed(enemy):
 	score_node.global_position = enemy.global_position
 	score_node.score_value = 500 + randi() % 1000
 	score_node.show()
+	emit_signal("points_gained", score_node.score_value)
 	score_node.connect("score_hidden", self, "_on_score_hidden_remove_score")
-
 
 
 func _create_score():

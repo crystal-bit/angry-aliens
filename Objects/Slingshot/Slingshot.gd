@@ -28,7 +28,6 @@ var state = States.IDLE
 
 func _ready():
 	elastic_control_point.position = rest_position.position
-	$InputArea.show()
 	if projectile:
 		projectile.mode = RigidBody2D.MODE_KINEMATIC
 		projectile.global_position = rest_position.global_position

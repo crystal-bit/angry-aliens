@@ -11,6 +11,10 @@ var touch = false
 onready var rest_position = get_parent().get_node("RestPosition")
 
 
+func _ready():
+	visible = true
+
+
 func _input(event):
 	if event is InputEventScreenTouch:
 		if not event.is_pressed():

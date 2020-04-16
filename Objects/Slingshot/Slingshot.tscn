@@ -20,7 +20,7 @@ func set_rest_position():
 "
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 55.4932
+radius = 143.794
 
 [node name="Slingshot" type="Node2D"]
 script = ExtResource( 5 )
@@ -120,6 +120,7 @@ __meta__ = {
 shape = SubResource( 2 )
 
 [node name="TrajectoryDrawer" parent="." instance=ExtResource( 6 )]
+visible = false
 [connection signal="input_event" from="InputArea" to="InputArea" method="_on_InputArea_input_event"]
 [connection signal="slingshot_grabbed" from="InputArea" to="." method="_on_InputArea_slingshot_grabbed"]
 [connection signal="slingshot_moved" from="InputArea" to="." method="_on_InputArea_slingshot_moved"]

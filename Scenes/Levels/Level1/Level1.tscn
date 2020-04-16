@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Objects/Obstacles/WoodObstacle/WoodObstacle1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/graphics/kenney_physicsAssets_v2/Spritesheet/spritesheet_tiles.png" type="Texture" id=2]
@@ -6,7 +6,7 @@
 [ext_resource path="res://icon.png" type="Texture" id=4]
 [ext_resource path="res://Assets/graphics/kenney_physicsAssets_v2/PNG/Backgrounds/blue_desert.png" type="Texture" id=5]
 [ext_resource path="res://Objects/Enemy/Enemy.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Objects/Debug/DebugOptions.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Assets/graphics/kenney2/icons/return.png" type="Texture" id=7]
 [ext_resource path="res://Objects/Slingshot/Slingshot.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Levels/Level1/CameraFocus.gd" type="Script" id=9]
 [ext_resource path="res://Scenes/Levels/Level1/Level1.gd" type="Script" id=10]
@@ -20,6 +20,8 @@
 [ext_resource path="res://Objects/Scores/Scores.gd" type="Script" id=18]
 [ext_resource path="res://Objects/Score/Score.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Scenes/Levels/Level1/ProjectilesLoader.gd" type="Script" id=20]
+[ext_resource path="res://Assets/graphics/kenney2/icons/stop.png" type="Texture" id=21]
+[ext_resource path="res://Scenes/Levels/Level1/GUI.gd" type="Script" id=22]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 70, 70, 0, 70, 0, 0, 70, 0 )
@@ -255,25 +257,35 @@ debris_scene = ExtResource( 16 )
 script = ExtResource( 18 )
 score_scene = ExtResource( 19 )
 
-[node name="Score" parent="Scores" instance=ExtResource( 19 )]
+[node name="GUI" type="CanvasLayer" parent="."]
+script = ExtResource( 22 )
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="Score" parent="GUI" instance=ExtResource( 19 )]
+position = Vector2( 848, 40 )
+scale = Vector2( 0.4, 0.4 )
+grow_direction = "left"
+score_value = 100
 
-[node name="DebugOptions" parent="CanvasLayer" instance=ExtResource( 7 )]
-visible = false
-
-[node name="ReloadSceneBtn" type="Button" parent="CanvasLayer"]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -88.0
-margin_bottom = 40.0
-text = "RELOAD"
+[node name="TouchScreenButton" type="TouchScreenButton" parent="GUI"]
+position = Vector2( 32, 32 )
+scale = Vector2( 0.6, 0.6 )
+normal = ExtResource( 7 )
 __meta__ = {
-"_edit_use_anchors_": false
+"_edit_group_": true
 }
 
+[node name="bg" type="Sprite" parent="GUI/TouchScreenButton"]
+modulate = Color( 0.235294, 0.235294, 0.235294, 1 )
+show_behind_parent = true
+position = Vector2( -8, -8 )
+scale = Vector2( 2.25, 2.25 )
+texture = ExtResource( 21 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 9, 10, 32, 32 )
+
 [node name="CameraFocus" type="Node2D" parent="."]
-position = Vector2( 729.034, 282 )
+position = Vector2( 729.034, 210 )
 script = ExtResource( 9 )
 __meta__ = {
 "_edit_group_": true
@@ -302,6 +314,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 [connection signal="enemy_destroyed" from="Enemies" to="Scores" method="_on_Enemies_enemy_destroyed"]
-[connection signal="projectile_launched" from="Slingshot" to="ParticlesManager" method="_on_Slingshot_projectile_launched"]
 [connection signal="projectile_launched" from="Slingshot" to="ProjectilesLoader" method="_on_Slingshot_projectile_launched"]
-[connection signal="pressed" from="CanvasLayer/ReloadSceneBtn" to="." method="_on_ReloadSceneBtn_pressed"]
+[connection signal="projectile_launched" from="Slingshot" to="ParticlesManager" method="_on_Slingshot_projectile_launched"]
+[connection signal="points_gained" from="Scores" to="GUI" method="_on_Scores_points_gained"]
+[connection signal="released" from="GUI/TouchScreenButton" to="." method="_on_TouchScreenButton_released"]
