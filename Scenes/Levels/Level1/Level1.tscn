@@ -173,39 +173,39 @@ centered = false
 script = ExtResource( 17 )
 
 [node name="Enemy" parent="Enemies" instance=ExtResource( 6 )]
-position = Vector2( 734, 378 )
+position = Vector2( 1164.97, 378 )
 
 [node name="Enemy2" parent="Enemies" instance=ExtResource( 6 )]
-position = Vector2( 966, 378 )
+position = Vector2( 1396.97, 378 )
 
 [node name="Enemy3" parent="Enemies" instance=ExtResource( 6 )]
-position = Vector2( 1410, 373 )
+position = Vector2( 1840.97, 373 )
 
 [node name="Obstacles" type="Node" parent="."]
 script = ExtResource( 12 )
 particles_manager_path = NodePath("../ParticlesManager")
 
 [node name="StoneObstacle1" parent="Obstacles" instance=ExtResource( 11 )]
-position = Vector2( 1083, 306 )
+position = Vector2( 1513.97, 306 )
 
 [node name="StoneObstacle2" parent="Obstacles" instance=ExtResource( 11 )]
-position = Vector2( 860, 309 )
+position = Vector2( 1290.97, 309 )
 
 [node name="StoneObstacle3" parent="Obstacles" instance=ExtResource( 11 )]
-position = Vector2( 969, 162 )
+position = Vector2( 1399.97, 162 )
 rotation = 1.57079
 
 [node name="WoodObstacle1" parent="Obstacles" instance=ExtResource( 1 )]
-position = Vector2( 1007, 85 )
+position = Vector2( 1437.97, 85 )
 
 [node name="WoodObstacle2" parent="Obstacles" instance=ExtResource( 1 )]
-position = Vector2( 929, 85 )
+position = Vector2( 1359.97, 85 )
 
 [node name="WoodObstacle3" parent="Obstacles" instance=ExtResource( 1 )]
-position = Vector2( 1268, 370 )
+position = Vector2( 1698.97, 370 )
 
 [node name="WoodObstacle4" parent="Obstacles" instance=ExtResource( 1 )]
-position = Vector2( 1268, 280 )
+position = Vector2( 1698.97, 280 )
 
 [node name="Slingshot" parent="." instance=ExtResource( 8 )]
 position = Vector2( 121, 166 )
@@ -213,12 +213,13 @@ slingshot_elastic_force = 30
 max_distance = 100
 
 [node name="CameraFocus" type="Node2D" parent="."]
-position = Vector2( 729.034, 210 )
+position = Vector2( 1160, 210 )
 script = ExtResource( 9 )
 __meta__ = {
 "_edit_group_": true
 }
 zoom = 2.0
+debug_move_with_wasd = false
 
 [node name="Camera2D" type="Camera2D" parent="CameraFocus"]
 current = true
@@ -226,7 +227,6 @@ limit_left = -600
 limit_top = -600
 limit_right = 2300
 limit_bottom = 850
-smoothing_enabled = true
 editor_draw_screen = false
 editor_draw_limits = true
 __meta__ = {
@@ -294,7 +294,7 @@ score_scene = ExtResource( 19 )
 script = ExtResource( 22 )
 
 [node name="Score" parent="GUI" instance=ExtResource( 19 )]
-position = Vector2( 848, 40 )
+position = Vector2( 1278.97, 40 )
 scale = Vector2( 0.4, 0.4 )
 grow_direction = "left"
 score_value = 100
