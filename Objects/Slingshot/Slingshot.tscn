@@ -122,6 +122,5 @@ shape = SubResource( 2 )
 [node name="TrajectoryDrawer" parent="." instance=ExtResource( 6 )]
 visible = false
 [connection signal="input_event" from="InputArea" to="InputArea" method="_on_InputArea_input_event"]
-[connection signal="slingshot_grabbed" from="InputArea" to="." method="_on_InputArea_slingshot_grabbed"]
 [connection signal="slingshot_moved" from="InputArea" to="." method="_on_InputArea_slingshot_moved"]
 [connection signal="slingshot_released" from="InputArea" to="." method="_on_InputArea_slingshot_released"]
