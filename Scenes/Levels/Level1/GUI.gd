@@ -11,4 +11,4 @@ func _ready():
 
 func _on_Scores_points_gained(new_points):
 	$Score.increase(new_points)
-	$Score.show()
+	$Score.appear_animation()

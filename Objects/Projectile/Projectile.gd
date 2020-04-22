@@ -9,6 +9,8 @@ enum STATES {
 	LAUNCHED # stopped after being launched
 }
 
+onready var trail: CPUParticles2D = $Trail
+
 var state = STATES.IDLE
 
 
@@ -26,10 +28,15 @@ func apply_impulse(offset: Vector2, impulse: Vector2):
 
 
 func _physics_process(delta):
+	trail.emitting = false
 	match state:
 		STATES.IDLE:
 			pass
 		STATES.MOVING:
+			trail.emitting = true
+			trail.initial_velocity = linear_velocity.length() / 10
+			trail.direction = -linear_velocity.normalized()
+			trail.rotation = -rotation
 			_moving_process()
 		STATES.LAUNCHED:
 			pass

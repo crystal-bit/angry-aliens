@@ -8,5 +8,14 @@ script = ExtResource( 1 )
 __meta__ = {
 "_editor_description_": "Don't edit children. They will be generated automatically."
 }
-score_value = 2500
+score_value = 200
 distance = 10
+
+[node name="Sprites" type="Node2D" parent="."]
+__meta__ = {
+"_edit_lock_": true,
+"_editor_description_": "Sprites container. 
+Don't delete this node."
+}
+
+[node name="Tween" type="Tween" parent="."]

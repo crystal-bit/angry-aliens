@@ -272,7 +272,10 @@ contact_monitor = true
 sleeping = true
 
 [node name="Proxy" type="Node2D" parent="ProjectilesLoader"]
-position = Vector2( 184, 201 )
+position = Vector2( 75, 383 )
+__meta__ = {
+"_editor_description_": "Fake projectile node used to create the load animation with the AnimationPlayer "
+}
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ProjectilesLoader"]
 anims/load_projectile = SubResource( 7 )
@@ -318,8 +321,8 @@ region_rect = Rect2( 9, 10, 32, 32 )
 
 [node name="LevelCompleted" parent="GameEndScreen" instance=ExtResource( 23 )]
 [connection signal="enemy_destroyed" from="Enemies" to="Scores" method="_on_Enemies_enemy_destroyed"]
-[connection signal="projectile_launched" from="Slingshot" to="ProjectilesLoader" method="_on_Slingshot_projectile_launched"]
 [connection signal="projectile_launched" from="Slingshot" to="ParticlesManager" method="_on_Slingshot_projectile_launched"]
+[connection signal="projectile_launched" from="Slingshot" to="ProjectilesLoader" method="_on_Slingshot_projectile_launched"]
 [connection signal="level_finished" from="ProjectilesLoader" to="." method="_on_ProjectilesLoader_level_finished"]
 [connection signal="points_gained" from="Scores" to="GUI" method="_on_Scores_points_gained"]
 [connection signal="released" from="GUI/TouchScreenButton" to="." method="_on_TouchScreenButton_released"]

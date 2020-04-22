@@ -41,8 +41,6 @@ func _on_Projectile_body_entered(body, projectile: RigidBody2D):
 	var speed = projectile.linear_velocity.length()
 	if speed > 50:
 		spawn_dust_particles(projectile.global_position, 1 + floor(speed / 100))
-#	if body is RigidBody2D:
-#		pass
 
 
 func _on_Slingshot_projectile_launched(projectile: RigidBody2D):
