@@ -1,16 +1,19 @@
 extends Control
 
 onready var score = $NinePatchRect/ScoreWrapper/Score
+onready var retry_button = $NinePatchRect/RetryButtonWrapper/RetryButton
 
 
 func _ready():
-	$ColorRect.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	#appear(2300)
+	pass
 
 
 func appear(final_score: int):
 	score.score_value = final_score
 	$AnimationPlayer.play("show")
+	yield($AnimationPlayer, "animation_finished")
+	# activate button
+	retry_button.connect("released", self,  "_on_Retry_released")
 
 
 func _animate_score():
