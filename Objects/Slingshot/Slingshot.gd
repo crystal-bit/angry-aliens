@@ -1,7 +1,7 @@
 extends Node2D
 
 # signals
-signal projectile_launched
+signal projectile_launched(projectile)
 # exported vars
 export var slingshot_elastic_force = 20
 export(int) var max_distance = 200 # max distance from rest position

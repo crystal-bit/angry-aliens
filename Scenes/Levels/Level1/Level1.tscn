@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://Objects/Obstacles/WoodObstacle/WoodObstacle1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/graphics/kenney_physicsAssets_v2/Spritesheet/spritesheet_tiles.png" type="Texture" id=2]
@@ -106,6 +106,12 @@ colors = PoolColorArray( 0.604401, 0.886636, 0.910156, 1, 0.815686, 0.956863, 0.
 [sub_resource type="GradientTexture" id=6]
 gradient = SubResource( 5 )
 
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 10, 726 )
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 2000, 10 )
+
 [sub_resource type="Animation" id=7]
 resource_name = "load_projectile"
 tracks/0/type = "value"
@@ -169,6 +175,33 @@ scale = Vector2( 0.227524, 3069.7 )
 texture = SubResource( 6 )
 centered = false
 
+[node name="LeftLimit" type="StaticBody2D" parent="TileMap"]
+position = Vector2( -824, -176 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/LeftLimit"]
+shape = SubResource( 8 )
+
+[node name="RightLimit" type="StaticBody2D" parent="TileMap"]
+position = Vector2( 2584, -176 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/RightLimit"]
+shape = SubResource( 8 )
+
+[node name="BottomLimit" type="StaticBody2D" parent="TileMap"]
+position = Vector2( 1000, 536 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/BottomLimit"]
+shape = SubResource( 9 )
+
 [node name="Enemies" type="Node" parent="."]
 script = ExtResource( 17 )
 
@@ -213,7 +246,7 @@ slingshot_elastic_force = 30
 max_distance = 100
 
 [node name="CameraFocus" type="Node2D" parent="."]
-position = Vector2( 1160, 210 )
+position = Vector2( 848, 210 )
 script = ExtResource( 9 )
 __meta__ = {
 "_edit_group_": true
@@ -227,6 +260,9 @@ limit_left = -600
 limit_top = -600
 limit_right = 2300
 limit_bottom = 850
+limit_smoothed = true
+smoothing_enabled = true
+smoothing_speed = 2.0
 editor_draw_screen = false
 editor_draw_limits = true
 __meta__ = {
@@ -240,6 +276,8 @@ texture = ExtResource( 4 )
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="Tween" type="Tween" parent="CameraFocus"]
 
 [node name="ProjectilesLoader" type="Node" parent="."]
 script = ExtResource( 20 )
@@ -321,8 +359,9 @@ region_rect = Rect2( 9, 10, 32, 32 )
 
 [node name="LevelCompleted" parent="GameEndScreen" instance=ExtResource( 23 )]
 [connection signal="enemy_destroyed" from="Enemies" to="Scores" method="_on_Enemies_enemy_destroyed"]
-[connection signal="projectile_launched" from="Slingshot" to="ParticlesManager" method="_on_Slingshot_projectile_launched"]
 [connection signal="projectile_launched" from="Slingshot" to="ProjectilesLoader" method="_on_Slingshot_projectile_launched"]
+[connection signal="projectile_launched" from="Slingshot" to="ParticlesManager" method="_on_Slingshot_projectile_launched"]
+[connection signal="projectile_launched" from="Slingshot" to="CameraFocus" method="_on_Slingshot_projectile_launched"]
 [connection signal="level_finished" from="ProjectilesLoader" to="." method="_on_ProjectilesLoader_level_finished"]
 [connection signal="points_gained" from="Scores" to="GUI" method="_on_Scores_points_gained"]
 [connection signal="released" from="GUI/TouchScreenButton" to="." method="_on_TouchScreenButton_released"]
