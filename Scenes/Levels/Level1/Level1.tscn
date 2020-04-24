@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Objects/Obstacles/WoodObstacle/WoodObstacle1.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/graphics/kenney_physicsAssets_v2/Spritesheet/spritesheet_tiles.png" type="Texture" id=2]
@@ -24,6 +24,7 @@
 [ext_resource path="res://Scenes/Levels/Level1/GUI.gd" type="Script" id=22]
 [ext_resource path="res://Scenes/LevelCompleted/LevelCompleted.tscn" type="PackedScene" id=23]
 [ext_resource path="res://Assets/title.png" type="Texture" id=24]
+[ext_resource path="res://Scenes/Levels/Level1/ScoresPool.gd" type="Script" id=25]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 70, 70, 0, 70, 0, 0, 70, 0 )
@@ -272,6 +273,7 @@ debug_move_with_wasd = false
 
 [node name="Camera2D" type="Camera2D" parent="CameraFocus"]
 current = true
+process_mode = 0
 limit_left = -600
 limit_top = -600
 limit_right = 2300
@@ -305,7 +307,6 @@ position = Vector2( 75, 383 )
 mode = 3
 contacts_reported = 1
 contact_monitor = true
-sleeping = true
 
 [node name="Projectile2" parent="ProjectilesLoader" groups=[
 "projectile",
@@ -314,7 +315,6 @@ position = Vector2( -7, 384 )
 mode = 3
 contacts_reported = 1
 contact_monitor = true
-sleeping = true
 
 [node name="Projectile" parent="ProjectilesLoader" groups=[
 "projectile",
@@ -323,7 +323,6 @@ position = Vector2( -89, 383 )
 mode = 3
 contacts_reported = 1
 contact_monitor = true
-sleeping = true
 
 [node name="Proxy" type="Node2D" parent="ProjectilesLoader"]
 position = Vector2( 75, 383 )
@@ -354,7 +353,10 @@ debris_scene = ExtResource( 16 )
 
 [node name="Scores" type="Node" parent="."]
 script = ExtResource( 18 )
-score_scene = ExtResource( 19 )
+
+[node name="ScoresPool" type="Node" parent="Scores"]
+script = ExtResource( 25 )
+object_scene = ExtResource( 19 )
 
 [node name="GUI" type="CanvasLayer" parent="."]
 script = ExtResource( 22 )
@@ -384,7 +386,6 @@ region_enabled = true
 region_rect = Rect2( 9, 10, 32, 32 )
 
 [node name="Overlay" type="ColorRect" parent="GUI"]
-modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
@@ -395,7 +396,6 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="GUI/Overlay"]
 autoplay = "fadein"
-playback_speed = 4.0
 anims/fadein = SubResource( 10 )
 
 [node name="TextureRect" type="TextureRect" parent="GUI/Overlay"]
@@ -416,8 +416,8 @@ __meta__ = {
 
 [node name="LevelCompleted" parent="GameEndScreen" instance=ExtResource( 23 )]
 [connection signal="enemy_destroyed" from="Enemies" to="Scores" method="_on_Enemies_enemy_destroyed"]
-[connection signal="projectile_launched" from="Slingshot" to="ProjectilesLoader" method="_on_Slingshot_projectile_launched"]
 [connection signal="projectile_launched" from="Slingshot" to="ParticlesManager" method="_on_Slingshot_projectile_launched"]
+[connection signal="projectile_launched" from="Slingshot" to="ProjectilesLoader" method="_on_Slingshot_projectile_launched"]
 [connection signal="projectile_launched" from="Slingshot" to="CameraFocus" method="_on_Slingshot_projectile_launched"]
 [connection signal="level_finished" from="ProjectilesLoader" to="." method="_on_ProjectilesLoader_level_finished"]
 [connection signal="points_gained" from="Scores" to="GUI" method="_on_Scores_points_gained"]

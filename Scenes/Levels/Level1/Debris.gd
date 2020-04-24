@@ -37,7 +37,7 @@ func spawn_dust_particles(gpos, amount):
 		dust = create_dust()
 	else:
 		pool.dust.remove_child(dust)
-	dust.visible = true
+	dust.z_index = 0
 	dust.amount = amount
 	dust.emitting = true
 	dust.global_position = gpos
@@ -52,7 +52,7 @@ func spawn_debris(gpos, obstacle, auto_emit = true):
 		debris = create_debris()
 	else:
 		pool.debris.remove_child(debris)
-	debris.visible = true
+	debris.z_index = 0
 	debris.texture = obstacle.get_debris_texture()
 	debris.emitting = true
 	debris.global_position = gpos
@@ -66,7 +66,7 @@ func spawn_explosion(gpos):
 		explosion = create_explosion()
 	else:
 		pool.explosions.remove_child(explosion)
-	explosion.visible = true
+	explosion.z_index = 0
 	explosion.play()
 	explosion.global_position = gpos
 	_explosions.add_child(explosion)
@@ -74,20 +74,22 @@ func spawn_explosion(gpos):
 
 func create_dust():
 	var dust = dust_scene.instance()
-#	dust.visible = false
+	dust.emitting = true
+	dust.z_index = -999
 	return dust
 
 
 func create_debris():
 	var debris: Particles2D = debris_scene.instance()
 	debris.amount = 4 + randi() % 2
-#	debris.visible = false
+	debris.emitting = true
+	debris.z_index = -999
 	return debris
 
 
 func create_explosion():
 	var explosion = explosion_scene.instance()
-#	explosion.visible = false
+	explosion.z_index = -999
 	return explosion
 
 
@@ -99,7 +101,7 @@ func check_unused_objs():
 			counter += 1
 			_debris.remove_child(d)
 			pool.debris.add_child(d)
-	print("Pool: pooled ", counter, " Debris objects.")
+#	print("Pool: pooled ", counter, " Debris objects.")
 	# dust
 	counter = 0
 	for d in _dust.get_children():
@@ -107,17 +109,16 @@ func check_unused_objs():
 			counter += 1
 			_dust.remove_child(d)
 			pool.dust.add_child(d)
-	print("Pool: pooled ", counter, " Dust objects.")
+#	print("Pool: pooled ", counter, " Dust objects.")
 	# explosions
 	counter = 0
 	for e in _explosions.get_children():
-		print(e.playing)
-		if e.playing == false:
+		if e.playing == false and !e.tween.is_active():
 			counter += 1
 			_explosions.remove_child(e)
 			pool.explosions.add_child(e)
-	print("Pool: pooled ", counter, " Explosions objects.")
-	print("---")
+#	print("Pool: pooled ", counter, " Explosions objects.")
+#	print("---")
 
 
 func _on_Obstacle_hit(obstacle, global_pos, was_destroyed):

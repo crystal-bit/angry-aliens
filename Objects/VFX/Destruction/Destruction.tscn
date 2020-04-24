@@ -16,9 +16,11 @@ animations = [ {
 } ]
 
 [node name="AnimatedSprite" type="AnimatedSprite"]
-modulate = Color( 1, 1, 1, 0.67451 )
+modulate = Color( 1, 1, 1, 0.815686 )
 self_modulate = Color( 7, 7, 7, 1 )
 frames = SubResource( 1 )
 animation = "explode"
 script = ExtResource( 6 )
+
+[node name="Tween" type="Tween" parent="."]
 [connection signal="animation_finished" from="." to="." method="_on_AnimatedSprite_animation_finished"]

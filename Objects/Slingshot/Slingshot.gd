@@ -107,10 +107,6 @@ func launch(launch_impulse: Vector2):
 	projectile = null
 
 
-func _on_InputArea_slingshot_AIMING():
-	pass
-
-
 func _on_InputArea_slingshot_released():
 	if state == States.AIMING:
 		set_physics_process(true)

@@ -1,4 +1,4 @@
-extends Node2D
+extends PoolableNode2D
 #tool
 
 signal score_hidden
@@ -11,6 +11,7 @@ onready var sprites = $Sprites # sprites container
 onready var increase_tween = $Tween
 
 var inited = false
+
 
 func _ready():
 	inited = true
@@ -77,6 +78,7 @@ func show():
 		"modulate:a", 1, 0, 0.5, Tween.TRANS_EXPO, Tween.EASE_IN, 0.7)
 	tween.start()
 	yield(tween, "tween_completed")
+	can_be_pooled = true
 	emit_signal("score_hidden", self)
 
 

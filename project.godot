@@ -9,10 +9,20 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node",
+"class": "Node2DPool",
+"language": "GDScript",
+"path": "res://Scenes/Levels/Level1/ScoresPool.gd"
+}, {
 "base": "RigidBody2D",
 "class": "Obstacle",
 "language": "GDScript",
 "path": "res://Objects/Obstacles/Obstacle.gd"
+}, {
+"base": "Node2D",
+"class": "PoolableNode2D",
+"language": "GDScript",
+"path": "res://Objects/Pool/PoolableNode2D.gd"
 }, {
 "base": "RigidBody2D",
 "class": "Projectile",
@@ -25,7 +35,9 @@ _global_script_classes=[ {
 "path": "res://Objects/Obstacles/StoneObstacle/StoneObstacle1.gd"
 } ]
 _global_script_class_icons={
+"Node2DPool": "",
 "Obstacle": "",
+"PoolableNode2D": "",
 "Projectile": "",
 "StoneObstacle": ""
 }
