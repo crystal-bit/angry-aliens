@@ -13,7 +13,7 @@
 [ext_resource path="res://Objects/Obstacles/StoneObstacle/StoneObstacle1.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scenes/Levels/Level1/Obstacles.gd" type="Script" id=12]
 [ext_resource path="res://Objects/VFX/Dust/Dust.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Scenes/Levels/Level1/Debris.gd" type="Script" id=14]
+[ext_resource path="res://Scenes/Levels/Level1/ParticlesManager.gd" type="Script" id=14]
 [ext_resource path="res://Objects/VFX/Destruction/Destruction.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Objects/VFX/Debris/Debris.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Scenes/Levels/Level1/Enemies.gd" type="Script" id=17]
@@ -24,7 +24,7 @@
 [ext_resource path="res://Scenes/Levels/Level1/GUI.gd" type="Script" id=22]
 [ext_resource path="res://Scenes/LevelCompleted/LevelCompleted.tscn" type="PackedScene" id=23]
 [ext_resource path="res://Assets/title.png" type="Texture" id=24]
-[ext_resource path="res://Scenes/Levels/Level1/ScoresPool.gd" type="Script" id=25]
+[ext_resource path="res://Objects/Pool/Node2DPool.gd" type="Script" id=25]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 70, 70, 0, 70, 0, 0, 70, 0 )

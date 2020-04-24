@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "Node2DPool",
 "language": "GDScript",
-"path": "res://Scenes/Levels/Level1/ScoresPool.gd"
+"path": "res://Objects/Pool/Node2DPool.gd"
 }, {
 "base": "RigidBody2D",
 "class": "Obstacle",
