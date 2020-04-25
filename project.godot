@@ -48,6 +48,10 @@ config/name="Angry Aliens"
 run/main_scene="res://Scenes/Main.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Globals="*res://Globals/Globals.gd"
+
 [display]
 
 window/size/width=950

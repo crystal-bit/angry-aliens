@@ -1,0 +1,9 @@
+[gd_scene format=2]
+
+[node name="ColorRect" type="ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.815686, 0.956863, 0.968627, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

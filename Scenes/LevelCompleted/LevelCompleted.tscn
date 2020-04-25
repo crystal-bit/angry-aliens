@@ -204,7 +204,7 @@ __meta__ = {
 }
 
 [node name="LevelCleared" type="Label" parent="NinePatchRect"]
-modulate = Color( 1, 1, 1, 3.97364e-07 )
+modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -102.0
@@ -261,7 +261,6 @@ anchor_right = 0.5
 anchor_bottom = 1.0
 margin_top = -144.0
 margin_bottom = -144.0
-rect_scale = Vector2( 1, 1e-05 )
 script = ExtResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -293,7 +292,6 @@ anchor_right = 0.5
 anchor_bottom = 1.0
 margin_top = -76.0
 margin_bottom = -76.0
-rect_scale = Vector2( 1, 0.997529 )
 script = ExtResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": false

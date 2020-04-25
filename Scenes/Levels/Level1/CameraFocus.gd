@@ -17,7 +17,6 @@ var zoom_default
 var focus_default_position # global
 
 
-
 func _ready():
 	set_zoom(zoom)
 	focus_default_position = self.global_position

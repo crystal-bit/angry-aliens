@@ -49,10 +49,8 @@ func get_instance():
 
 
 func check_unused_objs():
-	var counter = 0
 	for obj in active_objs.get_children():
 		if obj.can_be_pooled:
-			counter += 1
 			# move object to inactive pool
 			active_objs.remove_child(obj)
 			inactive_objs.add_child(obj)
