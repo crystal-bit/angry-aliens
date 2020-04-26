@@ -220,21 +220,25 @@ particles_manager_path = NodePath("../ParticlesManager")
 
 [node name="StoneObstacle1" parent="Obstacles" instance=ExtResource( 11 )]
 position = Vector2( 1513.97, 306 )
+mass = 10.0
+breaking_point = 200
 
 [node name="StoneObstacle4" parent="Obstacles" instance=ExtResource( 11 )]
 position = Vector2( 1468, 17 )
-mass = 50.0
+mass = 10.0
 
 [node name="StoneObstacle5" parent="Obstacles" instance=ExtResource( 11 )]
 position = Vector2( 1466, -213 )
-mass = 50.0
+mass = 10.0
 
 [node name="StoneObstacle2" parent="Obstacles" instance=ExtResource( 11 )]
 position = Vector2( 1290.97, 309 )
+mass = 10.0
 
 [node name="StoneObstacle3" parent="Obstacles" instance=ExtResource( 11 )]
 position = Vector2( 1399.97, 162 )
 rotation = 1.57079
+mass = 10.0
 
 [node name="WoodObstacle1" parent="Obstacles" instance=ExtResource( 1 )]
 position = Vector2( 1687, 199 )
@@ -279,6 +283,7 @@ __meta__ = {
 }
 
 [node name="debug" type="Sprite" parent="CameraFocus"]
+visible = false
 modulate = Color( 1, 0, 0, 1 )
 scale = Vector2( 0.5, 0.5 )
 z_index = 3

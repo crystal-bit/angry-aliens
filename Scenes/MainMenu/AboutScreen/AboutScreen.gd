@@ -17,4 +17,4 @@ func _on_Github_pressed():
 
 
 func _on_Back_pressed():
-	Globals.main_scene.load_scene("res://Scenes/MainMenu/MainMenu.tscn")
+	Globals.goto_scene("res://Scenes/MainMenu/MainMenu.tscn")

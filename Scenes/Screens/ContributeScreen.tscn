@@ -1,24 +1,28 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenes/MainMenu/BackgroundColorRect.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Assets/graphics/kenney2/gui/panel.png" type="Texture" id=2]
-[ext_resource path="res://Objects/GUI/Label/Label.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/MainMenu/AboutScreen/AboutScreen.gd" type="Script" id=5]
-[ext_resource path="res://Objects/GUI/Button1/Button.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Objects/GUI/Button1/Button.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/fonts/Kenney Bold.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Scenes/Screens/ContributeScreen.gd" type="Script" id=4]
+[ext_resource path="res://Objects/GUI/Label/Label.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/graphics/kenney2/gui/panel.png" type="Texture" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 3 )
 
 [node name="ColorRect" instance=ExtResource( 1 )]
-script = ExtResource( 5 )
+script = ExtResource( 4 )
 
 [node name="NinePatchRect" type="NinePatchRect" parent="." index="0"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -242.0
-margin_top = -214.0
-margin_right = 242.0
-margin_bottom = 214.0
-texture = ExtResource( 2 )
+margin_left = -224.5
+margin_top = -227.0
+margin_right = 224.5
+margin_bottom = 227.0
+texture = ExtResource( 6 )
 patch_margin_left = 17
 patch_margin_top = 16
 patch_margin_right = 15
@@ -41,58 +45,61 @@ __meta__ = {
 [node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect/MarginContainer" index="0"]
 margin_left = 20.0
 margin_top = 20.0
-margin_right = 464.0
-margin_bottom = 408.0
+margin_right = 429.0
+margin_bottom = 436.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" parent="NinePatchRect/MarginContainer/VBoxContainer" index="0" instance=ExtResource( 4 )]
+[node name="Label" parent="NinePatchRect/MarginContainer/VBoxContainer" index="0" instance=ExtResource( 5 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 444.0
-margin_bottom = 132.0
+margin_right = 409.0
+margin_bottom = 240.0
+custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.368627, 0.47451, 0.556863, 1 )
-text = "ANGRY ALIIENS  is open source!
+text = "Sorry, there are no other levels but...
 
-Check it out on github.
+...this game is open source! 
+You can create new levels!
 
-Leave a STAR, if you like it."
-align = 0
+go on github and support the development!
+"
 autowrap = true
 
 [node name="Control" type="Control" parent="NinePatchRect/MarginContainer/VBoxContainer" index="1"]
-margin_top = 136.0
-margin_right = 444.0
-margin_bottom = 216.0
+margin_top = 244.0
+margin_right = 409.0
+margin_bottom = 244.0
 size_flags_vertical = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Github" parent="NinePatchRect/MarginContainer/VBoxContainer" index="2" instance=ExtResource( 6 )]
-margin_left = 101.0
-margin_top = 220.0
-margin_right = 341.0
-margin_bottom = 290.0
+[node name="Github" parent="NinePatchRect/MarginContainer/VBoxContainer" index="2" instance=ExtResource( 2 )]
+margin_left = 84.0
+margin_top = 248.0
+margin_right = 324.0
+margin_bottom = 318.0
 size_flags_horizontal = 4
 size_flags_vertical = 0
 text = "GITHUB"
 
 [node name="Control2" type="Control" parent="NinePatchRect/MarginContainer/VBoxContainer" index="3"]
-margin_top = 294.0
-margin_right = 444.0
-margin_bottom = 314.0
+margin_top = 322.0
+margin_right = 409.0
+margin_bottom = 342.0
 rect_min_size = Vector2( 0, 20 )
+size_flags_vertical = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Back" parent="NinePatchRect/MarginContainer/VBoxContainer" index="4" instance=ExtResource( 6 )]
-margin_left = 101.0
-margin_top = 318.0
-margin_right = 341.0
-margin_bottom = 388.0
+[node name="Back" parent="NinePatchRect/MarginContainer/VBoxContainer" index="4" instance=ExtResource( 2 )]
+margin_left = 84.0
+margin_top = 346.0
+margin_right = 324.0
+margin_bottom = 416.0
 size_flags_horizontal = 4
 size_flags_vertical = 0
 text = "back"

@@ -14,6 +14,10 @@ onready var trail: CPUParticles2D = $Trail
 var state = STATES.IDLE
 
 
+func _ready():
+	trail.emitting = false
+
+
 func get_width() -> float:
 	return $Sprite.texture.get_size().x * $Sprite.global_scale.x
 
@@ -28,7 +32,6 @@ func apply_impulse(offset: Vector2, impulse: Vector2):
 
 
 func _physics_process(delta):
-	trail.emitting = false
 	match state:
 		STATES.IDLE:
 			pass
