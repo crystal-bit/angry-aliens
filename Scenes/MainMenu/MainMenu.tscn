@@ -5,7 +5,6 @@
 [ext_resource path="res://Scenes/MainMenu/MainMenu.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/MainMenu/Clouds/Clouds.tscn" type="PackedScene" id=5]
 
-
 [sub_resource type="Animation" id=1]
 resource_name = "idle"
 length = 3.0

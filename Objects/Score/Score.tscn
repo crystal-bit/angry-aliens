@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Objects/Score/Score.gd" type="Script" id=1]
+[ext_resource path="res://Objects/Pool/Node2DPool.gd" type="Script" id=2]
+[ext_resource path="res://Objects/Score/PoolableScoreSpr/PoolableScoreSpr.tscn" type="PackedScene" id=3]
 
 [node name="Score" type="Node2D"]
 scale = Vector2( 0.6, 0.6 )
@@ -19,3 +21,7 @@ Don't delete this node."
 }
 
 [node name="Tween" type="Tween" parent="."]
+
+[node name="ScorePool" type="Node" parent="."]
+script = ExtResource( 2 )
+object_scene = ExtResource( 3 )

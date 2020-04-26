@@ -9,13 +9,20 @@ export(int) var distance = 0 setget set_distance
 
 onready var sprites = $Sprites # sprites container
 onready var increase_tween = $Tween
+var textures_cache = []
 
 var inited = false
 
 
 func _ready():
+	init_texture_cache()
 	inited = true
 	_update_sprites()
+
+
+func init_texture_cache():
+	for i in range(10):
+		textures_cache.append(_get_texture_for_num(i))
 
 
 func set_score(value: int):
@@ -23,7 +30,7 @@ func set_score(value: int):
 		print("Error in set_score: value has to be integer")
 		return
 	score_value = value
-	if inited :
+	if inited:
 		_update_sprites()
 
 
@@ -83,24 +90,33 @@ func show():
 
 
 func _update_sprites(animate=false):
-	# remove old score sprites
+	# create missing sprites or pool unused sprites
+	var missing_digits_sprites = len(str(score_value)) - sprites.get_child_count()
+	if missing_digits_sprites > 0:
+		for i in range(missing_digits_sprites):
+			var spr = _create_number()
+			sprites.add_child(spr)
+	elif missing_digits_sprites < 0:
+		for i in range(-missing_digits_sprites):
+			$ScorePool.pool(sprites.get_child(0))
+	# reset sprites
 	for c in sprites.get_children():
-		sprites.remove_child(c)
-		c.queue_free()
-	# add new score sprites
-	var first_spr = null
-	var last_spr = null
+		c.position = Vector2()
+	# set layout
+	var first_spr: Sprite = null
+	var last_spr: Sprite = null
+	var idx = 0
 	for digit in str(score_value):
-		var num_spr: Sprite = _create_number(int(digit))
+		var num_spr: Sprite = sprites.get_child(idx)
+		num_spr.texture = textures_cache[int(digit)]
 		if first_spr == null:
 			first_spr = num_spr
-		# if at least one number was created
-		if sprites.get_child_count() > 0:
-				var previous: Sprite = sprites.get_child(sprites.get_child_count() - 1)
-				num_spr.position.x = previous.position.x + previous.texture.get_size().x + distance
+		# if there is a previous
+		if last_spr:
+				num_spr.position.x = last_spr.position.x + last_spr.texture.get_size().x + distance
 		num_spr.name = "Sprite" + digit
-		sprites.add_child(num_spr)
 		last_spr = num_spr
+		idx+=1
 	match grow_direction:
 		"center":
 			_center_sprites(first_spr, last_spr)
@@ -127,10 +143,11 @@ func _grow_left(first_spr: Sprite, last_spr: Sprite):
 		spr.position.x -= width
 
 
-func _create_number(num) -> Sprite:
-	assert(num >= 0 and num <= 10)
-	var spr = Sprite.new()
+func _create_number() -> Sprite:
+	return $ScorePool.get_instance()
+
+
+func _get_texture_for_num(num):
+	assert(num >= 0 and num <= 9)
 	var texture_path = "res://Assets/graphics/kenney2/numbers/hud{n}.png".format({"n": num})
-	var texture = load(texture_path)
-	spr.texture = texture
-	return spr
+	return load(texture_path)

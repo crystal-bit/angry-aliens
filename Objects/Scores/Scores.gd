@@ -22,7 +22,8 @@ func _on_Enemies_enemy_destroyed(enemy):
 	score_node.score_value = ENEMY_DESTROYED_POINTS + randi() % 100
 	score_node.show()
 	emit_signal("points_gained", score_node.score_value)
-	score_node.connect("score_hidden", self, "_on_score_hidden_remove_score")
+	if not score_node.is_connected("score_hidden", self, "_on_score_hidden_remove_score"):
+		score_node.connect("score_hidden", self, "_on_score_hidden_remove_score")
 
 
 func _on_score_hidden_remove_score(score):

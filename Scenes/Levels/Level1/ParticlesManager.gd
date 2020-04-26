@@ -31,11 +31,12 @@ func _ready():
 
 
 func spawn_dust_particles(gpos, amount):
-	var dust: Particles2D = pool.dust.get_child(0)
-	if dust == null:
+	var dust: Particles2D
+	if pool.dust.get_child_count() == 0:
 		print("Pool: EMPTY. Creating new dust object.")
 		dust = create_dust()
 	else:
+		dust = pool.dust.get_child(0)
 		pool.dust.remove_child(dust)
 	dust.z_index = 0
 	dust.amount = amount
@@ -46,11 +47,12 @@ func spawn_dust_particles(gpos, amount):
 
 
 func spawn_debris(gpos, obstacle, auto_emit = true):
-	var debris: Particles2D = pool.debris.get_child(0)
-	if debris == null:
+	var debris: Particles2D
+	if pool.debris.get_child_count() == 0:
 		print("Pool: EMPTY. Creating new debris object.")
 		debris = create_debris()
 	else:
+		debris = pool.debris.get_child(0)
 		pool.debris.remove_child(debris)
 	debris.z_index = 0
 	debris.texture = obstacle.get_debris_texture()
@@ -60,11 +62,12 @@ func spawn_debris(gpos, obstacle, auto_emit = true):
 
 
 func spawn_explosion(gpos):
-	var explosion: AnimatedSprite = pool.explosions.get_child(0)
-	if explosion == null:
+	var explosion: AnimatedSprite
+	if pool.explosions.get_child_count() == 0:
 		print("Pool: EMPTY. Creating new explosion object.")
 		explosion = create_explosion()
 	else:
+		explosion = pool.explosions.get_child(0)
 		pool.explosions.remove_child(explosion)
 	explosion.z_index = 0
 	explosion.play()

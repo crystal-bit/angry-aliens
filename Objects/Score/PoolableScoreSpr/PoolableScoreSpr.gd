@@ -1,0 +1,2 @@
+extends PoolableNode2D
+
