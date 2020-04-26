@@ -98,6 +98,7 @@ pointing/emulate_mouse_from_touch=false
 
 [physics]
 
+2d/default_gravity=200
 2d/default_linear_damp=0.0
 
 [rendering]

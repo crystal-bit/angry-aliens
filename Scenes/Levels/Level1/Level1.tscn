@@ -254,7 +254,7 @@ position = Vector2( 1698.97, 280 )
 
 [node name="Slingshot" parent="." instance=ExtResource( 8 )]
 position = Vector2( 121, 166 )
-slingshot_elastic_force = 30
+slingshot_elastic_force = 40
 max_distance = 100
 
 [node name="CameraFocus" type="Node2D" parent="."]

@@ -16,7 +16,7 @@ func draw_trajectory(init_vel: Vector2, from: Vector2, gravity = 98):
 	initial_velocity = init_vel
 	global_position = from
 	drawing = true
-	gravity = gravity
+	self.gravity = gravity
 	update()
 
 
