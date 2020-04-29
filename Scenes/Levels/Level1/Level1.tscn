@@ -220,15 +220,6 @@ position = Vector2( 1370, 377 )
 [node name="Enemy6" parent="Enemies" instance=ExtResource( 6 )]
 position = Vector2( 1427, 311 )
 
-[node name="Enemy7" parent="Enemies" instance=ExtResource( 6 )]
-position = Vector2( 1152, 295 )
-
-[node name="Enemy9" parent="Enemies" instance=ExtResource( 6 )]
-position = Vector2( 1045, 274 )
-
-[node name="Enemy8" parent="Enemies" instance=ExtResource( 6 )]
-position = Vector2( 939, 277 )
-
 [node name="Enemy3" parent="Enemies" instance=ExtResource( 6 )]
 position = Vector2( 1840.97, 373 )
 
@@ -369,7 +360,9 @@ debris_scene = ExtResource( 16 )
 [node name="Scores" type="Node" parent="."]
 script = ExtResource( 18 )
 
-[node name="ScoresPool" type="Node" parent="Scores"]
+[node name="ScoresPool" type="Node" parent="Scores" groups=[
+"pools",
+]]
 script = ExtResource( 25 )
 object_scene = ExtResource( 19 )
 
@@ -377,10 +370,8 @@ object_scene = ExtResource( 19 )
 script = ExtResource( 22 )
 
 [node name="Score" parent="GUI" instance=ExtResource( 19 )]
-position = Vector2( 878.97, 40 )
-scale = Vector2( 0.4, 0.4 )
+position = Vector2( 900, 32 )
 grow_direction = "left"
-score_value = 100
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="GUI"]
 position = Vector2( 32, 32 )
@@ -404,8 +395,8 @@ region_rect = Rect2( 9, 10, 32, 32 )
 
 [node name="LevelCompleted" parent="GameEndScreen" instance=ExtResource( 23 )]
 [connection signal="enemy_destroyed" from="Enemies" to="Scores" method="_on_Enemies_enemy_destroyed"]
-[connection signal="projectile_launched" from="Slingshot" to="CameraFocus" method="_on_Slingshot_projectile_launched"]
 [connection signal="projectile_launched" from="Slingshot" to="ProjectilesLoader" method="_on_Slingshot_projectile_launched"]
+[connection signal="projectile_launched" from="Slingshot" to="CameraFocus" method="_on_Slingshot_projectile_launched"]
 [connection signal="level_finished" from="ProjectilesLoader" to="." method="_on_ProjectilesLoader_level_finished"]
 [connection signal="points_gained" from="Scores" to="GUI" method="_on_Scores_points_gained"]
 [connection signal="released" from="GUI/TouchScreenButton" to="." method="_on_TouchScreenButton_released"]

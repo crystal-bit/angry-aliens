@@ -17,7 +17,6 @@ var inited = false
 func _ready():
 	init_texture_cache()
 	inited = true
-	_update_sprites()
 
 
 func init_texture_cache():
@@ -86,6 +85,8 @@ func show():
 	tween.start()
 	yield(tween, "tween_completed")
 	can_be_pooled = true
+	for spr in sprites.get_children():
+		spr.can_be_pooled = true
 	emit_signal("score_hidden", self)
 
 

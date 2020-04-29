@@ -9,13 +9,20 @@ var pool_size := 5
 var pool_refresh_timer := 1
 
 var active_objs := []
-var inactive_objs := []
+var inactive_nodes_container: Node
+
+
+func _init():
+	inactive_nodes_container = Node.new()
+	inactive_nodes_container.name = "InactiveNodes"
+	add_child(inactive_nodes_container)
 
 
 func _ready():
 	# Populate pool
 	for i in range(pool_size):
-		inactive_objs.append(_create_obj())
+		var obj = _create_obj()
+		inactive_nodes_container.add_child(obj)
 	# schedule pool refresh
 	var timer := Timer.new()
 	timer.wait_time = pool_refresh_timer
@@ -24,20 +31,28 @@ func _ready():
 	timer.connect("timeout", self, "check_unused_objs")
 
 
+func _exit_tree():
+	if "pools" in get_groups():
+		for obj in inactive_nodes_container.get_children():
+			obj.queue_free()
+		for obj in active_objs:
+			obj.queue_free()
+
+
 func pool(obj):
-	active_objs.erase(obj)
 	var parent = obj.get_parent()
 	parent.remove_child(obj)
+	active_objs.erase(obj)
 	obj.modulate.a = 0
 	obj.can_be_pooled = false
-	inactive_objs.append(obj)
+	inactive_nodes_container.add_child(obj)
 
 
 func get_instance():
 	var obj
-	if len(inactive_objs) > 0:
-		obj = inactive_objs[0]
-		inactive_objs.erase(obj)
+	if inactive_nodes_container.get_child_count() > 0:
+		obj = inactive_nodes_container.get_child(0)
+		inactive_nodes_container.remove_child(obj)
 	else:
 		print("Pool: EMPTY. Creating new object.")
 		obj = _create_obj()
@@ -52,20 +67,16 @@ func check_unused_objs():
 			pool(obj)
 
 
-
 func _create_obj() -> PoolableNode2D:
-	var obj = object_scene.instance()
+	var obj = object_scene.instance() as PoolableNode2D
 	obj.modulate.a = 0
 	if !obj is PoolableNode2D:
 		print("WARNING:, ", obj, " does not extend PoolableNode2D")
 	return obj
 
 
-func _on_score_hidden_remove_score(score):
-	score.queue_free()
-
-
 func _print_stats():
-	print("size:      ", active_objs.size() + inactive_objs.size())
-	print("active:    ", active_objs.size())
-	print("inactive:  ", inactive_objs.size())
+	print('---')
+	print("size:      ", len(active_objs) + inactive_nodes_container.get_child_count())
+	print("active:    ", len(active_objs))
+	print("inactive:  ", inactive_nodes_container.get_child_count())
