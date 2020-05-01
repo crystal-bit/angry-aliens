@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Assets/graphics/kenney_physicsAssets_v2/PNG/Debris/debrisStone_3.png" type="Texture" id=1]
 
@@ -6,34 +6,20 @@
 offsets = PoolRealArray( 0, 0.754875, 1 )
 colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
 
-[sub_resource type="GradientTexture" id=2]
-gradient = SubResource( 1 )
-
-[sub_resource type="ParticlesMaterial" id=3]
-emission_shape = 1
-emission_sphere_radius = 20.0
-flag_disable_z = true
-spread = 180.0
-gravity = Vector3( 0, 320, 0 )
-initial_velocity = 100.0
-angular_velocity = 100.0
-angular_velocity_random = 0.74
-orbit_velocity = 0.0
-orbit_velocity_random = 0.0
-scale = 0.4
-scale_random = 0.55
-color_ramp = SubResource( 2 )
-
-[node name="Debris" type="Particles2D"]
+[node name="Debris" type="CPUParticles2D"]
 emitting = false
 amount = 4
 lifetime = 1.7
 one_shot = true
 explosiveness = 0.99
-process_material = SubResource( 3 )
 texture = ExtResource( 1 )
-__meta__ = {
-"_editor_description_": "Debris particles shown when an obstacle is destroyed.
-
-You should set the texture from your scene."
-}
+emission_shape = 1
+emission_sphere_radius = 20.0
+spread = 180.0
+gravity = Vector2( 0, 320 )
+initial_velocity = 100.0
+angular_velocity = 100.0
+angular_velocity_random = 0.74
+scale_amount = 0.4
+scale_amount_random = 0.55
+color_ramp = SubResource( 1 )
