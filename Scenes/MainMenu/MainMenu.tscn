@@ -1,9 +1,14 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Assets/title.png" type="Texture" id=1]
+[ext_resource path="res://Assets/graphics/kenney2/particle.png" type="Texture" id=2]
 [ext_resource path="res://Objects/GUI/Button1/Button.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/MainMenu/MainMenu.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/MainMenu/Clouds/Clouds.tscn" type="PackedScene" id=5]
+
+[sub_resource type="Gradient" id=3]
+offsets = PoolRealArray( 0, 0.174157, 0.870786, 1 )
+colors = PoolColorArray( 1, 1, 1, 0, 0.941678, 0.996097, 0.99707, 0.901961, 0.930556, 1, 0.99471, 0.901961, 1, 1, 1, 0 )
 
 [sub_resource type="Animation" id=1]
 resource_name = "idle"
@@ -54,13 +59,43 @@ tracks/1/keys = {
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-color = Color( 0.815686, 0.956863, 0.968627, 1 )
+color = Color( 0.568627, 0.866667, 0.890196, 1 )
 script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
+position = Vector2( 250, 200 )
+amount = 10
+lifetime = 6.0
+texture = ExtResource( 2 )
+emission_shape = 2
+emission_rect_extents = Vector2( 500, 300 )
+spread = 20.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 60.0
+initial_velocity_random = 0.3
+scale_amount = 0.15
+scale_amount_random = 0.1
+color_ramp = SubResource( 3 )
+
 [node name="Clouds" parent="." instance=ExtResource( 5 )]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2( 250, 200 )
+amount = 15
+lifetime = 6.0
+texture = ExtResource( 2 )
+emission_shape = 2
+emission_rect_extents = Vector2( 500, 300 )
+spread = 20.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 80.0
+initial_velocity_random = 0.3
+scale_amount = 0.2
+scale_amount_random = 0.1
+color_ramp = SubResource( 3 )
 
 [node name="Title" type="TextureRect" parent="."]
 anchor_left = 0.5
