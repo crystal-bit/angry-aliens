@@ -1,17 +1,104 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Assets/title.png" type="Texture" id=1]
 [ext_resource path="res://Assets/graphics/kenney2/particle.png" type="Texture" id=2]
 [ext_resource path="res://Objects/GUI/Button1/Button.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/MainMenu/MainMenu.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/MainMenu/Clouds/Clouds.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/graphics/kenney_physicsAssets_v2/PNG/Aliens/alienPink_round.png" type="Texture" id=6]
+[ext_resource path="res://Assets/graphics/kenney_physicsAssets_v2/PNG/Aliens/alienYellow_square.png" type="Texture" id=7]
+[ext_resource path="res://Assets/graphics/kenney_physicsAssets_v2/PNG/Aliens/alienBlue_square.png" type="Texture" id=8]
+[ext_resource path="res://Assets/graphics/kenney_physicsAssets_v2/PNG/Aliens/alienGreen_square.png" type="Texture" id=9]
+[ext_resource path="res://Assets/graphics/kenney_physicsAssets_v2/PNG/Metal elements/elementMetal018.png" type="Texture" id=10]
+[ext_resource path="res://Objects/GUI/Font.tres" type="DynamicFont" id=11]
 
-[sub_resource type="Gradient" id=3]
+[sub_resource type="Gradient" id=5]
 offsets = PoolRealArray( 0, 0.174157, 0.870786, 1 )
 colors = PoolColorArray( 1, 1, 1, 0, 0.941678, 0.996097, 0.99707, 0.901961, 0.930556, 1, 0.99471, 0.901961, 1, 1, 1, 0 )
 
-[sub_resource type="Animation" id=1]
-resource_name = "idle"
+[sub_resource type="Animation" id=6]
+resource_name = "appear"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 0.5, 2, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1.2, 1.2 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 30, 31 )
+
+[sub_resource type="Animation" id=8]
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.4 ),
+"transitions": PoolRealArray( 0.5, 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 211, 0 ), Vector2( 211, 0 ), Vector2( 211, 90 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.1, 0.4 ),
+"transitions": PoolRealArray( 0.5, 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 2, 2 ), Vector2( 2, 2 ), Vector2( 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath(".:rect_rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.1, 0.4 ),
+"transitions": PoolRealArray( -2, -2, 1 ),
+"update": 0,
+"values": [ 20.0, 20.0, 0.0 ]
+}
+
+[sub_resource type="Animation" id=3]
 length = 3.0
 loop = true
 tracks/0/type = "value"
@@ -27,7 +114,7 @@ tracks/0/keys = {
 "values": [ 90.0, 80.0, 90.0, 90.0, 80.0, 90.0 ]
 }
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=4]
 length = 4.0
 loop = true
 tracks/0/type = "value"
@@ -55,6 +142,9 @@ tracks/1/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 0, -2 ), Vector2( 0, 0 ), Vector2( 0, -2 ), Vector2( 0, 0 ), Vector2( 0, -2 ), Vector2( 0, 0 ), Vector2( 0, 0 ) ]
 }
 
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 2000, 10 )
+
 [node name="MainMenu" type="ColorRect"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -78,7 +168,7 @@ initial_velocity = 60.0
 initial_velocity_random = 0.3
 scale_amount = 0.15
 scale_amount_random = 0.1
-color_ramp = SubResource( 3 )
+color_ramp = SubResource( 5 )
 
 [node name="Clouds" parent="." instance=ExtResource( 5 )]
 
@@ -95,25 +185,145 @@ initial_velocity = 80.0
 initial_velocity_random = 0.3
 scale_amount = 0.2
 scale_amount_random = 0.1
-color_ramp = SubResource( 3 )
+color_ramp = SubResource( 5 )
+
+[node name="MetalBox" type="TextureButton" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 158.0
+margin_top = 347.0
+margin_right = 158.0
+margin_bottom = 347.0
+texture_normal = ExtResource( 10 )
+texture_pressed = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MetalBox"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -48.0
+margin_top = -12.0
+margin_right = 48.0
+margin_bottom = 12.0
+custom_fonts/font = ExtResource( 11 )
+custom_colors/font_color = Color( 0.313726, 0.301961, 0.294118, 1 )
+text = "1000 KG"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MetalBox"]
+anims/appear = SubResource( 6 )
+
+[node name="Tween" type="Tween" parent="MetalBox"]
+
+[node name="Aliens" type="Node2D" parent="."]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="Aliens"]
+position = Vector2( 541, 647 )
+mode = 3
+gravity_scale = 4.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="alienBlue_square" type="Sprite" parent="Aliens/RigidBody2D"]
+texture = ExtResource( 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Aliens/RigidBody2D"]
+shape = SubResource( 7 )
+
+[node name="RigidBody2D2" type="RigidBody2D" parent="Aliens"]
+position = Vector2( 424, 668 )
+mode = 3
+gravity_scale = 2.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Aliens/RigidBody2D2"]
+shape = SubResource( 7 )
+
+[node name="RigidBody2D5" type="RigidBody2D" parent="Aliens"]
+position = Vector2( 126, 658 )
+mode = 3
+gravity_scale = 2.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Aliens/RigidBody2D5"]
+shape = SubResource( 7 )
+
+[node name="alienYellow_square" type="Sprite" parent="Aliens/RigidBody2D5"]
+texture = ExtResource( 7 )
+
+[node name="RigidBody2D3" type="RigidBody2D" parent="Aliens"]
+position = Vector2( 267, 644 )
+mode = 3
+gravity_scale = 2.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Aliens/RigidBody2D3"]
+shape = SubResource( 7 )
+
+[node name="alienPink_round" type="Sprite" parent="Aliens/RigidBody2D3"]
+texture = ExtResource( 6 )
+
+[node name="RigidBody2D4" type="RigidBody2D" parent="Aliens"]
+position = Vector2( 836, 650 )
+mode = 3
+gravity_scale = 2.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Aliens/RigidBody2D4"]
+shape = SubResource( 7 )
+
+[node name="alienPink_round" type="Sprite" parent="Aliens/RigidBody2D4"]
+texture = ExtResource( 6 )
+
+[node name="RigidBody2D6" type="RigidBody2D" parent="Aliens"]
+position = Vector2( 696, 666 )
+mode = 3
+gravity_scale = 2.0
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Aliens/RigidBody2D6"]
+shape = SubResource( 7 )
+
+[node name="alienPink_round" type="Sprite" parent="Aliens/RigidBody2D6"]
+texture = ExtResource( 9 )
 
 [node name="Title" type="TextureRect" parent="."]
+modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -301.0
-margin_top = -180.839
+margin_top = -210.0
 margin_right = 301.0
-margin_bottom = -101.839
+margin_bottom = -131.0
+rect_rotation = 20.0
+rect_scale = Vector2( 2, 2 )
 texture = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Title"]
-autoplay = "idle"
-anims/idle = SubResource( 1 )
+autoplay = "appear"
+anims/appear = SubResource( 8 )
+anims/idle = SubResource( 3 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_left = 0.5
@@ -134,7 +344,7 @@ text = "PLAY"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="VBoxContainer/Play"]
 autoplay = "idle"
-anims/idle = SubResource( 2 )
+anims/idle = SubResource( 4 )
 
 [node name="About" parent="VBoxContainer" instance=ExtResource( 3 )]
 margin_top = 100.0
@@ -145,6 +355,14 @@ text = "ABOUT"
 margin_top = 200.0
 margin_bottom = 270.0
 text = "EXIT"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( 496, 776 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource( 9 )
+[connection signal="pressed" from="MetalBox" to="." method="_on_MetalBox_pressed"]
+[connection signal="animation_finished" from="Title/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_Play_pressed"]
 [connection signal="pressed" from="VBoxContainer/About" to="." method="_on_About_pressed"]
 [connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_Exit_pressed"]
