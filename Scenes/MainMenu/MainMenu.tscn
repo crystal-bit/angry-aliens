@@ -12,11 +12,11 @@
 [ext_resource path="res://Assets/graphics/kenney_physicsAssets_v2/PNG/Metal elements/elementMetal018.png" type="Texture" id=10]
 [ext_resource path="res://Objects/GUI/Font.tres" type="DynamicFont" id=11]
 
-[sub_resource type="Gradient" id=5]
+[sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.174157, 0.870786, 1 )
 colors = PoolColorArray( 1, 1, 1, 0, 0.941678, 0.996097, 0.99707, 0.901961, 0.930556, 1, 0.99471, 0.901961, 1, 1, 1, 0 )
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=2]
 resource_name = "appear"
 length = 0.4
 tracks/0/type = "value"
@@ -31,23 +31,11 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.2, 0.4 ),
-"transitions": PoolRealArray( 0.5, 2, 1 ),
-"update": 0,
-"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1.2, 1.2 ), Vector2( 1, 1 ) ]
-}
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 30, 31 )
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=4]
 length = 0.4
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rect_position")
@@ -98,7 +86,7 @@ tracks/3/keys = {
 "values": [ 20.0, 20.0, 0.0 ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=5]
 length = 3.0
 loop = true
 tracks/0/type = "value"
@@ -114,7 +102,7 @@ tracks/0/keys = {
 "values": [ 90.0, 80.0, 90.0, 90.0, 80.0, 90.0 ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=6]
 length = 4.0
 loop = true
 tracks/0/type = "value"
@@ -142,8 +130,8 @@ tracks/1/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( 0, -2 ), Vector2( 0, 0 ), Vector2( 0, -2 ), Vector2( 0, 0 ), Vector2( 0, -2 ), Vector2( 0, 0 ), Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="RectangleShape2D" id=9]
-extents = Vector2( 2000, 10 )
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 1000, 10 )
 
 [node name="MainMenu" type="ColorRect"]
 anchor_right = 1.0
@@ -168,7 +156,7 @@ initial_velocity = 60.0
 initial_velocity_random = 0.3
 scale_amount = 0.15
 scale_amount_random = 0.1
-color_ramp = SubResource( 5 )
+color_ramp = SubResource( 1 )
 
 [node name="Clouds" parent="." instance=ExtResource( 5 )]
 
@@ -185,7 +173,7 @@ initial_velocity = 80.0
 initial_velocity_random = 0.3
 scale_amount = 0.2
 scale_amount_random = 0.1
-color_ramp = SubResource( 5 )
+color_ramp = SubResource( 1 )
 
 [node name="MetalBox" type="TextureButton" parent="."]
 modulate = Color( 1, 1, 1, 0 )
@@ -216,7 +204,7 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="MetalBox"]
-anims/appear = SubResource( 6 )
+anims/appear = SubResource( 2 )
 
 [node name="Tween" type="Tween" parent="MetalBox"]
 
@@ -225,7 +213,7 @@ anims/appear = SubResource( 6 )
 [node name="RigidBody2D" type="RigidBody2D" parent="Aliens"]
 position = Vector2( 541, 647 )
 mode = 3
-gravity_scale = 4.0
+gravity_scale = 2.0
 __meta__ = {
 "_edit_group_": true
 }
@@ -234,7 +222,7 @@ __meta__ = {
 texture = ExtResource( 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Aliens/RigidBody2D"]
-shape = SubResource( 7 )
+shape = SubResource( 3 )
 
 [node name="RigidBody2D2" type="RigidBody2D" parent="Aliens"]
 position = Vector2( 424, 668 )
@@ -245,7 +233,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Aliens/RigidBody2D2"]
-shape = SubResource( 7 )
+shape = SubResource( 3 )
 
 [node name="RigidBody2D5" type="RigidBody2D" parent="Aliens"]
 position = Vector2( 126, 658 )
@@ -256,7 +244,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Aliens/RigidBody2D5"]
-shape = SubResource( 7 )
+shape = SubResource( 3 )
 
 [node name="alienYellow_square" type="Sprite" parent="Aliens/RigidBody2D5"]
 texture = ExtResource( 7 )
@@ -270,7 +258,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Aliens/RigidBody2D3"]
-shape = SubResource( 7 )
+shape = SubResource( 3 )
 
 [node name="alienPink_round" type="Sprite" parent="Aliens/RigidBody2D3"]
 texture = ExtResource( 6 )
@@ -284,7 +272,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Aliens/RigidBody2D4"]
-shape = SubResource( 7 )
+shape = SubResource( 3 )
 
 [node name="alienPink_round" type="Sprite" parent="Aliens/RigidBody2D4"]
 texture = ExtResource( 6 )
@@ -298,7 +286,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Aliens/RigidBody2D6"]
-shape = SubResource( 7 )
+shape = SubResource( 3 )
 
 [node name="alienPink_round" type="Sprite" parent="Aliens/RigidBody2D6"]
 texture = ExtResource( 9 )
@@ -322,8 +310,8 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Title"]
 autoplay = "appear"
-anims/appear = SubResource( 8 )
-anims/idle = SubResource( 3 )
+anims/appear = SubResource( 4 )
+anims/idle = SubResource( 5 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_left = 0.5
@@ -344,7 +332,7 @@ text = "PLAY"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="VBoxContainer/Play"]
 autoplay = "idle"
-anims/idle = SubResource( 4 )
+anims/idle = SubResource( 6 )
 
 [node name="About" parent="VBoxContainer" instance=ExtResource( 3 )]
 margin_top = 100.0
@@ -360,9 +348,29 @@ text = "EXIT"
 position = Vector2( 496, 776 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-shape = SubResource( 9 )
+shape = SubResource( 7 )
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2( -72, 776 )
+rotation = 1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+shape = SubResource( 7 )
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2( 1040, 776 )
+rotation = 1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+shape = SubResource( 7 )
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Tween" type="Tween" parent="."]
 [connection signal="pressed" from="MetalBox" to="." method="_on_MetalBox_pressed"]
 [connection signal="animation_finished" from="Title/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_Play_pressed"]
 [connection signal="pressed" from="VBoxContainer/About" to="." method="_on_About_pressed"]
 [connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_Exit_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

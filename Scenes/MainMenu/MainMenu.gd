@@ -2,9 +2,8 @@ extends ColorRect
 
 onready var aliens = $Aliens
 onready var metal_box = $MetalBox
-
-var time_before_secret_box = 10
-
+onready var tween = $Tween
+onready var timer = $Timer
 
 func _ready():
 	randomize()
@@ -28,10 +27,9 @@ func _shake_cbk(amnt):
 	rect_position.x = random_dir.x
 	rect_position.y = random_dir.y
 
+
 func shake():
-	var t = Tween.new()
-	add_child(t)
-	t.interpolate_method(self,
+	tween.interpolate_method(self,
 		"_shake_cbk",
 		2.6,
 		0,
@@ -39,17 +37,16 @@ func shake():
 		Tween.TRANS_CIRC,
 		Tween.EASE_IN_OUT
 	)
-	t.start()
+	tween.start()
 
 
 func launch_aliens():
 	for alien in $Aliens.get_children():
 		var random_vec = Vector2(randf() - 0.5, -1).normalized()
 		alien.mode = RigidBody2D.MODE_RIGID
-		alien.apply_central_impulse(random_vec * 350)
+		alien.apply_central_impulse(random_vec * 550)
 		alien.apply_torque_impulse((randf() - 0.5) * 3000)
-	yield(get_tree().create_timer(time_before_secret_box), "timeout")
-	show_secret_weight()
+	timer.start()
 
 
 func show_secret_weight():
@@ -71,9 +68,14 @@ func _on_MetalBox_pressed():
 	var t = metal_box.get_node("Tween")
 	if t.is_active():
 		return
-	t.interpolate_property(metal_box, "rect_position:y", metal_box.rect_position.y, 650, 1, Tween.TRANS_BACK, Tween.EASE_IN_OUT)
+	t.interpolate_property(metal_box, "rect_position:y", metal_box.rect_position.y, 800, 1, Tween.TRANS_BACK, Tween.EASE_IN_OUT)
 	t.start()
-	yield(t, "tween_completed")
+	t.connect("tween_completed", self, "_on_metal_box_tween_completed")
+
+
+func _on_metal_box_tween_completed(a, b):
 	launch_aliens()
-	yield(get_tree().create_timer(time_before_secret_box), "timeout")
+
+
+func _on_Timer_timeout():
 	show_secret_weight()

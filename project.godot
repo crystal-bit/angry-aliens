@@ -46,7 +46,7 @@ _global_script_class_icons={
 
 config/name="Angry Aliens"
 run/main_scene="res://Scenes/Main.tscn"
-config/icon="res://icon.png"
+config/icon="res://Assets/graphics/kenney_physicsAssets_v2/PNG/Aliens/alienGreen_square.png"
 
 [autoload]
 
