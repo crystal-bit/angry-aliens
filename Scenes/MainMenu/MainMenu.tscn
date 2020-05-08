@@ -365,6 +365,7 @@ rotation = 1.5708
 shape = SubResource( 7 )
 
 [node name="Timer" type="Timer" parent="."]
+wait_time = 8.0
 one_shot = true
 
 [node name="Tween" type="Tween" parent="."]
