@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Assets/title.png" type="Texture" id=1]
 [ext_resource path="res://Assets/graphics/kenney2/particle.png" type="Texture" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Assets/graphics/kenney_physicsAssets_v2/PNG/Aliens/alienGreen_square.png" type="Texture" id=9]
 [ext_resource path="res://Assets/graphics/kenney_physicsAssets_v2/PNG/Metal elements/elementMetal018.png" type="Texture" id=10]
 [ext_resource path="res://Objects/GUI/Font.tres" type="DynamicFont" id=11]
+[ext_resource path="res://Objects/GUI/Button1/Button.gd" type="Script" id=12]
 
 [sub_resource type="Gradient" id=1]
 offsets = PoolRealArray( 0, 0.174157, 0.870786, 1 )
@@ -183,6 +184,7 @@ margin_right = 158.0
 margin_bottom = 347.0
 texture_normal = ExtResource( 10 )
 texture_pressed = ExtResource( 10 )
+script = ExtResource( 12 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
