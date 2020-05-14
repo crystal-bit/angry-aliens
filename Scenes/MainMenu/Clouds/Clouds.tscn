@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Assets/graphics/kenney2/cloud2.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/MainMenu/Clouds.gd" type="Script" id=2]
-[ext_resource path="res://Assets/graphics/kenney2/cloud4.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/MainMenu/Clouds/Cloud.tscn" type="PackedScene" id=4]
 
 [node name="Clouds" type="Node2D"]
 script = ExtResource( 2 )
@@ -10,54 +9,38 @@ script = ExtResource( 2 )
 [node name="Far" type="Node2D" parent="."]
 modulate = Color( 0.819608, 0.956863, 0.996078, 1 )
 
-[node name="cloud2" type="Sprite" parent="Far" groups=[
-"clouds",
-]]
-position = Vector2( 330.8, 58.2 )
-scale = Vector2( 0.317347, 0.366667 )
-texture = ExtResource( 1 )
-centered = false
+[node name="Cloud" parent="Far" instance=ExtResource( 4 )]
+position = Vector2( -130, 84 )
+scale = Vector2( 0.970363, 0.91247 )
 
-[node name="cloud4" type="Sprite" parent="Far" groups=[
-"clouds",
-]]
-position = Vector2( 754, 17 )
-scale = Vector2( 0.406, 0.308904 )
-texture = ExtResource( 3 )
-centered = false
+[node name="Cloud2" parent="Far" instance=ExtResource( 4 )]
+position = Vector2( 854, 192 )
+scale = Vector2( 1.4085, 0.85852 )
 
-[node name="cloud5" type="Sprite" parent="Far" groups=[
-"clouds",
-]]
-position = Vector2( -69, 0 )
-scale = Vector2( 0.327, 0.264384 )
-texture = ExtResource( 3 )
-centered = false
+[node name="Cloud3" parent="Far" instance=ExtResource( 4 )]
+position = Vector2( 261, 77 )
+scale = Vector2( 0.939445, 0.793193 )
 
 [node name="Near" type="Node2D" parent="."]
 
-[node name="cloud2" type="Sprite" parent="Near" groups=[
-"clouds",
-]]
-position = Vector2( -176, 146 )
-scale = Vector2( 0.433673, 0.355769 )
-texture = ExtResource( 1 )
-centered = false
+[node name="Cloud" parent="Near" instance=ExtResource( 4 )]
+position = Vector2( 423, 112 )
+scale = Vector2( 1.42798, 1.11293 )
 
-[node name="cloud3" type="Sprite" parent="Near" groups=[
-"clouds",
-]]
-position = Vector2( 553, 173 )
-scale = Vector2( 0.52551, 0.366987 )
-texture = ExtResource( 1 )
-centered = false
+[node name="Cloud2" parent="Near" instance=ExtResource( 4 )]
+position = Vector2( 633, 241 )
+scale = Vector2( 0.939445, 0.793193 )
 
-[node name="cloud4" type="Sprite" parent="Near" groups=[
-"clouds",
-]]
-position = Vector2( 193, 58 )
-scale = Vector2( 0.461, 0.445206 )
-texture = ExtResource( 3 )
-centered = false
+[node name="Cloud3" parent="Near" instance=ExtResource( 4 )]
+position = Vector2( 852, 90 )
+scale = Vector2( 1.1696, 0.797272 )
+
+[node name="Cloud4" parent="Near" instance=ExtResource( 4 )]
+position = Vector2( 86, 218 )
+scale = Vector2( 1.47831, 1.01566 )
 
 [node name="Tween" type="Tween" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="AliensTween" type="Tween" parent="."]

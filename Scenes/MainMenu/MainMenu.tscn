@@ -17,8 +17,10 @@
 offsets = PoolRealArray( 0, 0.174157, 0.870786, 1 )
 colors = PoolColorArray( 1, 1, 1, 0, 0.941678, 0.996097, 0.99707, 0.901961, 0.930556, 1, 0.99471, 0.901961, 1, 1, 1, 0 )
 
-[sub_resource type="Animation" id=2]
-resource_name = "appear"
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 30, 31 )
+
+[sub_resource type="Animation" id=3]
 length = 0.4
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
@@ -32,9 +34,6 @@ tracks/0/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
-
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 30, 31 )
 
 [sub_resource type="Animation" id=4]
 length = 0.4
@@ -161,6 +160,90 @@ color_ramp = SubResource( 1 )
 
 [node name="Clouds" parent="." instance=ExtResource( 5 )]
 
+[node name="Aliens" type="Node2D" parent="."]
+z_as_relative = false
+
+[node name="RigidBody2D" type="RigidBody2D" parent="Aliens"]
+position = Vector2( 541, 647 )
+mode = 3
+gravity_scale = 1.4
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="alienBlue_square" type="Sprite" parent="Aliens/RigidBody2D"]
+texture = ExtResource( 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Aliens/RigidBody2D"]
+shape = SubResource( 2 )
+
+[node name="RigidBody2D2" type="RigidBody2D" parent="Aliens"]
+position = Vector2( 424, 668 )
+mode = 3
+gravity_scale = 1.4
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Aliens/RigidBody2D2"]
+shape = SubResource( 2 )
+
+[node name="RigidBody2D5" type="RigidBody2D" parent="Aliens"]
+position = Vector2( 126, 658 )
+mode = 3
+gravity_scale = 1.4
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Aliens/RigidBody2D5"]
+shape = SubResource( 2 )
+
+[node name="alienYellow_square" type="Sprite" parent="Aliens/RigidBody2D5"]
+texture = ExtResource( 7 )
+
+[node name="RigidBody2D3" type="RigidBody2D" parent="Aliens"]
+position = Vector2( 267, 644 )
+mode = 3
+gravity_scale = 1.4
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Aliens/RigidBody2D3"]
+shape = SubResource( 2 )
+
+[node name="alienPink_round" type="Sprite" parent="Aliens/RigidBody2D3"]
+texture = ExtResource( 6 )
+
+[node name="RigidBody2D4" type="RigidBody2D" parent="Aliens"]
+position = Vector2( 836, 650 )
+mode = 3
+gravity_scale = 1.4
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Aliens/RigidBody2D4"]
+shape = SubResource( 2 )
+
+[node name="alienPink_round" type="Sprite" parent="Aliens/RigidBody2D4"]
+texture = ExtResource( 6 )
+
+[node name="RigidBody2D6" type="RigidBody2D" parent="Aliens"]
+position = Vector2( 696, 666 )
+mode = 3
+gravity_scale = 1.4
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Aliens/RigidBody2D6"]
+shape = SubResource( 2 )
+
+[node name="alienPink_round" type="Sprite" parent="Aliens/RigidBody2D6"]
+texture = ExtResource( 9 )
+
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 position = Vector2( 250, 200 )
 amount = 15
@@ -206,92 +289,9 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="MetalBox"]
-anims/appear = SubResource( 2 )
+anims/appear = SubResource( 3 )
 
 [node name="Tween" type="Tween" parent="MetalBox"]
-
-[node name="Aliens" type="Node2D" parent="."]
-
-[node name="RigidBody2D" type="RigidBody2D" parent="Aliens"]
-position = Vector2( 541, 647 )
-mode = 3
-gravity_scale = 2.0
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="alienBlue_square" type="Sprite" parent="Aliens/RigidBody2D"]
-texture = ExtResource( 8 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Aliens/RigidBody2D"]
-shape = SubResource( 3 )
-
-[node name="RigidBody2D2" type="RigidBody2D" parent="Aliens"]
-position = Vector2( 424, 668 )
-mode = 3
-gravity_scale = 2.0
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Aliens/RigidBody2D2"]
-shape = SubResource( 3 )
-
-[node name="RigidBody2D5" type="RigidBody2D" parent="Aliens"]
-position = Vector2( 126, 658 )
-mode = 3
-gravity_scale = 2.0
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Aliens/RigidBody2D5"]
-shape = SubResource( 3 )
-
-[node name="alienYellow_square" type="Sprite" parent="Aliens/RigidBody2D5"]
-texture = ExtResource( 7 )
-
-[node name="RigidBody2D3" type="RigidBody2D" parent="Aliens"]
-position = Vector2( 267, 644 )
-mode = 3
-gravity_scale = 2.0
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Aliens/RigidBody2D3"]
-shape = SubResource( 3 )
-
-[node name="alienPink_round" type="Sprite" parent="Aliens/RigidBody2D3"]
-texture = ExtResource( 6 )
-
-[node name="RigidBody2D4" type="RigidBody2D" parent="Aliens"]
-position = Vector2( 836, 650 )
-mode = 3
-gravity_scale = 2.0
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Aliens/RigidBody2D4"]
-shape = SubResource( 3 )
-
-[node name="alienPink_round" type="Sprite" parent="Aliens/RigidBody2D4"]
-texture = ExtResource( 6 )
-
-[node name="RigidBody2D6" type="RigidBody2D" parent="Aliens"]
-position = Vector2( 696, 666 )
-mode = 3
-gravity_scale = 2.0
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Aliens/RigidBody2D6"]
-shape = SubResource( 3 )
-
-[node name="alienPink_round" type="Sprite" parent="Aliens/RigidBody2D6"]
-texture = ExtResource( 9 )
 
 [node name="Title" type="TextureRect" parent="."]
 modulate = Color( 1, 1, 1, 0 )
@@ -377,3 +377,5 @@ one_shot = true
 [connection signal="pressed" from="VBoxContainer/About" to="." method="_on_About_pressed"]
 [connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_Exit_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+
+[editable path="Clouds"]

@@ -41,7 +41,7 @@ func shake():
 
 
 func launch_aliens():
-	for alien in $Aliens.get_children():
+	for alien in aliens.get_children():
 		var random_vec = Vector2(randf() - 0.5, -1).normalized()
 		alien.mode = RigidBody2D.MODE_RIGID
 		alien.apply_central_impulse(random_vec * 550)
