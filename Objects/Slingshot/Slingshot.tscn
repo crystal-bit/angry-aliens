@@ -15,3 +15,7 @@ position = Vector2( 76, 63 )
 __meta__ = {
 "_gizmo_extents_": 18.1
 }
+
+[node name="ReloadTimer" type="Timer" parent="."]
+one_shot = true
+[connection signal="timeout" from="ReloadTimer" to="." method="_on_ReloadTimer_timeout"]
