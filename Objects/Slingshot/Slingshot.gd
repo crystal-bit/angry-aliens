@@ -26,16 +26,24 @@ func launch_projectile(proj: RigidBody2D, launch_impulse):
 	current_projectile = null
 
 
+func _input(event):
+	pass
+
+
 func _unhandled_input(event):
 	if current_projectile == null:
 		return
 	if event is InputEventScreenTouch:
 		if event.pressed:
+			print("touched")
 			_on_touch_pressed(event)
+			get_tree().set_input_as_handled()
 		else:
 			_on_touch_released(event)
+			get_tree().set_input_as_handled()
 	if event is InputEventScreenDrag:
 		_on_touch_drag(event)
+		get_tree().set_input_as_handled()
 
 
 func _on_touch_pressed(event: InputEventScreenTouch):
