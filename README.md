@@ -99,13 +99,13 @@ Currently I don't have an Apple device and I cannot develop/test iOS/OSX games. 
 - 🎥 [YouTube - #8 - Lancio Proiettili (Pt.1) - Godot 3.2 Tutorial](https://youtu.be/W16SLhgp8Zk)
 - 🎥 [YouTube - #9 - TouchScreen Input: Press, Release e Drag - Lancio Proiettili (Pt.2) - Godot 3.2 Tutorial](https://youtu.be/vVDVJMomxBU)
 
+> How to create a slingshot that reacts on touchscreen and mouse input
+
 - Create a projectile
 - Create a simple slingshot
 - Input handling for mouse and touchscreen
 - Projectile launch
 - Load new projectile
-- [Draw trajectory]
-- [Draw max distance?]
 
 ### 5. Enemies
 
