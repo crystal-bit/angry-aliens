@@ -55,7 +55,7 @@ You can learn these topics by:
 
 ### 1. Introduction
 
-- 🎥 [YouTube - 1. Introduzione](https://youtu.be/x0emyyXC_sM)
+- 🎥 [YouTube - #1 - Introduzione](https://youtu.be/x0emyyXC_sM)
 
 This tutorial series will focus on creating a simple mobile game
 using Godot 3.2.
@@ -71,8 +71,8 @@ Currently I don't have an Apple device and I cannot develop/test iOS/OSX games. 
 
 ### 2. Configure Godot and Android SDK
 
-- 🎥 [YouTube - 2. Configurare Linux](https://youtu.be/xFia7zG8NGA)
-- 🎥 [YouTube - 3. Configurare Windows](https://youtu.be/PNj8YmXjj-A)
+- 🎥 [YouTube - #2 - Configurare Linux](https://youtu.be/xFia7zG8NGA)
+- 🎥 [YouTube - #3 - Configurare Windows](https://youtu.be/PNj8YmXjj-A)
   
 > How do I configure my computer for Android development?
 
@@ -85,16 +85,19 @@ Currently I don't have an Apple device and I cannot develop/test iOS/OSX games. 
 
 ### 3. Testing performances on the smartphone
 
-- 🎥 [YouTube - 4. Creare il livello](https://youtu.be/VZS0pv14--s)
-- 🎥 [YouTube - 5. Creare la scena StressTest (pt1)](https://youtu.be/SVuOYKzTwxw)
-- 🎥 [YouTube - 6. Stress test (pt.2) - Debugger e profiler](https://youtu.be/s4jSWPtqR8M)
-- 🎥 [YouTube - 7. Stress test (pt.3) - Debugging su Android con Remote Debugger](https://youtu.be/-z6w9ArPFBY)
+- 🎥 [YouTube - #4 - Creare il livello](https://youtu.be/VZS0pv14--s)
+- 🎥 [YouTube - #5 - Creare la scena StressTest (pt1)](https://youtu.be/SVuOYKzTwxw)
+- 🎥 [YouTube - #6 - Stress test (pt.2) - Debugger e profiler](https://youtu.be/s4jSWPtqR8M)
+- 🎥 [YouTube - #7 - Stress test (pt.3) - Debugging su Android con Remote Debugger](https://youtu.be/-z6w9ArPFBY)
 
 > If we include all the physics elements and we create hundreds of game objects, is the game playable?
 
 ![Stress test scene screen](Assets/readme/stress-test.png)
 
 ### 4. Slingshot
+
+- 🎥 [YouTube - #8 - Lancio Proiettili (Pt.1) - Godot 3.2 Tutorial](https://youtu.be/W16SLhgp8Zk)
+- 🎥 [YouTube - #9 - TouchScreen Input: Press, Release e Drag - Lancio Proiettili (Pt.2) - Godot 3.2 Tutorial](https://youtu.be/vVDVJMomxBU)
 
 - Create a projectile
 - Create a simple slingshot
