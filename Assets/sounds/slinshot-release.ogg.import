@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/slinshot-release.ogg-8ddfaaae65490ad3f75f6cd742883874.oggstr"
+
+[deps]
+
+source_file="res://Assets/sounds/slinshot-release.ogg"
+dest_files=[ "res://.import/slinshot-release.ogg-8ddfaaae65490ad3f75f6cd742883874.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

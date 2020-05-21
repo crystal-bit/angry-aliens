@@ -1,11 +1,13 @@
 extends Obstacle
 class_name StoneObstacle
 
-export var breaking_point = 200
-export var start_damaged = false
+var start_damaged = true
+
+const BREAK_TRESHOLD = 150
+const SMALL_HIT_TRESHOLD = 30
+
 
 signal destroyed
-signal hit
 
 
 func _ready():
@@ -28,10 +30,18 @@ func is_damaged():
 func _on_StoneObstacle1_body_entered(body):
 	if not (body is RigidBody2D):
 		return
-	if body.linear_velocity.length() > breaking_point or linear_velocity.length() > breaking_point:
+
+	var impact_amount = (body.linear_velocity - self.linear_velocity).length()
+
+	if impact_amount < SMALL_HIT_TRESHOLD:
+		return
+	if impact_amount >= SMALL_HIT_TRESHOLD and impact_amount < BREAK_TRESHOLD:
+		emit_signal("hit", self, body.global_position, false)
+	elif impact_amount >= BREAK_TRESHOLD:
+		print("serious hit")
 		if is_damaged():
-			emit_signal("hit", self, body.global_position, true)
 			queue_free()
+			emit_signal("hit", self, body.global_position, true)
 		else:
-			emit_signal("hit", self, body.global_position, false)
 			set_damaged(true)
+			emit_signal("hit", self, body.global_position, false)

@@ -71,9 +71,9 @@ __meta__ = {
 }
 
 [node name="Github" parent="NinePatchRect/MarginContainer/VBoxContainer" index="2" instance=ExtResource( 6 )]
-margin_left = 101.0
+margin_left = 102.0
 margin_top = 220.0
-margin_right = 341.0
+margin_right = 342.0
 margin_bottom = 290.0
 size_flags_horizontal = 4
 size_flags_vertical = 0
@@ -89,12 +89,12 @@ __meta__ = {
 }
 
 [node name="Back" parent="NinePatchRect/MarginContainer/VBoxContainer" index="4" instance=ExtResource( 6 )]
-margin_left = 101.0
+margin_left = 102.0
 margin_top = 318.0
-margin_right = 341.0
+margin_right = 342.0
 margin_bottom = 388.0
 size_flags_horizontal = 4
 size_flags_vertical = 0
-text = "back"
+text = "BACK"
 [connection signal="pressed" from="NinePatchRect/MarginContainer/VBoxContainer/Github" to="." method="_on_Github_pressed"]
 [connection signal="pressed" from="NinePatchRect/MarginContainer/VBoxContainer/Back" to="." method="_on_Back_pressed"]

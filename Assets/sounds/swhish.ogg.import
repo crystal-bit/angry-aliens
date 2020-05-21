@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/swhish.ogg-bcfab50e70013015799c799cd5799c31.oggstr"
+
+[deps]
+
+source_file="res://Assets/sounds/swhish.ogg"
+dest_files=[ "res://.import/swhish.ogg-bcfab50e70013015799c799cd5799c31.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

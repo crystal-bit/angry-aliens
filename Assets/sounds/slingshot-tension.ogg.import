@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/slingshot-tension.ogg-6977d845ee01b8fdb93c2acdd7f0ea01.oggstr"
+
+[deps]
+
+source_file="res://Assets/sounds/slingshot-tension.ogg"
+dest_files=[ "res://.import/slingshot-tension.ogg-6977d845ee01b8fdb93c2acdd7f0ea01.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

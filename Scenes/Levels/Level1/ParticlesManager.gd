@@ -71,7 +71,7 @@ func check_unused_objs():
 
 
 func _on_Obstacle_hit(obstacle, global_pos, was_destroyed):
-	spawn_dust_particles(global_pos, 2 + randi() % 2 )
+	spawn_dust_particles(global_pos, 1 + randi() % 2 )
 	if was_destroyed:
 		spawn_debris(global_pos, obstacle)
 		spawn_explosion(global_pos)

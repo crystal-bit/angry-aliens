@@ -41,6 +41,4 @@ scale = Vector2( 1.47831, 1.01566 )
 
 [node name="Tween" type="Tween" parent="."]
 
-[node name="Timer" type="Timer" parent="."]
-
 [node name="AliensTween" type="Tween" parent="."]

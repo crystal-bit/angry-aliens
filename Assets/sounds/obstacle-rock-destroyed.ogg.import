@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/obstacle-rock-destroyed.ogg-eba6c9027c7cfdf35c8ffe87f8413a09.oggstr"
+
+[deps]
+
+source_file="res://Assets/sounds/obstacle-rock-destroyed.ogg"
+dest_files=[ "res://.import/obstacle-rock-destroyed.ogg-eba6c9027c7cfdf35c8ffe87f8413a09.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

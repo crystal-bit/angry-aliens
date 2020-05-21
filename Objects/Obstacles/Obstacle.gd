@@ -3,6 +3,7 @@ class_name Obstacle
 
 export(Texture) var debris_texture
 
+signal hit
 
 func get_debris_texture() -> Texture:
 	return debris_texture

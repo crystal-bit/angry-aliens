@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/monkeys-spinning-monkeys.ogg-4b35bd678e7929afd711a9ac73e61f41.oggstr"
+
+[deps]
+
+source_file="res://Assets/music/monkeys-spinning-monkeys.ogg"
+dest_files=[ "res://.import/monkeys-spinning-monkeys.ogg-4b35bd678e7929afd711a9ac73e61f41.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

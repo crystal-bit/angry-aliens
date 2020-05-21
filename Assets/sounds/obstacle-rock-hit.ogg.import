@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/obstacle-rock-hit.ogg-e1259a80a0b1029772e9560b7ad4367a.oggstr"
+
+[deps]
+
+source_file="res://Assets/sounds/obstacle-rock-hit.ogg"
+dest_files=[ "res://.import/obstacle-rock-hit.ogg-e1259a80a0b1029772e9560b7ad4367a.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

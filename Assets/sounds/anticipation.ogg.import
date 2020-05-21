@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/anticipation.ogg-dfc043dcd525ea09374dd78adac12e13.oggstr"
+
+[deps]
+
+source_file="res://Assets/sounds/anticipation.ogg"
+dest_files=[ "res://.import/anticipation.ogg-dfc043dcd525ea09374dd78adac12e13.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

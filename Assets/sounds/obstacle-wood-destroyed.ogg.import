@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/obstacle-wood-destroyed.ogg-d76c5342589bc07b2280fc1b4c5006ef.oggstr"
+
+[deps]
+
+source_file="res://Assets/sounds/obstacle-wood-destroyed.ogg"
+dest_files=[ "res://.import/obstacle-wood-destroyed.ogg-d76c5342589bc07b2280fc1b4c5006ef.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

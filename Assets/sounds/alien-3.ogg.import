@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/alien-3.ogg-10cb6e60a9e81752743d2f075f6aac0a.oggstr"
+
+[deps]
+
+source_file="res://Assets/sounds/alien-3.ogg"
+dest_files=[ "res://.import/alien-3.ogg-10cb6e60a9e81752743d2f075f6aac0a.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

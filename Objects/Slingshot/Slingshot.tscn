@@ -1,12 +1,16 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Assets/graphics/elastic-cover.png" type="Texture" id=1]
 [ext_resource path="res://Assets/graphics/slingshot-elastic.png" type="Texture" id=2]
 [ext_resource path="res://Objects/Slingshot/InputArea.gd" type="Script" id=3]
+[ext_resource path="res://Assets/sounds/slinshot-release.ogg" type="AudioStream" id=4]
 [ext_resource path="res://Objects/Slingshot/Slingshot.gd" type="Script" id=5]
 [ext_resource path="res://Objects/Slingshot/TrajectoryDrawer/TrajectoryDrawer.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Assets/graphics/slingshot.png" type="Texture" id=7]
 [ext_resource path="res://Assets/graphics/elastic-pad.png" type="Texture" id=8]
+[ext_resource path="res://Objects/Slingshot/Audio.gd" type="Script" id=9]
+[ext_resource path="res://Assets/sounds/swhish.ogg" type="AudioStream" id=10]
+[ext_resource path="res://Assets/sounds/slingshot-tension.ogg" type="AudioStream" id=11]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends Sprite
@@ -121,6 +125,20 @@ shape = SubResource( 2 )
 
 [node name="TrajectoryDrawer" parent="." instance=ExtResource( 6 )]
 visible = false
+
+[node name="Audio" type="Node" parent="."]
+script = ExtResource( 9 )
+
+[node name="Aiming" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource( 11 )
+
+[node name="Swish" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource( 10 )
+
+[node name="Released" type="AudioStreamPlayer" parent="Audio"]
+stream = ExtResource( 4 )
+volume_db = 2.0
+[connection signal="projectile_launched" from="." to="Audio" method="_on_Slingshot_projectile_launched"]
 [connection signal="input_event" from="InputArea" to="InputArea" method="_on_InputArea_input_event"]
 [connection signal="slingshot_moved" from="InputArea" to="." method="_on_InputArea_slingshot_moved"]
 [connection signal="slingshot_released" from="InputArea" to="." method="_on_InputArea_slingshot_released"]

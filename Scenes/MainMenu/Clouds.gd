@@ -1,6 +1,5 @@
 extends Node2D
 
-onready var timer := $Timer
 onready var aliens_tween := $AliensTween
 onready var clouds = get_tree().get_nodes_in_group("clouds")
 
@@ -33,9 +32,6 @@ func _ready():
 			cl.speed = near_speed + randi() % 20
 			animate(cl)
 			clouds_arr.append(cl)
-	timer.wait_time = 6
-	timer.start()
-	timer.connect("timeout", self, "_show_alien")
 
 
 func _show_alien():

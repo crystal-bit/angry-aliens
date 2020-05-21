@@ -4,6 +4,8 @@ onready var aliens = $Aliens
 onready var metal_box = $MetalBox
 onready var tween = $Tween
 onready var timer = $Timer
+onready var ground_hit = $Audio/HitSound
+
 
 func _ready():
 	randomize()
@@ -75,6 +77,9 @@ func _on_MetalBox_pressed():
 
 func _on_metal_box_tween_completed(a, b):
 	launch_aliens()
+	ground_hit.pitch_scale = 0.7
+	ground_hit.play()
+
 
 
 func _on_Timer_timeout():

@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Assets/graphics/kenney_physicsAssets_v2/PNG/Stone elements/elementStone020.png" type="Texture" id=1]
 [ext_resource path="res://Assets/graphics/kenney_physicsAssets_v2/PNG/Stone elements/elementStone052.png" type="Texture" id=2]
 [ext_resource path="res://Objects/Obstacles/StoneObstacle/StoneObstacle1.gd" type="Script" id=3]
 [ext_resource path="res://Assets/graphics/kenney_physicsAssets_v2/PNG/Debris/debrisStone_1.png" type="Texture" id=4]
-[ext_resource path="res://Assets/graphics/kenney_physicsAssets_v2/PNG/Debris/debrisStone_3.png" type="Texture" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 33, 108 )
@@ -14,10 +13,7 @@ mass = 6.0
 contacts_reported = 1
 contact_monitor = true
 script = ExtResource( 3 )
-breaking_point = 220
-start_damaged = true
 debris_texture = ExtResource( 4 )
-debris_texture2 = ExtResource( 5 )
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )
