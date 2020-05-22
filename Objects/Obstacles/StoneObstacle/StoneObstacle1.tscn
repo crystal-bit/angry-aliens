@@ -9,6 +9,7 @@
 extents = Vector2( 33, 108 )
 
 [node name="StoneObstacle1" type="RigidBody2D"]
+position = Vector2( 0, -1 )
 mass = 6.0
 contacts_reported = 1
 contact_monitor = true
@@ -24,4 +25,3 @@ texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
-[connection signal="body_entered" from="." to="." method="_on_StoneObstacle1_body_entered"]

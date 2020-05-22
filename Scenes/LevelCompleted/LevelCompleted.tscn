@@ -12,7 +12,7 @@ font_data = ExtResource( 3 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "show"
-length = 3.0
+length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
@@ -110,6 +110,30 @@ tracks/7/keys = {
 "args": [  ],
 "method": "appear_animation"
 } ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("NinePatchRect/VBoxContainer/Retry:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 1.6, 1.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("NinePatchRect/VBoxContainer/LevelSelection:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 1.8, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
 [node name="LevelCompleted" type="Control"]
@@ -215,6 +239,7 @@ __meta__ = {
 }
 
 [node name="Retry" parent="NinePatchRect/VBoxContainer" instance=ExtResource( 6 )]
+modulate = Color( 1, 1, 1, 0 )
 margin_right = 230.0
 margin_bottom = 60.0
 rect_min_size = Vector2( 190, 60 )
@@ -222,6 +247,7 @@ disabled = true
 text = "RETRY"
 
 [node name="LevelSelection" parent="NinePatchRect/VBoxContainer" instance=ExtResource( 6 )]
+modulate = Color( 1, 1, 1, 0 )
 margin_top = 76.0
 margin_right = 230.0
 margin_bottom = 136.0

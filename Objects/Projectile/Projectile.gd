@@ -46,6 +46,6 @@ func _physics_process(delta):
 
 
 func _moving_process():
-	if linear_velocity.length() < 10 and len(get_colliding_bodies()) > 0:
+	if linear_velocity.length() < 20 and len(get_colliding_bodies()) > 0:
 		emit_signal("almost_stopped")
 		state = STATES.LAUNCHED

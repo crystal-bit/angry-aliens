@@ -213,19 +213,19 @@ shape = SubResource( 8 )
 script = ExtResource( 17 )
 
 [node name="Enemy" parent="Enemies" instance=ExtResource( 6 )]
-position = Vector2( 1114, 379 )
+position = Vector2( 788, 359 )
 
 [node name="Enemy4" parent="Enemies" instance=ExtResource( 6 )]
-position = Vector2( 1020, 363 )
+position = Vector2( 682, 373 )
 
 [node name="Enemy5" parent="Enemies" instance=ExtResource( 6 )]
 position = Vector2( 899, 355 )
 
 [node name="Enemy2" parent="Enemies" instance=ExtResource( 6 )]
-position = Vector2( 1333, 372 )
+position = Vector2( 1319, 295 )
 
 [node name="Enemy6" parent="Enemies" instance=ExtResource( 6 )]
-position = Vector2( 1390, 306 )
+position = Vector2( 1378, 372 )
 
 [node name="Enemy3" parent="Enemies" instance=ExtResource( 6 )]
 position = Vector2( 1803.97, 368 )
@@ -233,23 +233,6 @@ position = Vector2( 1803.97, 368 )
 [node name="Obstacles" type="Node" parent="."]
 script = ExtResource( 12 )
 particles_manager_path = NodePath("../ParticlesManager")
-
-[node name="StoneObstacle1" parent="Obstacles" instance=ExtResource( 11 )]
-position = Vector2( 1475, 305 )
-mass = 10.0
-
-[node name="StoneObstacle4" parent="Obstacles" instance=ExtResource( 11 )]
-position = Vector2( 1431, 12 )
-mass = 10.0
-
-[node name="StoneObstacle2" parent="Obstacles" instance=ExtResource( 11 )]
-position = Vector2( 1254, 308 )
-mass = 10.0
-
-[node name="StoneObstacle3" parent="Obstacles" instance=ExtResource( 11 )]
-position = Vector2( 1361, 159 )
-rotation = 1.57079
-mass = 10.0
 
 [node name="WoodObstacle1" parent="Obstacles" instance=ExtResource( 1 )]
 position = Vector2( 1614, 218 )
@@ -261,7 +244,22 @@ position = Vector2( 1637, 142 )
 position = Vector2( 1630, 383 )
 
 [node name="WoodObstacle4" parent="Obstacles" instance=ExtResource( 1 )]
-position = Vector2( 1640, 297 )
+position = Vector2( 1653, 310 )
+
+[node name="StoneObstacle1" parent="Obstacles" instance=ExtResource( 11 )]
+position = Vector2( 1236, 301 )
+
+[node name="StoneObstacle2" parent="Obstacles" instance=ExtResource( 11 )]
+position = Vector2( 1449, 301 )
+rotation = 3.14159
+
+[node name="StoneObstacle3" parent="Obstacles" instance=ExtResource( 11 )]
+position = Vector2( 1357, 146 )
+rotation = 4.71238
+
+[node name="StoneObstacle4" parent="Obstacles" instance=ExtResource( 11 )]
+position = Vector2( 1413, -13 )
+rotation = 3.14159
 
 [node name="ParticlesManager" type="Node" parent="."]
 script = ExtResource( 14 )
@@ -419,11 +417,11 @@ region_rect = Rect2( 9, 10, 32, 32 )
 [node name="GameEndScreen" type="CanvasLayer" parent="."]
 
 [node name="LevelCompleted" parent="GameEndScreen" instance=ExtResource( 23 )]
-[connection signal="enemy_destroyed" from="Enemies" to="Scores" method="_on_Enemies_enemy_destroyed"]
 [connection signal="enemy_destroyed" from="Enemies" to="Audio" method="_on_Enemies_enemy_destroyed"]
-[connection signal="projectile_launched" from="Slingshot" to="Audio" method="_on_Slingshot_projectile_launched"]
+[connection signal="enemy_destroyed" from="Enemies" to="Scores" method="_on_Enemies_enemy_destroyed"]
 [connection signal="projectile_launched" from="Slingshot" to="CameraFocus" method="_on_Slingshot_projectile_launched"]
 [connection signal="projectile_launched" from="Slingshot" to="ProjectilesLoader" method="_on_Slingshot_projectile_launched"]
+[connection signal="projectile_launched" from="Slingshot" to="Audio" method="_on_Slingshot_projectile_launched"]
 [connection signal="level_finished" from="ProjectilesLoader" to="." method="_on_ProjectilesLoader_level_finished"]
 [connection signal="points_gained" from="Scores" to="GUI" method="_on_Scores_points_gained"]
 [connection signal="released" from="GUI/TouchScreenButton" to="." method="_on_TouchScreenButton_released"]
