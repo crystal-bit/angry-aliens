@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "RigidBody2D",
+"class": "Enemy",
+"language": "GDScript",
+"path": "res://Objects/Enemy/Enemy.gd"
+}, {
 "base": "Node",
 "class": "Node2DPool",
 "language": "GDScript",
@@ -35,6 +40,7 @@ _global_script_classes=[ {
 "path": "res://Objects/Obstacles/StoneObstacle/StoneObstacle1.gd"
 } ]
 _global_script_class_icons={
+"Enemy": "",
 "Node2DPool": "",
 "Obstacle": "",
 "PoolableNode2D": "",

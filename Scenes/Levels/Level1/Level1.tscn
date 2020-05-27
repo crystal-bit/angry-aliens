@@ -417,8 +417,8 @@ region_rect = Rect2( 9, 10, 32, 32 )
 [node name="GameEndScreen" type="CanvasLayer" parent="."]
 
 [node name="LevelCompleted" parent="GameEndScreen" instance=ExtResource( 23 )]
-[connection signal="enemy_destroyed" from="Enemies" to="Audio" method="_on_Enemies_enemy_destroyed"]
 [connection signal="enemy_destroyed" from="Enemies" to="Scores" method="_on_Enemies_enemy_destroyed"]
+[connection signal="enemy_destroyed" from="Enemies" to="Audio" method="_on_Enemies_enemy_destroyed"]
 [connection signal="projectile_launched" from="Slingshot" to="CameraFocus" method="_on_Slingshot_projectile_launched"]
 [connection signal="projectile_launched" from="Slingshot" to="ProjectilesLoader" method="_on_Slingshot_projectile_launched"]
 [connection signal="projectile_launched" from="Slingshot" to="Audio" method="_on_Slingshot_projectile_launched"]

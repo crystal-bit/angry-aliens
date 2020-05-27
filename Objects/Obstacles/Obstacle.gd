@@ -7,3 +7,7 @@ signal hit
 
 func get_debris_texture() -> Texture:
 	return debris_texture
+
+
+func get_class():
+	return "Obstacle"

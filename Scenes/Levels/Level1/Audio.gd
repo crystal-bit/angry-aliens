@@ -17,7 +17,7 @@ func play_alien():
 	alien.play()
 
 
-func _on_Enemies_enemy_destroyed(enemy):
+func _on_Enemies_enemy_destroyed(enemy, impact_momentum):
 	hit.play()
 
 
