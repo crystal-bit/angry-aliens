@@ -118,10 +118,10 @@ position = Vector2( 812, 449 )
 position = Vector2( 207, 195 )
 
 [node name="Projectile" parent="." instance=ExtResource( 7 )]
-position = Vector2( 222, 455 )
+position = Vector2( 218, 455 )
 
 [node name="Projectile2" parent="." instance=ExtResource( 7 )]
 position = Vector2( 125, 455 )
 
 [node name="Projectile3" parent="." instance=ExtResource( 7 )]
-position = Vector2( 44, 455 )
+position = Vector2( 9, 455 )

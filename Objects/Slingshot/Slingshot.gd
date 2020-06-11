@@ -32,10 +32,13 @@ func _unhandled_input(event):
 	if event is InputEventScreenTouch:
 		if event.pressed:
 			_on_touch_pressed(event)
+			get_tree().set_input_as_handled()
 		else:
 			_on_touch_released(event)
+			get_tree().set_input_as_handled()
 	if event is InputEventScreenDrag:
 		_on_touch_drag(event)
+		get_tree().set_input_as_handled()
 
 
 func _on_touch_pressed(event: InputEventScreenTouch):
