@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Assets/graphics/kenney_physicsAssets_v2/Spritesheet/spritesheet_tiles.png" type="Texture" id=1]
 [ext_resource path="res://Assets/graphics/kenney_physicsAssets_v2/PNG/Backgrounds/blue_desert.png" type="Texture" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://Objects/Enemy/Enemy.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Objects/Slingshot/Slingshot.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Objects/Projectile/Projectile.tscn" type="PackedScene" id=7]
+[ext_resource path="res://iPhoneX-landscape-812x375.png" type="Texture" id=8]
+[ext_resource path="res://iPad-landscape-1024x768.png" type="Texture" id=9]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 70, 0, 70, 70, 0, 70 )
@@ -79,6 +81,7 @@ points = PoolVector2Array( 0, 0, 70, 0, 70, 70, 0, 70 )
 [node name="Level1" type="Node2D"]
 
 [node name="LevelGraphics" type="Node2D" parent="."]
+position = Vector2( 0, 280 )
 __meta__ = {
 "_edit_group_": true,
 "_edit_lock_": true
@@ -92,36 +95,54 @@ texture = ExtResource( 2 )
 position = Vector2( 1064, 231 )
 texture = ExtResource( 2 )
 
+[node name="Background3" type="Sprite" parent="LevelGraphics"]
+position = Vector2( 2089, 231 )
+texture = ExtResource( 2 )
+
 [node name="TileMap" type="TileMap" parent="LevelGraphics"]
 tile_set = SubResource( 2 )
 cell_size = Vector2( 70, 70 )
 collision_friction = 0.9
 collision_bounce = 0.4
 format = 1
-tile_data = PoolIntArray( 524287, 0, 0, 458752, 0, 0, 458753, 0, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0, 458757, 0, 0, 458758, 0, 0, 458759, 0, 0, 458760, 0, 0, 458761, 0, 0, 458762, 0, 0, 458763, 0, 0, 458764, 0, 0, 458765, 0, 0, 458766, 0, 0, 458767, 0, 0, 589823, 3, 0, 524288, 3, 0, 524289, 3, 0, 524290, 3, 0, 524291, 3, 0, 524292, 3, 0, 524293, 3, 0, 524294, 3, 0, 524295, 3, 0, 524296, 3, 0, 524297, 3, 0, 524298, 3, 0, 524299, 3, 0, 524300, 3, 0, 524301, 3, 0, 524302, 3, 0, 524303, 3, 0 )
+tile_data = PoolIntArray( 524287, 0, 0, 458752, 0, 0, 458753, 0, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0, 458757, 0, 0, 458758, 0, 0, 458759, 0, 0, 458760, 0, 0, 458761, 0, 0, 458762, 0, 0, 458763, 0, 0, 458764, 0, 0, 458765, 0, 0, 458766, 0, 0, 458767, 0, 0, 458768, 0, 0, 458769, 0, 0, 458770, 0, 0, 458771, 0, 0, 458772, 0, 0, 458773, 0, 0, 458774, 0, 0, 458775, 0, 0, 458776, 0, 0, 458777, 0, 0, 458778, 0, 0, 458779, 0, 0, 589823, 3, 0, 524288, 3, 0, 524289, 3, 0, 524290, 3, 0, 524291, 3, 0, 524292, 3, 0, 524293, 3, 0, 524294, 3, 0, 524295, 3, 0, 524296, 3, 0, 524297, 3, 0, 524298, 3, 0, 524299, 3, 0, 524300, 3, 0, 524301, 3, 0, 524302, 3, 0, 524303, 3, 0, 524304, 3, 0, 524305, 3, 0, 524306, 3, 0, 524307, 3, 0, 524308, 3, 0, 524309, 3, 0, 524310, 3, 0, 524311, 3, 0, 524312, 3, 0, 524313, 3, 0, 524314, 3, 0, 524315, 3, 0, 655359, 3, 0, 589824, 3, 0, 589825, 3, 0, 589826, 3, 0, 589827, 3, 0, 589828, 3, 0, 589829, 3, 0, 589830, 3, 0, 589831, 3, 0, 589832, 3, 0, 589833, 3, 0, 589834, 3, 0, 589835, 3, 0, 589836, 3, 0, 589837, 3, 0, 589838, 3, 0, 589839, 3, 0, 589840, 3, 0, 589841, 3, 0, 589842, 3, 0, 589843, 3, 0, 589844, 3, 0, 589845, 3, 0, 589846, 3, 0, 589847, 3, 0, 589848, 3, 0, 589849, 3, 0, 589850, 3, 0, 589851, 3, 0, 720895, 3, 0, 655360, 3, 0, 655361, 3, 0, 655362, 3, 0, 655363, 3, 0, 655364, 3, 0, 655365, 3, 0, 655366, 3, 0, 655367, 3, 0, 655368, 3, 0, 655369, 3, 0, 655370, 3, 0, 655371, 3, 0, 655372, 3, 0, 655373, 3, 0, 655374, 3, 0, 655375, 3, 0, 655376, 3, 0, 655377, 3, 0, 655378, 3, 0, 655379, 3, 0, 655380, 3, 0, 655381, 3, 0, 655382, 3, 0, 655383, 3, 0, 655384, 3, 0, 655385, 3, 0, 655386, 3, 0, 655387, 3, 0, 786431, 3, 0, 720896, 3, 0, 720897, 3, 0, 720898, 3, 0, 720899, 3, 0, 720900, 3, 0, 720901, 3, 0, 720902, 3, 0, 720903, 3, 0, 720904, 3, 0, 720905, 3, 0, 720906, 3, 0, 720907, 3, 0, 720908, 3, 0, 720909, 3, 0, 720910, 3, 0, 720911, 3, 0, 720912, 3, 0, 720913, 3, 0, 720914, 3, 0, 720915, 3, 0, 720916, 3, 0, 720917, 3, 0, 720918, 3, 0, 720919, 3, 0, 720920, 3, 0, 720921, 3, 0, 720922, 3, 0, 720923, 3, 0, 851967, 3, 0, 786432, 3, 0, 786433, 3, 0, 786434, 3, 0, 786435, 3, 0, 786436, 3, 0, 786437, 3, 0, 786438, 3, 0, 786439, 3, 0, 786440, 3, 0, 786441, 3, 0, 786442, 3, 0, 786443, 3, 0, 786444, 3, 0, 786445, 3, 0, 786446, 3, 0, 786447, 3, 0, 786448, 3, 0, 786449, 3, 0, 786450, 3, 0, 786451, 3, 0, 786452, 3, 0, 786453, 3, 0, 786454, 3, 0, 786455, 3, 0, 786456, 3, 0, 786457, 3, 0, 786458, 3, 0, 786459, 3, 0, 917503, 3, 0, 851968, 3, 0, 851969, 3, 0, 851970, 3, 0, 851971, 3, 0, 851972, 3, 0, 851973, 3, 0, 851974, 3, 0, 851975, 3, 0, 851976, 3, 0, 851977, 3, 0, 851978, 3, 0, 851979, 3, 0, 851980, 3, 0, 851981, 3, 0, 851982, 3, 0, 851983, 3, 0, 851984, 3, 0, 851985, 3, 0, 851986, 3, 0, 851987, 3, 0, 851988, 3, 0, 851989, 3, 0, 851990, 3, 0, 851991, 3, 0, 851992, 3, 0, 851993, 3, 0, 851994, 3, 0, 851995, 3, 0 )
 
 [node name="TerrainCover" type="Sprite" parent="LevelGraphics"]
-position = Vector2( 526.5, 553 )
-scale = Vector2( 18.6094, 0.6875 )
+position = Vector2( 944.265, 553 )
+scale = Vector2( 31.6646, 0.6875 )
 texture = ExtResource( 4 )
 
 [node name="Enemy" parent="." instance=ExtResource( 5 )]
-position = Vector2( 736, 449 )
+position = Vector2( 785.095, 725.719 )
 
 [node name="Enemy2" parent="." instance=ExtResource( 5 )]
-position = Vector2( 893, 449 )
+position = Vector2( 941.502, 724.047 )
 
 [node name="Enemy3" parent="." instance=ExtResource( 5 )]
-position = Vector2( 812, 449 )
+position = Vector2( 861.095, 725.719 )
 
 [node name="Slingshot" parent="." instance=ExtResource( 6 )]
-position = Vector2( 207, 195 )
+position = Vector2( 260.211, 482.007 )
 
 [node name="Projectile" parent="." instance=ExtResource( 7 )]
-position = Vector2( 218, 455 )
+position = Vector2( 267.095, 731.719 )
 
 [node name="Projectile2" parent="." instance=ExtResource( 7 )]
-position = Vector2( 125, 455 )
+position = Vector2( 174.095, 731.719 )
 
 [node name="Projectile3" parent="." instance=ExtResource( 7 )]
-position = Vector2( 9, 455 )
+position = Vector2( 58.0952, 731.719 )
+
+[node name="iPhoneX-landscape-812x375" type="Sprite" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0.356863 )
+scale = Vector2( 2.38139, 2.38139 )
+texture = ExtResource( 8 )
+centered = false
+
+[node name="iPad-landscape-1024x768" type="Sprite" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0.356863 )
+scale = Vector2( 1.56388, 1.56388 )
+texture = ExtResource( 9 )
+centered = false
