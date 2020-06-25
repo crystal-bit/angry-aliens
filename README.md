@@ -26,11 +26,10 @@ Gameplay is definitely inspired by *Angry Birds*.
     - [2. Configure Godot and Android SDK](#2-configure-godot-and-android-sdk)
     - [3. Testing performances on the smartphone](#3-testing-performances-on-the-smartphone)
     - [4. Slingshot](#4-slingshot)
-    - [5. Enemies](#5-enemies)
-    - [6. Level](#6-level)
+    - [5. Level (for multiple resolutions)](#5-level-for-multiple-resolutions)
+    - [6. Enemies](#6-enemies)
     - [7. Obstacles](#7-obstacles)
     - [8. Level finished screen](#8-level-finished-screen)
-    - [9. Camera](#9-camera)
     - [[EXTRA] Possible improvements / future topics](#extra-possible-improvements--future-topics)
   - [Credits](#credits)
   - [Thanks](#thanks)
@@ -96,8 +95,9 @@ Currently I don't have an Apple device and I cannot develop/test iOS/OSX games. 
 
 ### 4. Slingshot
 
-- 🎥 [YouTube - #8 - Lancio Proiettili (Pt.1) - Godot 3.2 Tutorial](https://youtu.be/W16SLhgp8Zk)
-- 🎥 [YouTube - #9 - TouchScreen Input: Press, Release e Drag - Lancio Proiettili (Pt.2) - Godot 3.2 Tutorial](https://youtu.be/vVDVJMomxBU)
+- 🎥 [YouTube - #8 - Lancio Proiettili (Pt.1)](https://youtu.be/W16SLhgp8Zk)
+- 🎥 [YouTube - #9 - TouchScreen Input: Press, Release e Drag - Lancio Proiettili (Pt.2)](https://youtu.be/vVDVJMomxBU)
+- 🎥 [YouTube - #10 - input e unhandled_input](https://youtu.be/ZuBWgmOB_Gs)
 
 > How to create a slingshot that reacts on touchscreen and mouse input
 
@@ -107,20 +107,22 @@ Currently I don't have an Apple device and I cannot develop/test iOS/OSX games. 
 - Projectile launch
 - Load new projectile
 
-### 5. Enemies
+### 5. Level (for multiple resolutions)
 
-- Rigid bodies with collision detection
-- Enemies destruction
-- enemy destroyed signal
-- simple score preview
-
-### 6. Level
+- 🎥 [#11 - Risoluzioni Multiple (pt1)](https://youtu.be/uuRF0yJ6P1M)
+- 🎥 [#12 - Risoluzioni Multiple (pt2)](https://youtu.be/va4RFkUQ6xg)
 
 ![Image level screen](Assets/readme/level.png)
 
 - Mobile Layout
 - Multiple resolutions handling
-- GUI elements positioning
+
+### 6. Enemies
+
+- Rigid bodies with collision detection
+- Enemies destruction
+- enemy destroyed signal
+- simple score preview
 
 ### 7. Obstacles
 
@@ -134,18 +136,14 @@ Currently I don't have an Apple device and I cannot develop/test iOS/OSX games. 
 - Touch buttons
 - GUI with score
 
-### 9. Camera 
-
-- Camera pan
-- Camera focus handling
-- Fix input
-
 ### [EXTRA] Possible improvements / future topics
 
 This tutorial covers only a small subset of mobile game development topics.
 
 There are a lot of areas that can be explored, like:
 
+- Camera handling (pan, focus, zoom, ...)
+- Fix input
 - Publishing on a game store
   - Fdroid
   - Play Store
