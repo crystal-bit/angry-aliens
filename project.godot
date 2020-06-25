@@ -22,8 +22,8 @@ run/main_scene="res://Scenes/Main.tscn"
 
 window/size/width=1600
 window/size/height=900
-window/size/test_width=812
-window/size/test_height=375
+window/size/test_width=1280
+window/size/test_height=760
 window/stretch/mode="2d"
 window/stretch/aspect="expand"
 
