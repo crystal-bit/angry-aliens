@@ -96,7 +96,7 @@ position = Vector2( 1064, 231 )
 texture = ExtResource( 2 )
 
 [node name="Background3" type="Sprite" parent="LevelGraphics"]
-position = Vector2( 2089, 231 )
+position = Vector2( 2088, 231 )
 texture = ExtResource( 2 )
 
 [node name="TileMap" type="TileMap" parent="LevelGraphics"]
@@ -133,16 +133,28 @@ position = Vector2( 174.095, 731.719 )
 [node name="Projectile3" parent="." instance=ExtResource( 7 )]
 position = Vector2( 58.0952, 731.719 )
 
-[node name="iPhoneX-landscape-812x375" type="Sprite" parent="."]
+[node name="AspectRatio" type="Node2D" parent="."]
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="iPhoneX-landscape-812x375" type="Sprite" parent="AspectRatio"]
 visible = false
 modulate = Color( 1, 1, 1, 0.356863 )
 scale = Vector2( 2.38139, 2.38139 )
 texture = ExtResource( 8 )
 centered = false
+__meta__ = {
+"_edit_lock_": true
+}
 
-[node name="iPad-landscape-1024x768" type="Sprite" parent="."]
+[node name="iPad-landscape-1024x768" type="Sprite" parent="AspectRatio"]
 visible = false
 modulate = Color( 1, 1, 1, 0.356863 )
 scale = Vector2( 1.56388, 1.56388 )
 texture = ExtResource( 9 )
 centered = false
+__meta__ = {
+"_edit_lock_": true
+}
