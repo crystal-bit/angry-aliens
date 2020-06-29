@@ -9,8 +9,11 @@ onready var collision_shape := $CollisionShape2D
 # vars
 var start_damaged = true
 # constants
-const BREAK_TRESHOLD = 1800
-const SMALL_HIT_TRESHOLD = 600
+const BREAK_THRESHOLDS = {
+	'obstacle': 2200,
+	'projectile': 1000
+}
+const SMALL_HIT_THRESHOLD = 620
 
 
 func _ready():
@@ -40,21 +43,18 @@ func _integrate_forces(state: Physics2DDirectBodyState):
 		if collider is TileMap:
 			return
 
-		var break_point = BREAK_TRESHOLD
-		# make it easier for projectiles to break the obstacle
-		if collider is Projectile:
-			break_point -= 1000
-		
 		# calculate momentums and forces
 		var self_momentum = state.linear_velocity * mass
 		var collider_momentum =  collider_velocity * collider.mass
 		var impact_momentum = self_momentum - collider_momentum
 		var impact_amount = impact_momentum.length()
-
-		# react on collision based on the impact_amount
-		if impact_amount < SMALL_HIT_TRESHOLD:
+		
+		# ignore small collisions
+		if impact_amount < SMALL_HIT_THRESHOLD:
 			return
-		if impact_amount >= SMALL_HIT_TRESHOLD and impact_amount < break_point:
+		
+		var break_point = get_breakpoint_for(collider)
+		if impact_amount >= SMALL_HIT_THRESHOLD and impact_amount < break_point:
 			emit_signal("hit", self, collision_pos, false)
 		elif impact_amount >= break_point:
 			if is_damaged():
@@ -65,3 +65,10 @@ func _integrate_forces(state: Physics2DDirectBodyState):
 			else:
 				set_damaged(true)
 				emit_signal("hit", self, global_position, false)
+
+
+func get_breakpoint_for(collider):
+	if collider is Projectile:
+		return BREAK_THRESHOLDS.projectile
+	else:
+		return BREAK_THRESHOLDS.obstacle

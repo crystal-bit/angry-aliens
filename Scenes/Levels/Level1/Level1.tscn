@@ -254,11 +254,11 @@ position = Vector2( 1449, 301 )
 rotation = 3.14159
 
 [node name="StoneObstacle3" parent="Obstacles" instance=ExtResource( 11 )]
-position = Vector2( 1357, 146 )
+position = Vector2( 1352.33, 151.598 )
 rotation = 4.71238
 
 [node name="StoneObstacle4" parent="Obstacles" instance=ExtResource( 11 )]
-position = Vector2( 1413, -13 )
+position = Vector2( 1359.81, -82.9811 )
 rotation = 3.14159
 
 [node name="ParticlesManager" type="Node" parent="."]
@@ -419,9 +419,9 @@ region_rect = Rect2( 9, 10, 32, 32 )
 [node name="LevelCompleted" parent="GameEndScreen" instance=ExtResource( 23 )]
 [connection signal="enemy_destroyed" from="Enemies" to="Scores" method="_on_Enemies_enemy_destroyed"]
 [connection signal="enemy_destroyed" from="Enemies" to="Audio" method="_on_Enemies_enemy_destroyed"]
-[connection signal="projectile_launched" from="Slingshot" to="CameraFocus" method="_on_Slingshot_projectile_launched"]
 [connection signal="projectile_launched" from="Slingshot" to="ProjectilesLoader" method="_on_Slingshot_projectile_launched"]
 [connection signal="projectile_launched" from="Slingshot" to="Audio" method="_on_Slingshot_projectile_launched"]
+[connection signal="projectile_launched" from="Slingshot" to="CameraFocus" method="_on_Slingshot_projectile_launched"]
 [connection signal="level_finished" from="ProjectilesLoader" to="." method="_on_ProjectilesLoader_level_finished"]
 [connection signal="points_gained" from="Scores" to="GUI" method="_on_Scores_points_gained"]
 [connection signal="released" from="GUI/TouchScreenButton" to="." method="_on_TouchScreenButton_released"]
