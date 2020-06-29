@@ -11,7 +11,7 @@ extents = Vector2( 33, 108 )
 [node name="StoneObstacle1" type="RigidBody2D"]
 position = Vector2( 0, -1 )
 mass = 8.0
-contacts_reported = 1
+contacts_reported = 2
 contact_monitor = true
 script = ExtResource( 3 )
 debris_texture = ExtResource( 4 )

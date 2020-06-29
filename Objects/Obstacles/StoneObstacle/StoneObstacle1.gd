@@ -30,14 +30,13 @@ func is_damaged():
 	return $SpriteDamaged.visible
 
 
-func get_momentum(body: RigidBody2D) -> Vector2:
-	return body.linear_velocity * body.mass
-
-
 func _integrate_forces(state: Physics2DDirectBodyState):
 	for c_id in state.get_contact_count():
 		var collider = state.get_contact_collider_object(c_id)
-		var collision_pos = state.get_contact_collider_position(c_id)
+		var collision_pos: Vector2 = state.get_contact_collider_position(c_id)
+		var collider_velocity: Vector2 = state.get_contact_collider_velocity_at_position(c_id)
+
+		# ignore TileMap collisions
 		if collider is TileMap:
 			return
 
@@ -45,11 +44,14 @@ func _integrate_forces(state: Physics2DDirectBodyState):
 		# make it easier for projectiles to break the obstacle
 		if collider is Projectile:
 			break_point -= 1000
+		
+		# calculate momentums and forces
+		var self_momentum = state.linear_velocity * mass
+		var collider_momentum =  collider_velocity * collider.mass
+		var impact_momentum = self_momentum - collider_momentum
+		var impact_amount = impact_momentum.length()
 
-		var impact_amount = (
-			collider.mass * collider.linear_velocity - self.mass * self.linear_velocity
-		).length()
-
+		# react on collision based on the impact_amount
 		if impact_amount < SMALL_HIT_TRESHOLD:
 			return
 		if impact_amount >= SMALL_HIT_TRESHOLD and impact_amount < break_point:
