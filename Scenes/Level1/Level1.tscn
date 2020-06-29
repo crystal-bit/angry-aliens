@@ -113,13 +113,13 @@ scale = Vector2( 31.6646, 0.6875 )
 texture = ExtResource( 4 )
 
 [node name="Enemy" parent="." instance=ExtResource( 5 )]
-position = Vector2( 785.095, 725.719 )
+position = Vector2( 779.202, 733.576 )
 
 [node name="Enemy2" parent="." instance=ExtResource( 5 )]
-position = Vector2( 941.502, 724.047 )
+position = Vector2( 779.441, 583.594 )
 
 [node name="Enemy3" parent="." instance=ExtResource( 5 )]
-position = Vector2( 861.095, 725.719 )
+position = Vector2( 779.574, 656.966 )
 
 [node name="Slingshot" parent="." instance=ExtResource( 6 )]
 position = Vector2( 260.211, 482.007 )
