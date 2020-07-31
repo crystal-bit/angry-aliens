@@ -29,7 +29,6 @@ Gameplay is definitely inspired by *Angry Birds*.
     - [5. Level (for multiple resolutions)](#5-level-for-multiple-resolutions)
     - [6. Enemies](#6-enemies)
     - [7. Obstacles](#7-obstacles)
-    - [8. Level finished screen](#8-level-finished-screen)
     - [[EXTRA] Possible improvements / future topics](#extra-possible-improvements--future-topics)
   - [Credits](#credits)
   - [Thanks](#thanks)
@@ -119,52 +118,42 @@ Currently I don't have an Apple device and I cannot develop/test iOS/OSX games. 
 
 ### 6. Enemies
 
+
+- 🎥 [#13 - Quantità di moto e gestione delle collisioni (pt1)](https://youtu.be/rAp0APW_aAQ)
+- 🎥 [#14 - _integrate_forces: gestione collisioni (pt2)](https://youtu.be/cjRhymHrIe4)
+
 - Rigid bodies with collision detection
 - Enemies destruction
 - enemy destroyed signal
-- simple score preview
 
 ### 7. Obstacles
 
+- 🎥 [#15 - Aggiungere ostacoli e generalizzare le collisioni](https://youtu.be/yfljmFIFHOg)
+
 - Obstacle scene
-- Debris texture
 - Obstacle destruction
-
-### 8. Level finished screen
-
-- Level completed detection
-- Touch buttons
-- GUI with score
+- `CollisionHandler` node to generalize collision physics
 
 ### [EXTRA] Possible improvements / future topics
 
-This tutorial covers only a small subset of mobile game development topics.
+Extra topics are available in the `develop` branch.
 
-There are a lot of areas that can be explored, like:
+They are not tutorialized, but the code should be simple to understand.
+
+More than that, there are still a lot of areas that can be explored like:
 
 - Camera handling (pan, focus, zoom, ...)
-- Fix input
 - Publishing on a game store
   - Fdroid
   - Play Store
-- Add audio sfx
-- Improve the slingshot
-  - elastic animation
+- Managing audio sfx
+- Improve the slingshot elastic animation
 - Parallax background
 - Moving clouds
-- Add particle effects
-  - debris on obstacles destruction
-  - dust effects on collisions
-  - improve performances with object pooling
+- Particle effects
 - Android modules
 - Double tap, drag 'n drop, pinch to zoom,...
 - Using Sensors (GPS, accelerometer, light sensor, bluetooth,...)
-
-Some of these topics may be covered on [my YouTube channel](https://www.youtube.com/c/CrystalBit)
-as separated videos.
-
-Keep an eye on the [Crystal Bit Github organization](https://github.com/crystal-bit) as well, because
-all the source code for my tutorials will be uploaded here.
 
 ## Credits
 
@@ -173,7 +162,7 @@ all the source code for my tutorials will be uploaded here.
 
 ## Thanks
 
-- My community for the support on YouTube, Telegram and in person 🙋
+- My community for the support on YouTube, Telegramm, Discord and in person 🙋
 - Gameloop.it community for the Harvard [CS50 gamedev course](https://github.com/GameLoop-it/cs50_course_materials)
 - [YouAreUto](http://youareuto.com/) game & team - My first mobile game as a freelance game developer
 - Godot Engine community for the excellent documentation and software 
