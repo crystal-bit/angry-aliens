@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Assets/graphics/kenney_physicsAssets_v2/Spritesheet/spritesheet_tiles.png" type="Texture" id=1]
 [ext_resource path="res://Assets/graphics/kenney_physicsAssets_v2/PNG/Backgrounds/blue_desert.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Objects/Projectile/Projectile.tscn" type="PackedScene" id=7]
 [ext_resource path="res://iPhoneX-landscape-812x375.png" type="Texture" id=8]
 [ext_resource path="res://iPad-landscape-1024x768.png" type="Texture" id=9]
+[ext_resource path="res://Objects/Obstacles/StoneObstacle.tscn" type="PackedScene" id=10]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 70, 0, 70, 70, 0, 70 )
@@ -121,6 +122,9 @@ position = Vector2( 779.441, 583.594 )
 [node name="Enemy3" parent="." instance=ExtResource( 5 )]
 position = Vector2( 779.574, 656.966 )
 
+[node name="StoneObstacle" parent="." instance=ExtResource( 10 )]
+position = Vector2( 975.683, 653.143 )
+
 [node name="Slingshot" parent="." instance=ExtResource( 6 )]
 position = Vector2( 260.211, 482.007 )
 
@@ -158,3 +162,13 @@ centered = false
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="StoneObstacle2" parent="." instance=ExtResource( 10 )]
+position = Vector2( 1086.67, 639.581 )
+
+[node name="StoneObstacle3" parent="." instance=ExtResource( 10 )]
+position = Vector2( 972.196, 428.787 )
+
+[editable path="Enemy3"]
+
+[editable path="StoneObstacle"]
