@@ -30,6 +30,7 @@
 [ext_resource path="res://Scenes/Levels/Level1/Audio.gd" type="Script" id=28]
 [ext_resource path="res://Assets/sounds/obstacle-rock-destroyed.ogg" type="AudioStream" id=29]
 [ext_resource path="res://Assets/sounds/alien-1.ogg" type="AudioStream" id=30]
+[ext_resource path="res://Scenes/Levels/Level1/AreaOfInterest.gd" type="Script" id=31]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 70, 70, 0, 70, 0, 0, 70, 0 )
@@ -114,12 +115,9 @@ colors = PoolColorArray( 0.604401, 0.886636, 0.910156, 1, 0.815686, 0.956863, 0.
 gradient = SubResource( 5 )
 
 [sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 10, 726 )
+extents = Vector2( 1600, 700 )
 
-[sub_resource type="RectangleShape2D" id=8]
-extents = Vector2( 2000, 10 )
-
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=8]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Proxy:position")
 tracks/0/interp = 2
@@ -182,32 +180,16 @@ scale = Vector2( 0.227524, 3069.7 )
 texture = SubResource( 6 )
 centered = false
 
-[node name="LeftLimit" type="StaticBody2D" parent="TileMap"]
-position = Vector2( -824, -176 )
+[node name="AreaOfInterest" type="Area2D" parent="TileMap"]
+visible = false
+position = Vector2( 880, 56 )
+script = ExtResource( 31 )
 __meta__ = {
-"_edit_group_": true
+"_editor_description_": "If a Projectile exits from this area, it is destroyed."
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/LeftLimit"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/AreaOfInterest"]
 shape = SubResource( 7 )
-
-[node name="RightLimit" type="StaticBody2D" parent="TileMap"]
-position = Vector2( 2584, -176 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/RightLimit"]
-shape = SubResource( 7 )
-
-[node name="BottomLimit" type="StaticBody2D" parent="TileMap"]
-position = Vector2( 1000, 536 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/BottomLimit"]
-shape = SubResource( 8 )
 
 [node name="Enemies" type="Node" parent="."]
 script = ExtResource( 17 )
@@ -321,7 +303,7 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ProjectilesLoader"]
-anims/load_projectile = SubResource( 9 )
+anims/load_projectile = SubResource( 8 )
 
 [node name="CameraFocus" type="Node2D" parent="."]
 position = Vector2( 811, 205 )
@@ -401,7 +383,8 @@ position = Vector2( 32, 32 )
 scale = Vector2( 0.6, 0.6 )
 normal = ExtResource( 7 )
 __meta__ = {
-"_edit_group_": true
+"_edit_group_": true,
+"_edit_lock_": true
 }
 
 [node name="bg" type="Sprite" parent="GUI/TouchScreenButton"]
@@ -417,11 +400,12 @@ region_rect = Rect2( 9, 10, 32, 32 )
 [node name="GameEndScreen" type="CanvasLayer" parent="."]
 
 [node name="LevelCompleted" parent="GameEndScreen" instance=ExtResource( 23 )]
+[connection signal="body_exited" from="TileMap/AreaOfInterest" to="TileMap/AreaOfInterest" method="_on_AreaOfInterest_body_exited"]
 [connection signal="enemy_destroyed" from="Enemies" to="Scores" method="_on_Enemies_enemy_destroyed"]
 [connection signal="enemy_destroyed" from="Enemies" to="Audio" method="_on_Enemies_enemy_destroyed"]
+[connection signal="projectile_launched" from="Slingshot" to="CameraFocus" method="_on_Slingshot_projectile_launched"]
 [connection signal="projectile_launched" from="Slingshot" to="ProjectilesLoader" method="_on_Slingshot_projectile_launched"]
 [connection signal="projectile_launched" from="Slingshot" to="Audio" method="_on_Slingshot_projectile_launched"]
-[connection signal="projectile_launched" from="Slingshot" to="CameraFocus" method="_on_Slingshot_projectile_launched"]
 [connection signal="level_finished" from="ProjectilesLoader" to="." method="_on_ProjectilesLoader_level_finished"]
 [connection signal="points_gained" from="Scores" to="GUI" method="_on_Scores_points_gained"]
 [connection signal="released" from="GUI/TouchScreenButton" to="." method="_on_TouchScreenButton_released"]

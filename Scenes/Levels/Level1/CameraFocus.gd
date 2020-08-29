@@ -107,14 +107,14 @@ func set_zoom(val):
 
 func clamp_into_camera_limits():
 #	print($Camera2D.get_canvas_transform().xform(Vector2($Camera2D.limit_left, $Camera2D.limit_top)))
-	var vws = $Camera2D.get_viewport().get_visible_rect().size * $Camera2D.zoom
+	var vws = camera.get_viewport().get_visible_rect().size * camera.zoom
 	position.x = clamp(position.x,
-		$Camera2D.limit_left + vws.x / 2,
-		$Camera2D.limit_right - vws.x / 2
+		camera.limit_left + vws.x / 2,
+		camera.limit_right - vws.x / 2
 	)
 	position.y = clamp(position.y,
-		$Camera2D.limit_top + vws.y / 2,
-		$Camera2D.limit_bottom - vws.y / 2
+		camera.limit_top + vws.y / 2,
+		camera.limit_bottom - vws.y / 2
 	)
 
 
@@ -126,7 +126,7 @@ func _unhandled_input(event):
 		return
 
 	if event is InputEventScreenDrag:
-		position.x -= event.relative.x * $Camera2D.zoom.x
+		position.x -= event.relative.x * camera.zoom.x
 		get_tree().set_input_as_handled()
 
 

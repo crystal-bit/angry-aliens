@@ -6,7 +6,7 @@ signal almost_stopped
 enum STATES {
 	IDLE, # waiting to be loaded on the slingshot
 	MOVING, # moving after being launched from the slingshot
-	LAUNCHED # stopped after being launched
+	STOPPED # stopped after being launched
 }
 
 onready var trail: CPUParticles2D = $Trail
@@ -41,14 +41,14 @@ func _physics_process(delta):
 			trail.direction = -linear_velocity.normalized()
 			trail.rotation = -rotation
 			_moving_process()
-		STATES.LAUNCHED:
+		STATES.STOPPED:
 			pass
 
 
 func _moving_process():
 	if linear_velocity.length() < 20 and len(get_colliding_bodies()) > 0:
 		emit_signal("almost_stopped")
-		state = STATES.LAUNCHED
+		state = STATES.STOPPED
 
 func get_class():
 	return "Projectile"
