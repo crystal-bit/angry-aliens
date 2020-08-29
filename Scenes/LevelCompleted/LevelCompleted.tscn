@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scenes/LevelCompleted/LevelCompleted.gd" type="Script" id=1]
 [ext_resource path="res://Assets/graphics/kenney2/gui/panel.png" type="Texture" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://Objects/Score/Score.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/graphics/kenney2/gui/green_button02.png" type="Texture" id=5]
 [ext_resource path="res://Objects/GUI/Button1/Button.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Assets/sounds/quink.wav" type="AudioStream" id=7]
+[ext_resource path="res://Assets/sounds/swhish.ogg" type="AudioStream" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 3 )
@@ -135,9 +137,26 @@ tracks/9/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
+tracks/10/type = "audio"
+tracks/10/path = NodePath("AudioStreamPlayer")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 8 )
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 7 )
+} ],
+"times": PoolRealArray( 0.7, 1.7 )
+}
 
 [node name="LevelCompleted" type="Control"]
-modulate = Color( 1, 1, 1, 0 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
@@ -156,7 +175,6 @@ __meta__ = {
 }
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
-modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -175,14 +193,12 @@ __meta__ = {
 }
 
 [node name="LevelCleared" type="Label" parent="NinePatchRect"]
-modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -102.0
 margin_top = 45.0
 margin_right = 102.0
 margin_bottom = 69.0
-rect_scale = Vector2( 1, 1e-05 )
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.105882, 0.105882, 0.105882, 1 )
 text = "LEVEL CLEARED!"
@@ -191,7 +207,6 @@ __meta__ = {
 }
 
 [node name="Score" type="Label" parent="NinePatchRect"]
-modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -200,7 +215,6 @@ margin_left = -40.0
 margin_top = -99.5
 margin_right = 40.0
 margin_bottom = -75.5
-rect_scale = Vector2( 1, 1e-05 )
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.105882, 0.105882, 0.105882, 1 )
 text = "SCORE"
@@ -209,7 +223,6 @@ __meta__ = {
 }
 
 [node name="ScoreWrapper" type="Control" parent="NinePatchRect"]
-modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -239,7 +252,6 @@ __meta__ = {
 }
 
 [node name="Retry" parent="NinePatchRect/VBoxContainer" instance=ExtResource( 6 )]
-modulate = Color( 1, 1, 1, 0 )
 margin_right = 230.0
 margin_bottom = 60.0
 rect_min_size = Vector2( 190, 60 )
@@ -247,7 +259,6 @@ disabled = true
 text = "RETRY"
 
 [node name="LevelSelection" parent="NinePatchRect/VBoxContainer" instance=ExtResource( 6 )]
-modulate = Color( 1, 1, 1, 0 )
 margin_top = 76.0
 margin_right = 230.0
 margin_bottom = 136.0
@@ -258,5 +269,8 @@ text = "level selection"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/show = SubResource( 2 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
 [connection signal="pressed" from="NinePatchRect/VBoxContainer/Retry" to="." method="_on_Retry_pressed"]
 [connection signal="pressed" from="NinePatchRect/VBoxContainer/LevelSelection" to="." method="_on_LevelSelection_pressed"]
