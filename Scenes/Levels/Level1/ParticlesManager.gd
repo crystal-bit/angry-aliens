@@ -8,12 +8,22 @@ onready var _debris := $Debris
 onready var _dust := $Dust
 onready var _explosions := $Explosions
 
+onready var audio = get_parent().get_node("Audio")
+
 
 func _ready():
 	var timer := Timer.new()
 	add_child(timer)
 	timer.start()
 	timer.connect("timeout", self, "check_unused_objs")
+	
+	# connect scene obstacles to the particles and sfx
+	for obstacle in get_tree().get_nodes_in_group("obstacle"):
+		if not obstacle is Obstacle:
+			print_debug(obstacle, " is not of type Obstacle") 
+		obstacle.connect("hit", audio, "_on_Obstacle_hit")
+		if obstacle is StoneObstacle:
+			obstacle.connect("hit", self, "_on_Obstacle_hit")
 
 
 func spawn_dust_particles(gpos, amount):

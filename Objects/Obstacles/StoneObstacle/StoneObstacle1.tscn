@@ -8,7 +8,9 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 33, 108 )
 
-[node name="StoneObstacle1" type="RigidBody2D"]
+[node name="StoneObstacle1" type="RigidBody2D" groups=[
+"obstacle",
+]]
 position = Vector2( 0, -1 )
 mass = 8.0
 contacts_reported = 2

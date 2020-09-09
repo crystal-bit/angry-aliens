@@ -51,7 +51,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0.2, 0.3, 0.6 ),
 "transitions": PoolRealArray( 0.5, 0.5, 1 ),
 "update": 0,
-"values": [ Vector2( 211, 0 ), Vector2( 211, 0 ), Vector2( 211, 90 ) ]
+"values": [ Vector2( 211, 0 ), Vector2( 211, 0 ), Vector2( 174, 94.5 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath(".:rect_scale")
@@ -328,17 +328,15 @@ anims/appear = SubResource( 3 )
 stream = ExtResource( 17 )
 
 [node name="Title" type="TextureRect" parent="."]
-modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -264.0
-margin_top = -270.0
-margin_right = 338.0
-margin_bottom = -191.0
-rect_rotation = 20.0
-rect_scale = Vector2( 2, 2 )
+margin_left = -301.0
+margin_top = -189.5
+margin_right = 301.0
+margin_bottom = -110.5
+rect_pivot_offset = Vector2( 301, 0 )
 texture = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -350,6 +348,7 @@ anims/appear = SubResource( 4 )
 anims/idle = SubResource( 5 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Title"]
+stream = ExtResource( 14 )
 pitch_scale = 0.7
 bus = "SFX"
 
@@ -391,14 +390,14 @@ position = Vector2( 496, 776 )
 shape = SubResource( 7 )
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
-position = Vector2( -72, 776 )
+position = Vector2( -72, 550 )
 rotation = 1.5708
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
 shape = SubResource( 7 )
 
 [node name="StaticBody2D3" type="StaticBody2D" parent="."]
-position = Vector2( 1040, 776 )
+position = Vector2( 1040, 550 )
 rotation = 1.5708
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]

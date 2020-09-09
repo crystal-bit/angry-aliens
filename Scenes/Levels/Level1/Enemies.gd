@@ -1,6 +1,6 @@
 extends Node
 
-onready var scores: Node = get_parent().get_node("Scores")
+onready var scores: Node = get_node("../../Scores")
 
 signal enemy_destroyed
 

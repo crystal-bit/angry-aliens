@@ -6,7 +6,9 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 34, 35 )
 
-[node name="WoodObstacle1" type="RigidBody2D"]
+[node name="WoodObstacle1" type="RigidBody2D" groups=[
+"obstacle",
+]]
 mass = 0.5
 script = ExtResource( 2 )
 
