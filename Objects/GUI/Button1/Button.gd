@@ -30,6 +30,8 @@ func _on_pressed():
 
 
 func _set_btn_text(value):
-	$Label.text = value
+	# fix issue #20 in develop branch
+	if $Label != null:
+		$Label.text = value
 	text = value
 
