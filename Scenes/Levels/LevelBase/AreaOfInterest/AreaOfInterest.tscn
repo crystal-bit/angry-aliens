@@ -1,0 +1,8 @@
+[gd_scene format=2]
+
+[node name="AreaOfInterest" type="Area2D" groups=[
+"area_of_interest",
+]]
+__meta__ = {
+"_editor_description_": "If a Projectile exits from this area, it is destroyed."
+}

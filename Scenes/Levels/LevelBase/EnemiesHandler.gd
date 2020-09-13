@@ -1,12 +1,11 @@
 extends Node
 
-onready var scores: Node = get_node("../../Scores")
 
 signal enemy_destroyed
 
 
 func _ready():
-	for enemy in get_children():
+	for enemy in get_tree().get_nodes_in_group("enemy"):
 		enemy.connect("destroyed", self, "_on_enemy_destroyed")
 
 

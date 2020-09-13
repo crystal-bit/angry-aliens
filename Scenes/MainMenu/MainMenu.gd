@@ -21,7 +21,7 @@ func _on_Exit_pressed():
 
 
 func _on_Play_pressed():
-	Globals.goto_scene("res://Scenes/Levels/Level1/Level1.tscn")
+	Globals.goto_scene("res://Scenes/Levels/LevelBase/LevelBase.tscn", { 'level': 3 })
 
 
 func _shake_cbk(amnt):

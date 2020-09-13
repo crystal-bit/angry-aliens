@@ -13,7 +13,7 @@ const ENEMY_DESTROYED_BASE_POINTS = 500
 var angle_randomness = 30
 
 
-func _on_Enemies_enemy_destroyed(enemy: Enemy, impact_momentum: Vector2):
+func _on_EnemiesHandler_enemy_destroyed(enemy: Enemy, impact_momentum: Vector2):
 	var score_node: Node2D = scores_pool.get_instance()
 	if score_node.get_parent() == null:
 		add_child(score_node)
@@ -28,3 +28,4 @@ func _on_Enemies_enemy_destroyed(enemy: Enemy, impact_momentum: Vector2):
 
 func _on_score_hidden_remove_score(score):
 	score.can_be_pooled = true
+

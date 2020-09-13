@@ -5,7 +5,17 @@ onready var vfx_manager = $ParticlesManager
 onready var score = $GUI/Score
 onready var level_completed = $GameEndScreen/LevelCompleted
 
+var scene_parameters = {}
 
+
+func _init():
+	pass
+
+
+func _post_init(params = {}):
+	scene_parameters = params
+	
+	
 func _ready():
 	for projectile in get_tree().get_nodes_in_group("projectile"):
 		projectile.connect("body_entered", vfx_manager, "_on_Projectile_body_entered", [projectile])

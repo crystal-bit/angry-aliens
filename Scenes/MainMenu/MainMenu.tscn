@@ -303,6 +303,7 @@ script = ExtResource( 12 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+text = ""
 
 [node name="Label" type="Label" parent="MetalBox"]
 anchor_left = 0.5

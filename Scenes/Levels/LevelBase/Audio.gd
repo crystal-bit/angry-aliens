@@ -17,9 +17,9 @@ func play_alien():
 	alien.play()
 
 
-func _on_Enemies_enemy_destroyed(enemy, impact_momentum):
+func _on_EnemiesHandler_enemy_destroyed(enemy, impact_momentum):
 	hit.play()
-
+	
 
 func _on_Obstacle_hit(obstacle, position, destroyed):
 	if obstacle is StoneObstacle:

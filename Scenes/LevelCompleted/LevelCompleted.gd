@@ -23,10 +23,7 @@ func _animate_score():
 
 
 func _on_Retry_pressed():
-	# TODO: when there will be multiple levels, remove hardcoded path.
-	# Possibly move this to Globals.gd
-	var current_level = "res://Scenes/Levels/Level1/Level1.tscn"
-	Globals.goto_scene(current_level)
+	Globals.goto_scene("res://Scenes/Levels/LevelBase/LevelBase.tscn", {'level': Globals.current_level_index})
 
 
 func _on_LevelSelection_pressed():
