@@ -1,6 +1,6 @@
 extends Node2D
 
-onready var slingshot = get_parent().get_node("Slingshot")
+onready var slingshot = get_node("../Slingshot")
 onready var camera := $Camera2D
 onready var tween := $Tween
 

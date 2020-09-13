@@ -3,8 +3,8 @@ extends Node2D
 # signals
 signal projectile_launched(projectile)
 # exported vars
-export var slingshot_elastic_force = 20
-export(int) var max_distance = 200 # max distance from rest position
+export var slingshot_elastic_force = 40
+export(int) var max_distance = 100 # max distance from rest position
 # dependencies
 onready var elastic_back: Sprite = $ElasticBack
 onready var elastic_front:Sprite = $ElasticFront
