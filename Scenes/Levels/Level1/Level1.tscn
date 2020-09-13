@@ -254,15 +254,9 @@ debris_scene = ExtResource( 16 )
 
 [node name="Debris" type="Node" parent="ParticlesManager"]
 
-[node name="DebrisPool" type="Node" parent="ParticlesManager"]
-
 [node name="Dust" type="Node" parent="ParticlesManager"]
 
-[node name="DustPool" type="Node" parent="ParticlesManager"]
-
 [node name="Explosions" type="Node" parent="ParticlesManager"]
-
-[node name="ExplosionsPool" type="Node" parent="ParticlesManager"]
 
 [node name="Offscreen" type="CanvasLayer" parent="ParticlesManager"]
 layer = 6
@@ -406,9 +400,9 @@ region_rect = Rect2( 9, 10, 32, 32 )
 [connection signal="body_exited" from="LevelNodes/TileMap/AreaOfInterest" to="LevelNodes/TileMap/AreaOfInterest" method="_on_AreaOfInterest_body_exited"]
 [connection signal="enemy_destroyed" from="LevelNodes/Enemies" to="Scores" method="_on_Enemies_enemy_destroyed"]
 [connection signal="enemy_destroyed" from="LevelNodes/Enemies" to="Audio" method="_on_Enemies_enemy_destroyed"]
-[connection signal="projectile_launched" from="Slingshot" to="ProjectilesLoader" method="_on_Slingshot_projectile_launched"]
-[connection signal="projectile_launched" from="Slingshot" to="Audio" method="_on_Slingshot_projectile_launched"]
 [connection signal="projectile_launched" from="Slingshot" to="CameraFocus" method="_on_Slingshot_projectile_launched"]
+[connection signal="projectile_launched" from="Slingshot" to="Audio" method="_on_Slingshot_projectile_launched"]
+[connection signal="projectile_launched" from="Slingshot" to="ProjectilesLoader" method="_on_Slingshot_projectile_launched"]
 [connection signal="level_finished" from="ProjectilesLoader" to="." method="_on_ProjectilesLoader_level_finished"]
 [connection signal="points_gained" from="Scores" to="GUI" method="_on_Scores_points_gained"]
 [connection signal="released" from="GUI/TouchScreenButton" to="." method="_on_TouchScreenButton_released"]
