@@ -25,7 +25,6 @@ func _is_btn_pressed(btn: BaseButton, event: InputEventScreenTouch):
 
 
 func _on_pressed():
-	$AudioStreamPlayer.stream
 	$AudioStreamPlayer.play()
 
 

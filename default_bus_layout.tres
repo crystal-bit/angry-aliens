@@ -1,6 +1,13 @@
-[gd_resource type="AudioBusLayout" format=2]
+[gd_resource type="AudioBusLayout" load_steps=2 format=2]
+
+[sub_resource type="AudioEffectAmplify" id=1]
+resource_name = "Amplify"
+volume_db = -15.0
 
 [resource]
+bus/0/volume_db = 0.0272655
+bus/0/effect/0/effect = SubResource( 1 )
+bus/0/effect/0/enabled = true
 bus/1/name = "SFX"
 bus/1/solo = false
 bus/1/mute = false
