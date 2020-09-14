@@ -30,7 +30,9 @@ func _on_pressed():
 
 func _set_btn_text(value):
 	# fix issue #20 in develop branch
-	if $Label != null:
-		$Label.text = value
+	var label = get_node_or_null("Label")
+	if label == null:
+		return
+	label.text = value
 	text = value
 
