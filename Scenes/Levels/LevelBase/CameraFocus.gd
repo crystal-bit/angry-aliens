@@ -11,9 +11,10 @@ var dbg_speed = 500
 var clamping = true
 
 var follow_target: Node2D
-var zoom_max
 var zoom_min
+var zoom_max
 var zoom_default
+var enable_camera_zoom = true
 var focus_default_position # global
 
 
@@ -21,8 +22,13 @@ func _ready():
 	set_zoom(zoom)
 	focus_default_position = self.global_position
 	zoom_default = camera.zoom
-	zoom_max = camera.zoom - 0.15 * Vector2(1, 1)
-	zoom_min = camera.zoom + 0.2 * Vector2(1, 1)
+	if enable_camera_zoom:
+		zoom_min = camera.zoom - 0.15 * Vector2(1, 1)
+		zoom_max = camera.zoom + 0.2 * Vector2(1, 1)
+	else:
+		zoom_min = camera.zoom
+		zoom_max = camera.zoom
+	
 
 
 func zoom_out_anim():
@@ -30,7 +36,7 @@ func zoom_out_anim():
 		camera,
 		"zoom",
 		camera.zoom,
-		zoom_min,
+		zoom_max,
 		.6,
 		Tween.TRANS_CUBIC,
 		Tween.EASE_OUT
@@ -43,7 +49,7 @@ func zoom_in_anim(target_global_position):
 		camera,
 		"zoom",
 		camera.zoom,
-		zoom_max,
+		zoom_min,
 		1.0,
 		Tween.TRANS_QUAD,
 		Tween.EASE_IN_OUT
@@ -92,8 +98,7 @@ func _process(delta):
 	if follow_target:
 		if follow_target.global_position.x > global_position.x:
 			global_position.x = follow_target.global_position.x
-		if follow_target.global_position.y < global_position.y:
-			global_position.y = follow_target.global_position.y
+		global_position.y = follow_target.global_position.y
 
 	if clamping:
 		clamp_into_camera_limits()
@@ -105,6 +110,18 @@ func set_zoom(val):
 		camera.set_zoom(Vector2(val, val))
 
 
+func set_camera_limits(area: Area2D):
+	# assumption: area2D has only a rectangle shape as child
+	var collision_shape: CollisionShape2D = area.get_node_or_null("CollisionShape2D")
+	var shape: Shape2D = collision_shape.shape
+	
+	# calculate for the worst case (camera zoomed out)
+	camera.limit_left = area.position.x - shape.extents.x / 2 * zoom_min.x
+	camera.limit_right = area.position.x + shape.extents.x / 2 * zoom_min.x
+	camera.limit_top = area.position.y - shape.extents.y / 2 * zoom_min.y
+	camera.limit_bottom = area.position.y + shape.extents.y / 2 * zoom_min.y
+	
+	
 func clamp_into_camera_limits():
 #	print($Camera2D.get_canvas_transform().xform(Vector2($Camera2D.limit_left, $Camera2D.limit_top)))
 	var vws = camera.get_viewport().get_visible_rect().size * camera.zoom

@@ -90,7 +90,7 @@ colors = PoolColorArray( 0.604401, 0.886636, 0.910156, 1, 0.815686, 0.956863, 0.
 gradient = SubResource( 5 )
 
 [sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 1552.25, 733.231 )
+extents = Vector2( 1483.77, 757.263 )
 
 [node name="Level2" type="Node2D"]
 __meta__ = {
@@ -141,8 +141,7 @@ texture = SubResource( 6 )
 centered = false
 
 [node name="AreaOfInterest" parent="." instance=ExtResource( 1 )]
-visible = false
-position = Vector2( 865.14, -10.6118 )
+position = Vector2( 865.14, 37.3882 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaOfInterest"]
 shape = SubResource( 7 )

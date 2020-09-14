@@ -121,14 +121,9 @@ debug_move_with_wasd = false
 [node name="Camera2D" type="Camera2D" parent="CameraFocus"]
 current = true
 process_mode = 0
-limit_left = -600
-limit_top = -600
-limit_right = 2300
-limit_bottom = 850
 limit_smoothed = true
 smoothing_enabled = true
 smoothing_speed = 2.0
-editor_draw_screen = false
 editor_draw_limits = true
 __meta__ = {
 "_edit_lock_": true
@@ -206,9 +201,9 @@ region_rect = Rect2( 9, 10, 32, 32 )
 [node name="LevelCompleted" parent="GameEndScreen" instance=ExtResource( 25 )]
 [connection signal="enemy_destroyed" from="EnemiesHandler" to="Audio" method="_on_EnemiesHandler_enemy_destroyed"]
 [connection signal="enemy_destroyed" from="EnemiesHandler" to="Scores" method="_on_EnemiesHandler_enemy_destroyed"]
+[connection signal="projectile_launched" from="Slingshot" to="ProjectilesLoader" method="_on_Slingshot_projectile_launched"]
 [connection signal="projectile_launched" from="Slingshot" to="CameraFocus" method="_on_Slingshot_projectile_launched"]
 [connection signal="projectile_launched" from="Slingshot" to="Audio" method="_on_Slingshot_projectile_launched"]
-[connection signal="projectile_launched" from="Slingshot" to="ProjectilesLoader" method="_on_Slingshot_projectile_launched"]
 [connection signal="level_finished" from="ProjectilesLoader" to="." method="_on_ProjectilesLoader_level_finished"]
 [connection signal="points_gained" from="Scores" to="GUI" method="_on_Scores_points_gained"]
 [connection signal="released" from="GUI/TouchScreenButton" to="." method="_on_TouchScreenButton_released"]
