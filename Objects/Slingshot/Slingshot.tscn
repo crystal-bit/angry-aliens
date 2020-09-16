@@ -124,7 +124,6 @@ __meta__ = {
 shape = SubResource( 2 )
 
 [node name="TrajectoryDrawer" parent="." instance=ExtResource( 6 )]
-visible = false
 
 [node name="Audio" type="Node" parent="."]
 script = ExtResource( 9 )

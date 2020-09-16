@@ -55,7 +55,7 @@ script = ExtResource( 4 )
 [node name="EnemiesHandler" type="Node" parent="."]
 script = ExtResource( 31 )
 
-[node name="AreaOfInterestHandler" type="Node" parent="."]
+[node name="AreaOfInterestHandler" type="Node2D" parent="."]
 script = ExtResource( 7 )
 
 [node name="ParticlesManager" type="Node" parent="."]
@@ -116,10 +116,21 @@ __meta__ = {
 "_edit_group_": true
 }
 zoom = 2.0
-debug_move_with_wasd = false
+debug = false
 
 [node name="Camera2D" type="Camera2D" parent="CameraFocus"]
 current = true
+process_mode = 0
+limit_smoothed = true
+smoothing_enabled = true
+smoothing_speed = 2.0
+editor_draw_limits = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="DebugCamera" type="Camera2D" parent="CameraFocus"]
+zoom = Vector2( 2, 2 )
 process_mode = 0
 limit_smoothed = true
 smoothing_enabled = true
@@ -199,11 +210,11 @@ region_rect = Rect2( 9, 10, 32, 32 )
 [node name="GameEndScreen" type="CanvasLayer" parent="."]
 
 [node name="LevelCompleted" parent="GameEndScreen" instance=ExtResource( 25 )]
-[connection signal="enemy_destroyed" from="EnemiesHandler" to="Audio" method="_on_EnemiesHandler_enemy_destroyed"]
 [connection signal="enemy_destroyed" from="EnemiesHandler" to="Scores" method="_on_EnemiesHandler_enemy_destroyed"]
-[connection signal="projectile_launched" from="Slingshot" to="ProjectilesLoader" method="_on_Slingshot_projectile_launched"]
+[connection signal="enemy_destroyed" from="EnemiesHandler" to="Audio" method="_on_EnemiesHandler_enemy_destroyed"]
 [connection signal="projectile_launched" from="Slingshot" to="CameraFocus" method="_on_Slingshot_projectile_launched"]
 [connection signal="projectile_launched" from="Slingshot" to="Audio" method="_on_Slingshot_projectile_launched"]
+[connection signal="projectile_launched" from="Slingshot" to="ProjectilesLoader" method="_on_Slingshot_projectile_launched"]
 [connection signal="level_finished" from="ProjectilesLoader" to="." method="_on_ProjectilesLoader_level_finished"]
 [connection signal="points_gained" from="Scores" to="GUI" method="_on_Scores_points_gained"]
 [connection signal="released" from="GUI/TouchScreenButton" to="." method="_on_TouchScreenButton_released"]

@@ -1,13 +1,15 @@
 extends Node2D
 
+
 onready var slingshot = get_node("../Slingshot")
 onready var camera := $Camera2D
+onready var debug_camera := $DebugCamera
 onready var tween := $Tween
 
 export(float, 0.1, 3) var zoom = 1 setget set_zoom
-export var debug_move_with_wasd = true
+export var debug = true
 
-var dbg_speed = 500
+var dbg_speed = 700
 var clamping = true
 
 var follow_target: Node2D
@@ -28,7 +30,6 @@ func _ready():
 	else:
 		zoom_min = camera.zoom
 		zoom_max = camera.zoom
-	
 
 
 func zoom_out_anim():
@@ -84,7 +85,7 @@ func follow(target: Node2D):
 
 
 func _process(delta):
-	if debug_move_with_wasd:
+	if debug:
 		if Input.is_action_pressed("ui_left"):
 			position.x -= dbg_speed * delta
 		if Input.is_action_pressed("ui_right"):
@@ -100,7 +101,7 @@ func _process(delta):
 			global_position.x = follow_target.global_position.x
 		global_position.y = follow_target.global_position.y
 
-	if clamping:
+	if clamping and !debug:
 		clamp_into_camera_limits()
 
 
@@ -114,14 +115,14 @@ func set_camera_limits(area: Area2D):
 	# assumption: area2D has only a rectangle shape as child
 	var collision_shape: CollisionShape2D = area.get_node_or_null("CollisionShape2D")
 	var shape: Shape2D = collision_shape.shape
-	
+
 	# calculate for the worst case (camera zoomed out)
 	camera.limit_left = area.position.x - shape.extents.x / 2 * zoom_min.x
 	camera.limit_right = area.position.x + shape.extents.x / 2 * zoom_min.x
 	camera.limit_top = area.position.y - shape.extents.y / 2 * zoom_min.y
 	camera.limit_bottom = area.position.y + shape.extents.y / 2 * zoom_min.y
-	
-	
+
+
 func clamp_into_camera_limits():
 #	print($Camera2D.get_canvas_transform().xform(Vector2($Camera2D.limit_left, $Camera2D.limit_top)))
 	var vws = camera.get_viewport().get_visible_rect().size * camera.zoom
@@ -145,6 +146,23 @@ func _unhandled_input(event):
 	if event is InputEventScreenDrag:
 		position.x -= event.relative.x * camera.zoom.x
 		get_tree().set_input_as_handled()
+
+	if event is InputEventKey:
+		if event.scancode == KEY_F1 and event.pressed:
+			set_debug(!debug)
+		if event.scancode == KEY_DOWN:
+			debug_camera.zoom.x += 0.2
+			debug_camera.zoom.y = debug_camera.zoom.x
+		if event.scancode == KEY_UP:
+			debug_camera.zoom.x -= 0.2
+			debug_camera.zoom.y = debug_camera.zoom.x
+
+func set_debug(is_active):
+	debug = is_active
+	$debug.visible = is_active
+	# switch to debug camera
+	camera.current = !is_active
+	debug_camera.current = is_active
 
 
 func _on_Slingshot_projectile_launched(projectile: Projectile):
