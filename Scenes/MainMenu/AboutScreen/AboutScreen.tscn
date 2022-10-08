@@ -51,9 +51,11 @@ __meta__ = {
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 444.0
-margin_bottom = 132.0
+margin_bottom = 186.0
 custom_colors/font_color = Color( 0.368627, 0.47451, 0.556863, 1 )
 text = "ANGRY ALIIENS  is open source!
+
+You can create new levels!
 
 Check it out on github.
 
@@ -62,7 +64,7 @@ align = 0
 autowrap = true
 
 [node name="Control" type="Control" parent="NinePatchRect/MarginContainer/VBoxContainer" index="1"]
-margin_top = 136.0
+margin_top = 190.0
 margin_right = 444.0
 margin_bottom = 216.0
 size_flags_vertical = 3
