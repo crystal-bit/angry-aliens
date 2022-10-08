@@ -9,6 +9,7 @@ onready var ground_hit = $Audio/HitSound
 
 func _ready():
 	randomize()
+	Globals.music_player.play()
 	$Title/AnimationPlayer.play("appear")
 
 
@@ -21,7 +22,7 @@ func _on_Exit_pressed():
 
 
 func _on_Play_pressed():
-	Globals.goto_scene("res://Scenes/Levels/LevelBase/LevelBase.tscn", { 'level': 3 })
+	Globals.goto_scene("res://Scenes/LevelSelection/LevelSelection.tscn")
 
 
 func _shake_cbk(amnt):
