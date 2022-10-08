@@ -1,0 +1,245 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Assets/title.png" type="Texture" id=1]
+[ext_resource path="res://Assets/graphics/kenney2/cloud4.png" type="Texture" id=2]
+[ext_resource path="res://Objects/GUI/Button1/Button.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/graphics/kenney2/cloud2.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/LevelSelection/LevelSelection.gd" type="Script" id=5]
+[ext_resource path="res://Assets/sounds/noises.ogg" type="AudioStream" id=14]
+[ext_resource path="res://Assets/sounds/anticipation.ogg" type="AudioStream" id=16]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0, 0.174157, 0.870786, 1 )
+colors = PoolColorArray( 1, 1, 1, 0, 0.941678, 0.996097, 0.99707, 0.901961, 0.930556, 1, 0.99471, 0.901961, 1, 1, 1, 0 )
+
+[sub_resource type="Animation" id=3]
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.2, 0.3, 0.6 ),
+"transitions": PoolRealArray( 0.5, 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 211, 0 ), Vector2( 211, 0 ), Vector2( 174, 94.5 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3, 0.6 ),
+"transitions": PoolRealArray( 0.5, 0.5, 0.5, 1 ),
+"update": 0,
+"values": [ Vector2( 2, 2 ), Vector2( 2, 2 ), Vector2( 2, 2 ), Vector2( 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath(".:rect_rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3, 0.6 ),
+"transitions": PoolRealArray( -2, -2, -2, 1 ),
+"update": 0,
+"values": [ 20.0, 20.0, 20.0, 0.0 ]
+}
+tracks/4/type = "audio"
+tracks/4/path = NodePath("AudioStreamPlayer")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 14 )
+} ],
+"times": PoolRealArray( 0.6 )
+}
+tracks/5/type = "audio"
+tracks/5/path = NodePath("AudioStreamPlayer")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 16 )
+} ],
+"times": PoolRealArray( 0.223592 )
+}
+
+[sub_resource type="Animation" id=4]
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.9, 1.3, 1.6, 2.2 ),
+"transitions": PoolRealArray( 1, -2, 1, 1, -2, 1 ),
+"update": 0,
+"values": [ 90.0, 80.0, 90.0, 90.0, 80.0, 90.0 ]
+}
+
+[sub_resource type="DynamicFontData" id=5]
+font_path = "res://Assets/fonts/Kenney Bold.ttf"
+
+[sub_resource type="DynamicFont" id=6]
+size = 26
+extra_spacing_char = 1
+extra_spacing_space = 10
+font_data = SubResource( 5 )
+
+[node name="LevelSelection" type="ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0.568627, 0.866667, 0.890196, 1 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
+position = Vector2( 200, 270 )
+amount = 10
+lifetime = 6.0
+texture = ExtResource( 4 )
+emission_shape = 2
+emission_rect_extents = Vector2( 500, 300 )
+spread = 35.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 80.0
+initial_velocity_random = 0.3
+scale_amount = 0.1
+scale_amount_random = 0.2
+color_ramp = SubResource( 1 )
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2( 250, 270 )
+amount = 10
+lifetime = 6.0
+texture = ExtResource( 2 )
+emission_shape = 2
+emission_rect_extents = Vector2( 500, 300 )
+spread = 20.0
+gravity = Vector2( 0, 0 )
+initial_velocity = 80.0
+initial_velocity_random = 0.3
+scale_amount = 0.2
+scale_amount_random = 0.1
+color_ramp = SubResource( 1 )
+
+[node name="Title" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -301.0
+margin_top = -180.0
+margin_right = 301.0
+margin_bottom = -101.0
+rect_pivot_offset = Vector2( 301, 0 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Title"]
+autoplay = "idle"
+anims/appear = SubResource( 3 )
+anims/idle = SubResource( 4 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Title"]
+stream = ExtResource( 14 )
+pitch_scale = 0.7
+bus = "SFX"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -364.0
+margin_top = -270.0
+margin_right = 364.0
+custom_constants/separation = 30
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+margin_right = 728.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0.00392157, 0.733333, 0.501961, 1 )
+custom_colors/font_color_shadow = Color( 0.607843, 0.768627, 0.752941, 1 )
+custom_constants/shadow_offset_x = -2
+custom_constants/shadow_offset_y = 3
+custom_constants/shadow_as_outline = 0
+text = "Select A Level"
+align = 1
+valign = 1
+uppercase = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 70.0
+margin_right = 728.0
+margin_bottom = 140.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Level1" parent="VBoxContainer/HBoxContainer" instance=ExtResource( 3 )]
+text = "1"
+
+[node name="Level2" parent="VBoxContainer/HBoxContainer" instance=ExtResource( 3 )]
+margin_left = 244.0
+margin_right = 484.0
+text = "2"
+
+[node name="Level3" parent="VBoxContainer/HBoxContainer" instance=ExtResource( 3 )]
+margin_left = 488.0
+margin_right = 728.0
+text = "3"
+
+[node name="Back" parent="." instance=ExtResource( 3 )]
+margin_left = -5.0
+margin_top = 20.0
+margin_right = 95.0
+margin_bottom = 65.0
+rect_min_size = Vector2( 32, 32 )
+text = "Back"
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Level1" to="." method="_on_Level1_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Level2" to="." method="_on_Level2_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Level3" to="." method="_on_Level3_pressed"]
+[connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]
