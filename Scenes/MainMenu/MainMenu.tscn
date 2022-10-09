@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Assets/title.png" type="Texture" id=1]
 [ext_resource path="res://Assets/graphics/kenney2/particle.png" type="Texture" id=2]
@@ -12,7 +12,6 @@
 [ext_resource path="res://Assets/graphics/kenney_physicsAssets_v2/PNG/Metal elements/elementMetal018.png" type="Texture" id=10]
 [ext_resource path="res://Objects/GUI/Font.tres" type="DynamicFont" id=11]
 [ext_resource path="res://Objects/GUI/Button1/Button.gd" type="Script" id=12]
-[ext_resource path="res://Assets/music/monkeys-spinning-monkeys.ogg" type="AudioStream" id=13]
 [ext_resource path="res://Assets/sounds/noises.ogg" type="AudioStream" id=14]
 [ext_resource path="res://Assets/sounds/anticipation.ogg" type="AudioStream" id=16]
 [ext_resource path="res://Assets/sounds/hit.ogg" type="AudioStream" id=17]
@@ -303,7 +302,6 @@ script = ExtResource( 12 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-text = ""
 
 [node name="Label" type="Label" parent="MetalBox"]
 anchor_left = 0.5
@@ -411,11 +409,6 @@ one_shot = true
 [node name="Tween" type="Tween" parent="."]
 
 [node name="Audio" type="Node" parent="."]
-
-[node name="BGM" type="AudioStreamPlayer" parent="Audio"]
-stream = ExtResource( 13 )
-autoplay = true
-bus = "Music"
 
 [node name="HitSound" type="AudioStreamPlayer" parent="Audio"]
 stream = ExtResource( 14 )

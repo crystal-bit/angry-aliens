@@ -27,4 +27,4 @@ func _on_Retry_pressed():
 
 
 func _on_LevelSelection_pressed():
-	Globals.goto_scene("res://Scenes/Screens/ContributeScreen.tscn")
+	Globals.goto_scene("res://Scenes/LevelSelection/LevelSelection.tscn")
