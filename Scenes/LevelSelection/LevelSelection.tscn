@@ -12,7 +12,7 @@
 offsets = PoolRealArray( 0, 0.174157, 0.870786, 1 )
 colors = PoolColorArray( 1, 1, 1, 0, 0.941678, 0.996097, 0.99707, 0.901961, 0.930556, 1, 0.99471, 0.901961, 1, 1, 1, 0 )
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 length = 0.6
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:rect_position")
@@ -91,7 +91,7 @@ tracks/5/keys = {
 "times": PoolRealArray( 0.223592 )
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 length = 3.0
 loop = true
 tracks/0/type = "value"
@@ -107,14 +107,14 @@ tracks/0/keys = {
 "values": [ 90.0, 80.0, 90.0, 90.0, 80.0, 90.0 ]
 }
 
-[sub_resource type="DynamicFontData" id=5]
+[sub_resource type="DynamicFontData" id=4]
 font_path = "res://Assets/fonts/Kenney Bold.ttf"
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=5]
 size = 26
 extra_spacing_char = 1
 extra_spacing_space = 10
-font_data = SubResource( 5 )
+font_data = SubResource( 4 )
 
 [node name="LevelSelection" type="ColorRect"]
 anchor_right = 1.0
@@ -173,8 +173,8 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Title"]
 autoplay = "idle"
-anims/appear = SubResource( 3 )
-anims/idle = SubResource( 4 )
+anims/appear = SubResource( 2 )
+anims/idle = SubResource( 3 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Title"]
 stream = ExtResource( 14 )
@@ -197,7 +197,7 @@ __meta__ = {
 [node name="Label" type="Label" parent="VBoxContainer"]
 margin_right = 728.0
 margin_bottom = 40.0
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 5 )
 custom_colors/font_color = Color( 0.00392157, 0.733333, 0.501961, 1 )
 custom_colors/font_color_shadow = Color( 0.607843, 0.768627, 0.752941, 1 )
 custom_constants/shadow_offset_x = -2
@@ -233,9 +233,9 @@ margin_right = 728.0
 text = "3"
 
 [node name="Back" parent="." instance=ExtResource( 3 )]
-margin_left = -5.0
+margin_left = 20.0
 margin_top = 20.0
-margin_right = 95.0
+margin_right = 120.0
 margin_bottom = 65.0
 rect_min_size = Vector2( 32, 32 )
 text = "Back"
